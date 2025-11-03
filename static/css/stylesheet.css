@@ -1,0 +1,35 @@
+.title{
+	text-align: center;
+	border-style: solid;
+	margin-bottom:5px;
+}
+.comic{
+	position:absolute;
+	border-style: solid;
+	height: 79%;
+	width: 45%;
+	/*investigate making this a flex box*/
+}
+.login{
+	width: 45%;
+	border-style: solid;
+	position:fixed;
+	text-align:center;
+	right:1%;
+	margin-bottom:5px;
+}
+.about{
+	width: 45%;
+	border-style: solid;
+	position: fixed;
+	text-align:center;
+	right:1%;
+	height:20%;
+}
+.information{
+	position:fixed;
+	bottom: 0;
+	width:98%;
+	text-align:center;
+	border-style: solid;
+}
