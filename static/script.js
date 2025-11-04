@@ -5,12 +5,13 @@ const format='&format=json'
 console.log("script.js accessed");
 
 function fetchData(){
-	let character = 'Superman'
-	let query='&resources=character&query=${character}'
-	let request = url + "search/?api_key=${apiKey}"+format+query;
+	let query='&resources=character&query=Superman'
+	let request = `https://comicvine.gamespot.com/api/search/?api_key=${apiKey}&format=json&resources=character&query=${query}`;
 	
 	try{
-		fetch(request, {mode: 'cors'})
+		fetch(request, {
+			mode: 'cors'
+			})
 		  .then(response => response.json())
 		  .then(data => console.log(data));
 	}
