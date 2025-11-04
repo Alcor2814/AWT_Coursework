@@ -1,16 +1,21 @@
 <!DOCTYPE HTMl>
 <html>
 	<head>
-		<link rel="stylesheet" href="{{ url_for('static', filename='css/stylesheet.css') }}">
+		<link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+		<link rel="script" href="{{ url_for('static', filename='script.js') }}">
+		<script src="{{url_for('static', filename='script.js')}}">fetchData()</script>
 	</head>
+	<body onload="fetchData()">
+	
 	<div class="title">
 		<h1> Curate a Collection </h1>
 	</div>
 	<div class="comic">
-		
+		<p id="output"></p>
 	</div>
 	<div class="login">
-		<p>login</p>
+		<button type="button" id="login">Login</button>
+		<button type="button" id="createAccount">Create an account</button>
 	</div>
 	<div class="about">
 		<p>lorem ipsum</p>
