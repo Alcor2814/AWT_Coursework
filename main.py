@@ -8,13 +8,13 @@ def root():
     return render_template('index.html', title=retrieveData())
 
 import requests
+import sys
 
 def retrieveData():
     url = "https://comicvine.gamespot.com/api/"
     req = "https://comicvine.gamespot.com/api/search/?api_key=2b739459da8dc4ec62f68656b642554dea026eca&format=json&resources=character&query=Superman"
-    headers = {
-        "Content-Type":"application/json"
-    }
+
     response = requests.get(req)
     #data = response.json()
+    print(response, file=sys.stderr)
     return response
