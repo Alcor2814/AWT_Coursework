@@ -2,16 +2,13 @@
 <html>
 	<head>
 		<link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
-		<link rel="script" href="{{ url_for('static', filename='script.js') }}">
-		<script src="{{url_for('static', filename='script.js')}}">fetchData()</script>
 	</head>
-	<body onload="fetchData()">
 	
 	<div class="title">
 		<h1> Curate a Collection </h1>
 	</div>
 	<div class="comic">
-		<p id="output"></p>
+		<p>{{title}}</p>
 	</div>
 	<div class="login">
 		<button type="button" id="login">Login</button>
