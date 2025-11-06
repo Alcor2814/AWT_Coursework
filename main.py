@@ -16,7 +16,7 @@ def retrieveData():
     headers = {
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:144.0) Gecko/20100101 Firefox/144.0',
     }
-    req = url +"issues/?api_key=" + api_key + "&format=json&filter=volume:91078&sort=date_added:desc"
+    req = url +"issues/?api_key=" + api_key + "&format=json&filter=volume:91078&sort=cover_date:desc"
     
     session = requests.Session()
     session.headers = headers
