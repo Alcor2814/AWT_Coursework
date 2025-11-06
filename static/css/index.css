@@ -30,7 +30,7 @@
 }
 .information{
 	position:absolute;
-	bottom:0;
+	top:93%;
 	text-align:center;
 	border-style: solid;
 	width: 98.5%;
