@@ -5,23 +5,30 @@ app = Flask(__name__)
 @app.route('/')
 def root():
     retrieveData()
-    return render_template('index.html', title=retrieveData())
+    return render_template('index.html', comic=retrieveData())
 
 import requests
 import sys
 
 def retrieveData():
     url = "https://comicvine.gamespot.com/api/"
-    req = "https://comicvine.gamespot.com/api/search/?api_key=2b739459da8dc4ec62f68656b642554dea026eca&format=json&resources=character&query=Superman"
-
+    api_key = "2b739459da8dc4ec62f68656b642554dea026eca"
     headers = {
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:144.0) Gecko/20100101 Firefox/144.0',
     }
+    req = url +"issues/?api_key=" + api_key + "&format=json&filter=volume:91078&sort=date_added:desc"
     
     session = requests.Session()
     session.headers = headers
     response = session.get(req)
     data = response.json()
     
+    cover = data['results'][0]['image']['small_url']
+    volumeName = data['results'][0]['volume']['name']
+    issueName = data['results'][0]['name']
+    name = volumeName + " - " + issueName
+    
+    transfer = [cover, name]
     #print(response, file=sys.stderr)
-    return data
+    print(req, file=sys.stderr)
+    return transfer

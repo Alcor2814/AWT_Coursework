@@ -9,6 +9,7 @@
 	height: 78%;
 	width: 45%;
 	margin-right:10px;
+	text-align:center;
  }
 .login{
 	width: 45%;
@@ -34,6 +35,13 @@
 	text-align:center;
 	border-style: solid;
 	width: 98.5%;
+}
+
+#cover{
+	display:block;
+	margin-left:auto;
+	margin-right:auto;
+	height:90%;
 }
 
 #login{
