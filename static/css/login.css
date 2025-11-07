@@ -1,0 +1,17 @@
+.login_form{
+	display:flex;
+	margin-top:10%;
+	justify-content:center;
+	align-items:center;
+}
+
+.login_box{
+	position:absolute;
+	border-style:solid;
+	display:grid;
+	font-size:large;
+}
+
+.context{
+	
+}
