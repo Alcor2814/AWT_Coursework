@@ -7,6 +7,10 @@ def root():
     retrieveData()
     return render_template('index.html', comic=retrieveData())
 
+@app.route('/login/')
+def login():
+    return render_template('login.html')
+
 import requests
 import sys
 
@@ -28,7 +32,7 @@ def retrieveData():
     issueName = data['results'][0]['name']
     name = volumeName + " - " + issueName
     
-    transfer = [cover, name]
+    comic = [cover, name]
     #print(response, file=sys.stderr)
-    print(req, file=sys.stderr)
-    return transfer
+    #print(req, file=sys.stderr)
+    return comic

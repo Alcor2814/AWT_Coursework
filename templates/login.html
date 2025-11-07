@@ -1,0 +1,20 @@
+<html>
+	<head>
+		<link rel="stylesheet" href="{{ url_for('static', filename='css/stylesheet.css') }}">
+		<link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+	</head>
+	<div class="title">
+		<h1> Login </h1>
+	</div>
+	<div>
+		<label for="uname"><b>Username</b></label>
+		<input type="text" placeholder="Enter Username" name="uname" required>
+		<label for="psw"><b>Password</b></label>
+		<input type="password" placeholder="Enter Password" name="psw" required>
+
+		<button type="submit">Login</button>
+	</div>
+	<div class="information">
+		<p>Example text</p>
+	</div>
+</html>

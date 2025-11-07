@@ -1,18 +1,21 @@
 <!DOCTYPE HTMl>
 <html>
 	<head>
+		<link rel="stylesheet" href="{{ url_for('static', filename='css/stylesheet.css') }}">
 		<link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
 	</head>
 	
 	<div class="title">
 		<h1> Curate a Collection </h1>
 	</div>
-	<div class="comic">
-		<img src={{comic[0]}} id="cover">
-		<p>{{comic[1]}}</p>
+	<div class="comicBox">
+		<div class = "comic">
+			<img src={{comic[0]}}>
+			<h2>{{comic[1]}}</h2>
+		</div>
 	</div>
 	<div class="login">
-		<button type="button" id="login">Login</button>
+		<button type="button" id="login" onclick="window.location.href='{{url_for('login')}}'">Login</button>
 		<button type="button" id="createAccount">Create an account</button>
 	</div>
 	<div class="about">
