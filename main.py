@@ -10,6 +10,10 @@ def root():
 @app.route('/login/')
 def login():
     return render_template('login.html')
+    
+@app.route('/homepage/')
+def homepage():
+    return render_template('homepage.html')
 
 import requests
 import sys
