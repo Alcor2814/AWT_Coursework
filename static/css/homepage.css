@@ -11,16 +11,20 @@
 }
 
 #user_box{
+	display:flex;
+	flex-direction:column;
 	border-style:solid;
 	margin-left:10px;
 	flex-grow:1;
 }
 #display_users{
 	overflow:scroll;
+	flex-grow:10;
 }
 #search_users{
 	border-style:solid;
 	border-bottom:0px;
 	border-right:0px;
 	border-left:0px;
+	flex-grow:1;
 }

@@ -3,23 +3,27 @@
 		<link rel="stylesheet" href="{{ url_for('static', filename='css/stylesheet.css') }}">
 		<link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
 	</head>
-	<div class="title">
-		<h1> Login </h1>
-	</div>
-	<form class="login_form">
-		<div class="login_box">
-			<label for="uname"><b>Username</b></label>
-			<input type="text" placeholder="Enter Username" name="uname" required>
-			<label for="psw"><b>Password</b></label>
-			<input type="password" placeholder="Enter Password" name="psw" required>
+	<div class="overall">
+		<div class="title">
+			<h1> Login </h1>
+		</div>
+		<div id="content">
+			<form id="login_form">
+				<div id="login_box">
+					<label for="uname"><b>Username</b></label>
+					<input type="text" placeholder="Enter Username" name="uname" required>
+					<label for="psw"><b>Password</b></label>
+					<input type="password" placeholder="Enter Password" name="psw" required>
 
-			<button type="submit" onclick="window.location.href='{{url_for('homepage')}}'">Login</button>
+					<button type="submit" onclick="window.location.href='{{url_for('homepage')}}'">Login</button>
+				</div>
+				<div id="context">
+					
+				</div>
+			</form>
 		</div>
-		<div class="context">
-			
+		<div class="information">
+			<p>Example text</p>
 		</div>
-	</form>
-	<div class="information">
-		<p>Example text</p>
 	</div>
 </html>

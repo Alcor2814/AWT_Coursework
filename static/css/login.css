@@ -1,17 +1,23 @@
-.login_form{
+#login_form{
 	display:flex;
-	margin-top:10%;
 	justify-content:center;
 	align-items:center;
 }
 
-.login_box{
-	position:absolute;
+#login_box{
 	border-style:solid;
 	display:grid;
 	font-size:large;
 }
 
-.context{
+#context{
 	
+}
+
+#content{
+	display:flex;
+	flex-direction:column;
+	justify-content:center;
+	flex-grow:100;
+	margin-bottom:10px;
 }

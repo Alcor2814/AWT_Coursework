@@ -5,23 +5,29 @@
 		<link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
 	</head>
 	
-	<div class="title">
-		<h1> Curate a Collection </h1>
-	</div>
-	<div class="comicBox">
-		<div class = "comic">
-			<img src={{comic[0]}}>
-			<h2>{{comic[1]}}</h2>
+	<div class="overall">
+		<div class="title">
+			<h1> Curate a Collection </h1>
 		</div>
-	</div>
-	<div class="login">
-		<button type="button" id="login" onclick="window.location.href='{{url_for('login')}}'">Login</button>
-		<button type="button" id="createAccount">Create an account</button>
-	</div>
-	<div class="about">
-		<p>lorem ipsum</p>
-	</div>
-	<div class="information">
-		<p>Example text</p>
+		<div class="content">
+			<div class="comicBox">
+				<div class="comic">
+					<img src={{comic[0]}}>
+					<h2>{{comic[1]}}</h2>
+				</div>
+			</div>
+			<div id="right">
+				<div class="login_box">
+					<button type="button" id="login" onclick="window.location.href='{{url_for('login')}}'">Login</button>
+					<button type="button" id="createAccount">Create an account</button>
+				</div>
+				<div id="about">
+					<p>lorem ipsum</p>
+				</div>
+			</div>
+		</div>
+		<div class="information">
+			<p>Example text</p>
+		</div>
 	</div>
 </html>
