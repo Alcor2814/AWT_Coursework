@@ -1,0 +1,43 @@
+#content{
+	display:flex;
+	flex-direction:row;
+	justify-content:center;
+	height:79vh;
+}
+#left{
+	border-style:solid;
+	margin-right:15px;
+	flex-grow:1;
+
+}
+#right{
+	display:flex;
+	margin-left:15px;
+	flex-grow:1;
+	flex-direction:column;
+	justify-content:space-between;
+}
+
+#sort_filter{
+	border-style:solid;
+	flex-grow:1;
+	height:1%;
+	margin-bottom:10px;
+}
+#highlight{
+	border-style:solid;
+	flex-grow:1;
+	height:1%;
+	margin-bottom:10px;
+}
+#manage{
+	border-style:solid;
+	flex-grow:1;
+	height:1%;
+	margin-bottom:10px;
+}
+#add_new{
+	border-style:solid;
+	flex-grow:1;
+	height:1%;
+}

@@ -14,6 +14,10 @@ def login():
 @app.route('/homepage/')
 def homepage():
     return render_template('homepage.html')
+    
+@app.route('/collection/')
+def collection():
+    return render_template('collection.html')
 
 import requests
 import sys
