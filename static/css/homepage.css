@@ -1,10 +1,3 @@
-#content{
-	display:flex;
-	justify-content:center;
-	flex-direction:row;
-	height:78vh;
-}
-
 #button_box{
 	display:flex;
 	flex-direction:column;
@@ -26,12 +19,8 @@
 	overflow:scroll;
 }
 #search_users{
-	position:absolute;
 	border-style:solid;
 	border-bottom:0px;
 	border-right:0px;
 	border-left:0px;
-	height:20%;
-	width:48.5%;
-	bottom:0;
 }

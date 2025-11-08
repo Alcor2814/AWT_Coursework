@@ -3,12 +3,27 @@
 	justify-content:center;
 	border-style: solid;
 	margin-bottom:5px;
+	flex-grow:2;
 }
 
 .information{
-	position:absolute;
-	top:93%;
+	display:flex;
+	justify-content:center;
 	text-align:center;
 	border-style: solid;
-	width: 98.5%;
+	flex-grow:1;
+}
+
+.overall{
+	display:flex;
+	justify-content:space-between;
+	flex-direction:column;
+}
+
+.content{
+	display:flex;
+	flex-direction:row;
+	justify-content:space-between;
+	flex-grow:5;
+	margin-bottom:10px;
 }
