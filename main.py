@@ -18,6 +18,10 @@ def homepage():
 @app.route('/collection/')
 def collection():
     return render_template('collection.html')
+    
+@app.route('/specific_book/')
+def specific_book():
+    return render_template('specific-book.html')
 
 import requests
 import sys

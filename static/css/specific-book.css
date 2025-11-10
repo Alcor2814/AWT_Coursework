@@ -1,0 +1,40 @@
+#left{
+	margin-right:15px;
+	flex-grow:1;
+	display:flex;
+	flex-direction:column;
+	justify-content:space-between;
+}
+#right{
+	margin-left:15px;
+	flex-grow:1;
+	display:flex;
+	flex-direction:column;
+	justify-content:space-between;
+}
+
+#additional_information{
+	border-style:solid;
+	flex-grow:1;
+}
+.comicBox{
+	flex-grow:3;
+	margin-bottom:5px;
+}
+
+#reviews{
+	border-style:solid;
+	flex-grow:5;
+	margin-bottom:10px;
+}
+
+#user_review{
+	border-style:solid;
+	flex-grow:2;
+	margin-bottom:10px;
+}
+
+#review_write{
+	border-style:solid;
+	flex-grow:1;
+}
