@@ -2,6 +2,7 @@
 <head>
 	<link rel="stylesheet" href="{{ url_for('static', filename='css/stylesheet.css') }}">
 	<link rel="stylesheet" href="{{ url_for('static', filename='css/searching.css') }}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/search.css') }}">
 </head>
 <div class="overall">
 	<div class="title">
@@ -9,6 +10,14 @@
 	</div>
 	<div class="search_bar">
 		<input type="text" placeholder="Search..." id="search">
+		<div class="dropdown">
+			<button class="dropbtn">Sort and Filter</button>
+			<div class="dropdown-content">
+				<a href="#">Link 1</a>
+				<a href="#">Link 2</a>
+				<a href="#">Link 3</a>
+			</div>
+		</div>
 	</div>
 	<div class="content">
 		<div class="comicBox">

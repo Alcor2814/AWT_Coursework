@@ -5,9 +5,6 @@
 .button{
 	border-style:solid;
 }
-#search{
-	flex:1;
-}
 
 .search_bar{
 	display:flex;
