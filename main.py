@@ -32,7 +32,11 @@ def search():
 
 @app.route('/other_collection/')
 def other_collection():
-    return render_template('other_collection.html')
+    return render_template('other-collection.html')
+    
+@app.route('/create_account/')
+def create_account():
+    return render_template('create-account.html')
 
 import requests
 import sys
