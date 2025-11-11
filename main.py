@@ -30,6 +30,10 @@ def weekly():
 def search():
     return render_template('search.html', comic=retrieveData())
 
+@app.route('/other_collection/')
+def other_collection():
+    return render_template('other_collection.html')
+
 import requests
 import sys
 
