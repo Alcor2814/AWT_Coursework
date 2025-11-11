@@ -1,0 +1,59 @@
+<!DOCTYPE HTMl>
+<head>
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/stylesheet.css') }}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/weekly.css') }}">
+</head>
+<div class="overall">
+	<div class="title">
+		<h1> Weekly Comics </h1>
+	</div>
+	<div class="search_bar">
+		<span>Week: </span>
+		<span id="weekly_buttons">
+			<button type="button" class="button">Next</button>
+			<button type="button" class="button">Prev</button>
+			<button type="button" class="button">Calendar</button>
+		</span>
+	</div>
+	<div class="content">
+		<div class="comicBox">
+			<div class="comic">
+				<img src={{comic[0]}}>
+				<p>{{comic[1]}}</p>
+			</div>
+		</div>
+		<div class="comicBox">
+			<div class="comic">
+				<img src={{comic[0]}}>
+				<p>{{comic[1]}}</p>
+			</div>
+		</div>
+		<div class="comicBox">
+			<div class="comic">
+				<img src={{comic[0]}}>
+				<p>{{comic[1]}}</p>
+			</div>
+		</div>
+		<div class="comicBox">
+			<div class="comic">
+				<img src={{comic[0]}}>
+				<p>{{comic[1]}}</p>
+			</div>
+		</div>
+		<div class="comicBox">
+			<div class="comic">
+				<img src={{comic[0]}}>
+				<p>{{comic[1]}}</p>
+			</div>
+		</div>
+		<div class="comicBox">
+			<div class="comic">
+				<img src={{comic[0]}}>
+				<p>{{comic[1]}}</p>
+			</div>
+		</div>
+	</div>
+	<div class="information">
+		<p>Example text</p>
+	</div>
+</div>

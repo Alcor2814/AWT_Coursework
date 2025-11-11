@@ -22,6 +22,11 @@ def collection():
 @app.route('/specific_book/')
 def specific_book():
     return render_template('specific-book.html')
+    
+@app.route('/weekly/')
+def weekly():
+    retrieveData()
+    return render_template('weekly.html', comic=retrieveData())
 
 import requests
 import sys

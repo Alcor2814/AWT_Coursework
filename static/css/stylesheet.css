@@ -2,7 +2,6 @@
 	display:flex;
 	justify-content:center;
 	border-style: solid;
-	margin-bottom:5px;
 	flex-grow:1;
 }
 
@@ -22,32 +21,22 @@
 }
 
 .content{
+	margin-top:5px;
 	display:flex;
 	flex-direction:row;
 	justify-content:space-between;
 	flex-grow:100;
-	margin-bottom:10px;
+	margin-bottom:5px;
 }
 
-.comicBox{
-	flex-grow:1;
-}
- 
-.comic{
-	height:100%;
-	width:52.5%;
-	margin-left:20%;
+.search_bar{
+	border-style:solid;
 	text-align:center;
-}
-.comic img{
-	display:block;
-	max-height:100%;
-	max-width:100%;
-	border-style:solid;
-}
-.comic h2{
-	border-style:solid;
-	border-top:0px;
-	margin-top:0px;
-	width:100%;
+	width:50%;
+	margin-left:auto;
+	margin-right:auto;
+	margin-top:5px;
+	padding-top:5px;
+	padding-bottom:5px;
+	position:relative;
 }

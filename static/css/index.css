@@ -2,6 +2,8 @@
 	border-style:solid;
 	text-align:center;
 	flex-grow:1;
+	display:flex;
+	flex-direction:column;
 	margin-bottom:10px;
 }
 
@@ -15,14 +17,32 @@
 	display:flex;
 	flex-direction:column;
 	justify-content:space-between;
-	flex-grow:2;
+	flex-grow:1;
 }
 
 #login{
-	width:100%;
-	height:50%;
+	flex-grow:1;
 }
 #createAccount{
+	flex-grow:1;
+}
+
+.comicBox{
+	display:flex;
+	flex-grow:1;
+	justify-content:center;
+	align-items:center;
+}
+.comic{
+	width:40%;
+}
+.comic img{
 	width:100%;
-	height:50%;
+}
+
+.comic h2{
+	border-style:solid;
+	border-top:0px;
+	/*unclear why there is a small separation here but not on other pages*/
+	margin-top:-5px;
 }
