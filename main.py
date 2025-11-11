@@ -4,7 +4,6 @@ app = Flask(__name__)
 
 @app.route('/')
 def root():
-    retrieveData()
     return render_template('index.html', comic=retrieveData())
 
 @app.route('/login/')
@@ -25,8 +24,11 @@ def specific_book():
     
 @app.route('/weekly/')
 def weekly():
-    retrieveData()
     return render_template('weekly.html', comic=retrieveData())
+
+@app.route('/search/')
+def search():
+    return render_template('search.html', comic=retrieveData())
 
 import requests
 import sys

@@ -30,3 +30,11 @@
 	border-top:0px;
 	margin-top:0px;
 }
+
+#search{
+	flex:1;
+}
+
+.search_bar{
+	display:flex;
+}
