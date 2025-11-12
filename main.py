@@ -37,6 +37,59 @@ def other_collection():
 @app.route('/create_account/')
 def create_account():
     return render_template('create-account.html')
+    
+@app.route('/test/')
+def test_page():
+    publishers = [31, 10]
+    publisherDict=dict()
+    
+    for p in publishers:
+        url = "https://comicvine.gamespot.com/api/publisher/" + str(p) + "/"
+        api_key = "2b739459da8dc4ec62f68656b642554dea026eca"
+        headers = {
+            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:144.0) Gecko/20100101 Firefox/144.0',
+        }
+        params={
+            "api_key" : api_key,
+            "format" : "json",
+        }
+        session = requests.Session()
+        session.headers = headers
+        response = session.get(url, params=params)
+        data = response.json()
+        print(response.request.url, file=sys.stderr)
+
+        for x in data['results']['volumes']:
+            if p == publishers[0]:
+                publisherDict.update({x['id'] : "Marvel"})
+            if p == publishers[1]:
+                publisherDict.update({x['id'] : "DC Comics"})
+    
+    url = "https://comicvine.gamespot.com/api/issues/"
+    api_key = "2b739459da8dc4ec62f68656b642554dea026eca"
+    headers = {
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:144.0) Gecko/20100101 Firefox/144.0',
+    }
+    params={
+        "api_key" : api_key,
+        "format" : "json",
+        "filter" : "",
+        "sort" : "cover_date:desc",
+    }
+    
+    session = requests.Session()
+    session.headers = headers
+    response = session.get(url, params=params)
+    data = response.json()
+
+    filteredData=[]
+    for x in data['results']:
+        if x['volume']['id'] in publisherDict:
+            filteredData.append(x['volume']['name'])
+        
+    #cover = filteredData[0]['image']['small_url']
+    
+    return render_template('test_page.html', cover=filteredData)
 
 import requests
 import sys

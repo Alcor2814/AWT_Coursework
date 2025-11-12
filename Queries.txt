@@ -1,0 +1,27 @@
+Queries:
+Publishers
+https://comicvine.gamespot.com/api/publishers/?api_key=2b739459da8dc4ec62f68656b642554dea026eca&format=json - Retrieves 100 publishers.
+https://comicvine.gamespot.com/api/publishers/?api_key=2b739459da8dc4ec62f68656b642554dea026eca&format=json&filter=name:Marvel - Retrieves only Marvel and its subsidiary companies
+https://comicvine.gamespot.com/api/publishers/?api_key=2b739459da8dc4ec62f68656b642554dea026eca&format=json&filter=name:DC%20Comics - Retrieves only DC and subsidiaries.
+
+Publisher
+Individual publishers must be retrieved via id.
+https://comicvine.gamespot.com/api/publisher/31/?api_key=2b739459da8dc4ec62f68656b642554dea026eca&format=json - Marvel
+https://comicvine.gamespot.com/api/publisher/10/?api_key=2b739459da8dc4ec62f68656b642554dea026eca&format=json - DC
+
+Issues
+
+Volumes
+https://comicvine.gamespot.com/api/volumes/?api_key=2b739459da8dc4ec62f68656b642554dea026eca&filter=publisher:Marvel&format=json
+
+
+Note: Issues contains volume. Volume is the only way to determine publisher, but this does mean making multiple calls unless info can be used to filter publisher.
+	Investigation:
+		- site_detail_url: https://comicvine.gamespot.com/wolverine-revenge-red-band-raw-black-and-white-edi/4000-1143331/
+		- api_detail_url: https://comicvine.gamespot.com/api/volume/4050-165536/
+		- Marvel and DC both use 4000/4050 for each url. Not a publisher identifier.
+	- Idea:
+		- Retrieving the publisher also retrieves every volume associated with them. 
+		- Retrieving the most recent issues (filtered by week) retrieves the volume information with it. 
+		- Every issue must be compared to the list of volume ids retrieved via the publisher to create a filter.
+			- This seems quite costly.
