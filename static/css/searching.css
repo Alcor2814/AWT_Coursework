@@ -24,6 +24,7 @@
 }
 .comic{
 	width:50%;
+	border-style:solid;
 }
 .comic img{
 	display:block;
@@ -32,6 +33,8 @@
 
 .comic p{
 	border-style:solid;
-	border-top:0px;
+	border-left:0px;
+	border-right:0px;
+	border-bottom:0px;
 	margin-top:0px;
 }
