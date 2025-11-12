@@ -42,24 +42,35 @@ import requests
 import sys
 
 def retrieveData():
-    url = "https://comicvine.gamespot.com/api/"
+    url = "https://comicvine.gamespot.com/api/issues/"
     api_key = "2b739459da8dc4ec62f68656b642554dea026eca"
     headers = {
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:144.0) Gecko/20100101 Firefox/144.0',
     }
-    req = url +"issues/?api_key=" + api_key + "&format=json&filter=volume:91078&sort=cover_date:desc&limit=1"
+    params={
+        "api_key" : api_key,
+        "format" : "json",
+        "filter" : "volume:91078",
+        "sort" : "cover_date:desc",
+        "limit" : 1
+    }
     
     session = requests.Session()
     session.headers = headers
-    response = session.get(req)
+    response = session.get(url, params=params)
     data = response.json()
     
     cover = data['results'][0]['image']['small_url']
     volumeName = data['results'][0]['volume']['name']
+    issueNumber = data['results'][0]['issue_number']
     issueName = data['results'][0]['name']
-    name = volumeName + " - " + issueName
+    name = volumeName
     
+    if issueNumber is not None:
+        name += " " + issueNumber
+    if issueName is not None:
+        name += " - " + issueName
     comic = [cover, name]
     #print(response, file=sys.stderr)
-    #print(req, file=sys.stderr)
+    #print(request, file=sys.stderr)
     return comic
