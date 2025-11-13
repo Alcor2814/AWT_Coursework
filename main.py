@@ -1,5 +1,7 @@
 from flask import Flask, render_template
 import json
+import datetime
+from datetime import timedelta
 app = Flask(__name__)
 
 @app.route('/')
@@ -57,7 +59,6 @@ def test_page():
         session.headers = headers
         response = session.get(url, params=params)
         data = response.json()
-        print(response.request.url, file=sys.stderr)
 
         for x in data['results']['volumes']:
             if p == publishers[0]:
@@ -73,8 +74,8 @@ def test_page():
     params={
         "api_key" : api_key,
         "format" : "json",
-        "filter" : "",
-        "sort" : "cover_date:desc",
+        "sort" : "store_date:desc",
+        "filter" : "store_date:" + str(datetime.date.today()-timedelta(days=6)) + "|" + str(datetime.date.today())
     }
     
     session = requests.Session()
@@ -86,7 +87,9 @@ def test_page():
     for x in data['results']:
         if x['volume']['id'] in publisherDict:
             filteredData.append(x['volume']['name'])
-        
+    
+    print(response.request.url, file=sys.stderr)
+
     #cover = filteredData[0]['image']['small_url']
     
     return render_template('test_page.html', cover=filteredData)
@@ -104,7 +107,7 @@ def retrieveData():
         "api_key" : api_key,
         "format" : "json",
         "filter" : "volume:91078",
-        "sort" : "cover_date:desc",
+        "sort" : "store_date:desc",
         "limit" : 1
     }
     
