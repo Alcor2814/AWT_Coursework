@@ -1,12 +1,14 @@
 from flask import Flask, render_template
 import json
+import requests
+import sys
 import datetime
 from datetime import timedelta
 app = Flask(__name__)
 
 @app.route('/')
 def root():
-    return render_template('index.html', comic=retrieveData())
+    return render_template('index.html', comic=retrieveIndexData())
 
 @app.route('/login/')
 def login():
@@ -26,11 +28,12 @@ def specific_book():
     
 @app.route('/weekly/')
 def weekly():
-    return render_template('weekly.html', comic=retrieveData())
+    end = datetime.date.today()
+    return render_template('weekly.html', comic=retrieveIssuesByDateWeekly(end, 0))
 
 @app.route('/search/')
 def search():
-    return render_template('search.html', comic=retrieveData())
+    return render_template('search.html', comic=retrieveIndexData())
 
 @app.route('/other_collection/')
 def other_collection():
@@ -42,6 +45,40 @@ def create_account():
     
 @app.route('/test/')
 def test_page():
+    return render_template('test_page.html')
+
+def retrieveIssuesByDateWeekly(endDate, offset):
+    publisherDict = retrievePublisherVolumes()
+    
+    url = "https://comicvine.gamespot.com/api/issues/"
+    api_key = "2b739459da8dc4ec62f68656b642554dea026eca"
+    headers = {
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:144.0) Gecko/20100101 Firefox/144.0',
+    }
+    params={
+        "api_key" : api_key,
+        "format" : "json",
+        "sort" : "cover_date:desc",
+        "filter" : "store_date:" + str(endDate-timedelta(days=6)) + "|" + str(endDate),
+        "offset" : offset
+    }
+    
+    session = requests.Session()
+    session.headers = headers
+    response = session.get(url, params=params)
+    data = response.json()
+
+    filteredData=[]
+    for x in data['results']:
+        if x['volume']['id'] in publisherDict:
+            filteredData.append(x)
+    print(response.request.url, file=sys.stderr)
+    if len(data['results']) == 100:
+        filteredData= filteredData + retrieveIssuesByDateWeekly(endDate, offset+100)
+    
+    return filteredData
+    
+def retrievePublisherVolumes():
     publishers = [31, 10]
     publisherDict=dict()
     
@@ -66,38 +103,11 @@ def test_page():
             if p == publishers[1]:
                 publisherDict.update({x['id'] : "DC Comics"})
     
-    url = "https://comicvine.gamespot.com/api/issues/"
-    api_key = "2b739459da8dc4ec62f68656b642554dea026eca"
-    headers = {
-        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:144.0) Gecko/20100101 Firefox/144.0',
-    }
-    params={
-        "api_key" : api_key,
-        "format" : "json",
-        "sort" : "store_date:desc",
-        "filter" : "store_date:" + str(datetime.date.today()-timedelta(days=6)) + "|" + str(datetime.date.today())
-    }
-    
-    session = requests.Session()
-    session.headers = headers
-    response = session.get(url, params=params)
-    data = response.json()
+    return publisherDict
 
-    filteredData=[]
-    for x in data['results']:
-        if x['volume']['id'] in publisherDict:
-            filteredData.append(x['volume']['name'])
-    
-    print(response.request.url, file=sys.stderr)
 
-    #cover = filteredData[0]['image']['small_url']
-    
-    return render_template('test_page.html', cover=filteredData)
 
-import requests
-import sys
-
-def retrieveData():
+def retrieveIndexData():
     url = "https://comicvine.gamespot.com/api/issues/"
     api_key = "2b739459da8dc4ec62f68656b642554dea026eca"
     headers = {
@@ -127,6 +137,6 @@ def retrieveData():
     if issueName is not None:
         name += " - " + issueName
     comic = [cover, name]
-    #print(response, file=sys.stderr)
+    #print(response.request.url, file=sys.stderr)
     #print(request, file=sys.stderr)
     return comic
