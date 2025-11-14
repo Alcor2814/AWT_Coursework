@@ -29,7 +29,7 @@ def specific_book():
 @app.route('/weekly/')
 def weekly():
     end = datetime.date.today()
-    return render_template('weekly.html', comic=retrieveIssuesByDateWeekly(end, 0))
+    return render_template('weekly.html', comics=retrieveIssuesByDateWeekly(end, 0))
 
 @app.route('/search/')
 def search():

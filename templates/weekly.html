@@ -15,67 +15,15 @@
 			<button type="button" class="button">Calendar</button>
 		</span>
 	</div>
-	<div class="content">
-		<div class="comicBox">
-			<div class="comic">
-				<img src={{comic[0]['image']['small_url']}}>
-				<p>{{comic[0]['volume']['name']}}</p>
+	<div class="content" id="content">
+		{% for comic in comics %}
+			<div class="comicBox" id="comicBox">
+				<div class="comic">
+					<img id="image" src={{comic['image']['small_url']}}>
+					<p id="text">{{comic['volume']['name']}}</p>
+				</div>
 			</div>
-		</div>
-		<div class="comicBox">
-			<div class="comic">
-				<img src={{comic[1]['image']['small_url']}}>
-				<p>{{comic[1]['volume']['name']}}</p>
-			</div>
-		</div>
-		<div class="comicBox">
-			<div class="comic">
-				<img src={{comic[2]['image']['small_url']}}>
-				<p>{{comic[2]['volume']['name']}}</p>
-			</div>
-		</div>
-		<div class="comicBox">
-			<div class="comic">
-				<img src={{comic[3]['image']['small_url']}}>
-				<p>{{comic[3]['volume']['name']}}</p>
-			</div>
-		</div>
-		<div class="comicBox">
-			<div class="comic">
-				<img src={{comic[4]['image']['small_url']}}>
-				<p>{{comic[4]['volume']['name']}}</p>
-			</div>
-		</div>
-		<div class="comicBox">
-			<div class="comic">
-				<img src={{comic[5]['image']['small_url']}}>
-				<p>{{comic[5]['volume']['name']}}</p>
-			</div>
-		</div>
-		<div class="comicBox">
-			<div class="comic">
-				<img src={{comic[6]['image']['small_url']}}>
-				<p>{{comic[6]['volume']['name']}}</p>
-			</div>
-		</div>
-		<div class="comicBox">
-			<div class="comic">
-				<img src={{comic[7]['image']['small_url']}}>
-				<p>{{comic[7]['volume']['name']}}</p>
-			</div>
-		</div>
-		<div class="comicBox">
-			<div class="comic">
-				<img src={{comic[8]['image']['small_url']}}>
-				<p>{{comic[8]['volume']['name']}}</p>
-			</div>
-		</div>
-		<div class="comicBox">
-			<div class="comic">
-				<img src={{comic[9]['image']['small_url']}}>
-				<p>{{comic[9]['volume']['name']}}</p>
-			</div>
-		</div>
+		{% endfor %}
 	</div>
 	<div class="information">
 		<p>Example text</p>
