@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 import json
 import requests
 import sys
@@ -24,7 +24,8 @@ def collection():
     
 @app.route('/specific_book/')
 def specific_book():
-    return render_template('specific-book.html')
+    comic = request.args.get('comic', None)
+    return render_template('specific-book.html', comic=comic)
     
 @app.route('/weekly/')
 def weekly():
@@ -46,6 +47,8 @@ def create_account():
 @app.route('/test/')
 def test_page():
     return render_template('test_page.html')
+
+
 
 def retrieveIssuesByDateWeekly(endDate, offset):
     publisherDict = retrievePublisherVolumes()

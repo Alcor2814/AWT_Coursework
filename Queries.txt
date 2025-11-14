@@ -26,3 +26,12 @@ Note: Issues contains volume. Volume is the only way to determine publisher, but
 		- Retrieving the most recent issues (filtered by week) retrieves the volume information with it. 
 		- Every issue must be compared to the list of volume ids retrieved via the publisher to create a filter.
 			- This seems quite costly.
+			
+{% set name = comic['volume']['name'] %}
+{% if comic['issue_number'] is not none %}
+	{% set name = name ~ " #" ~ comic['issue_number'] %}
+{% endif %}
+{% if comic['name'] is not none %}
+	{% set name = name ~ " - " ~ comic['name'] %}
+{% endif %}
+<h1>{{name}}</h1>

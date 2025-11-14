@@ -18,7 +18,7 @@
 	<div class="content" id="content">
 		{% for comic in comics %}
 			<div class="comicBox">
-				<a class = "linkBox" href= {{url_for('specific_book')}}>
+				<a class = "linkBox" href="{{url_for('specific_book', comic = comic)}}">
 					<div class="comic">
 						<img src={{comic['image']['small_url']}}>
 						{% set name = comic['volume']['name'] %}
