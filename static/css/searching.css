@@ -21,6 +21,12 @@
 	justify-content:center;
 	align-items:center;
 	max-width:20%;
+	text-decoration:none;
+	color:black;
+}
+.linkBox{
+	color:black;
+	text-decoration:none;
 }
 .comic{
 	width:50%;

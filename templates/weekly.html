@@ -8,7 +8,7 @@
 		<h1> Weekly Comics </h1>
 	</div>
 	<div class="search_bar">
-		<span>Week: </span>
+		<span>Week: {{dates[0]}} to {{dates[1]}}</span>
 		<span id="weekly_buttons">
 			<button type="button" class="button">Next</button>
 			<button type="button" class="button">Prev</button>
@@ -17,11 +17,20 @@
 	</div>
 	<div class="content" id="content">
 		{% for comic in comics %}
-			<div class="comicBox" id="comicBox">
-				<div class="comic">
-					<img id="image" src={{comic['image']['small_url']}}>
-					<p id="text">{{comic['volume']['name']}}</p>
-				</div>
+			<div class="comicBox">
+				<a class = "linkBox" href= {{url_for('specific_book')}}>
+					<div class="comic">
+						<img src={{comic['image']['small_url']}}>
+						{% set name = comic['volume']['name'] %}
+						{% if comic['issue_number'] is not none %}
+							{% set name = name ~ " #" ~ comic['issue_number'] %}
+						{% endif %}
+						{% if comic['name'] is not none %}
+							{% set name = name ~ " - " ~ comic['name'] %}
+						{% endif %}
+						<p>{{name}}</p>
+					</div>
+				</a>
 			</div>
 		{% endfor %}
 	</div>
