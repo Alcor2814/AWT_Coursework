@@ -3,11 +3,13 @@ import json
 import requests
 import sys
 import datetime
+import ast
 from datetime import timedelta
 app = Flask(__name__)
 
 @app.route('/')
 def root():
+    #On load retrieves the comic to be displayed on the index.
     return render_template('index.html', comic=retrieveIndexData())
 
 @app.route('/login/')
@@ -24,12 +26,18 @@ def collection():
     
 @app.route('/specific_book/')
 def specific_book():
-    comic = request.args.get('comic', None)
+    #Receives the comic sent to it via search/collection/weekly
+    postedComic = request.args.get('comic', None)
+    #Evaluates it into a dictionary since the specific data structure is lost on POSTing.
+    comic=ast.literal_eval(postedComic)
     return render_template('specific-book.html', comic=comic)
     
 @app.route('/weekly/')
 def weekly():
+    #By default the weekly page starts on today's date.
     dates = [datetime.date.today()-timedelta(days=6), datetime.date.today()]
+    
+    #weekly calls the retrieveIssuesByDateWeekly to collect all of the issues in a given week in an API call.
     return render_template('weekly.html', comics=retrieveIssuesByDateWeekly(dates[1], 0), dates = dates)
 
 @app.route('/search/')
@@ -51,6 +59,7 @@ def test_page():
 
 
 def retrieveIssuesByDateWeekly(endDate, offset):
+    #Calls retrievePublisherVolumes to create a publisher filter.
     publisherDict = retrievePublisherVolumes()
     
     url = "https://comicvine.gamespot.com/api/issues/"
@@ -58,6 +67,7 @@ def retrieveIssuesByDateWeekly(endDate, offset):
     headers = {
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:144.0) Gecko/20100101 Firefox/144.0',
     }
+    #Filters down to the endDate minus 6 so it doesn't cover a whole week. Ex. Thursday<Day<=Thursday
     params={
         "api_key" : api_key,
         "format" : "json",
@@ -72,19 +82,28 @@ def retrieveIssuesByDateWeekly(endDate, offset):
     data = response.json()
 
     filteredData=[]
+    # Goes through the publisherDict to compare the volume ids and filter out any rejected comics.
     for x in data['results']:
         if x['volume']['id'] in publisherDict:
             filteredData.append(x)
-    print(response.request.url, file=sys.stderr)
+    # If the results are greater than 100 then every issue in a given week may not be covered.
+    # As such, it polymorphically loops through retrieving issues until all issues have been collected.
     if len(data['results']) == 100:
         filteredData= filteredData + retrieveIssuesByDateWeekly(endDate, offset+100)
     
     return filteredData
-    
+
 def retrievePublisherVolumes():
+    # Codes:
+        # 31 - Marvel
+        # 10 - DC
     publishers = [31, 10]
     publisherDict=dict()
     
+    # Goes through each publisher and retrieves all of their volumes.
+        # Assigns each of those volume ids as a key in the dict indicating the publisher.
+        # This information can be used to check the publisher of each issue in their volume sections (since this is the only publisher specific information available)
+        # By making this a key in a dict, the look-up process is much faster which is important given that Marvel alone has upwards of 13,000 volumes to consider.
     for p in publishers:
         url = "https://comicvine.gamespot.com/api/publisher/" + str(p) + "/"
         api_key = "2b739459da8dc4ec62f68656b642554dea026eca"
@@ -107,8 +126,6 @@ def retrievePublisherVolumes():
                 publisherDict.update({x['id'] : "DC Comics"})
     
     return publisherDict
-
-
 
 def retrieveIndexData():
     url = "https://comicvine.gamespot.com/api/issues/"
