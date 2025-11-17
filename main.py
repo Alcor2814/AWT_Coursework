@@ -30,7 +30,7 @@ def specific_book():
     postedComic = request.args.get('comic', None)
     
     if(comic == ''): 
-        return redirect(url_for('homepage')
+        return redirect(url_for('homepage'))
         
     #Evaluates it into a dictionary since the specific data structure is lost on POSTing.
     comic=ast.literal_eval(postedComic)
