@@ -28,8 +28,13 @@ def collection():
 def specific_book():
     #Receives the comic sent to it via search/collection/weekly
     postedComic = request.args.get('comic', None)
+    
+    if(comic == ''): 
+        return redirect(url_for('homepage')
+        
     #Evaluates it into a dictionary since the specific data structure is lost on POSTing.
     comic=ast.literal_eval(postedComic)
+    
     return render_template('specific-book.html', comic=comic)
     
 @app.route('/weekly/')
