@@ -1,10 +1,11 @@
-from flask import Flask, render_template, request, redirect, session, url_for
+from flask import Flask, render_template, request, redirect, session, url_for, g
 import json
 import requests
 import sys
 import datetime
 import ast
 import bcrypt
+import sqlite3
 from datetime import timedelta
 from functools import wraps
 
@@ -13,6 +14,8 @@ app.secret_key='SecretKey'
 
 valid_email='person@napier.ac.uk'
 valid_pwhash=bcrypt.hashpw('comic'.encode('utf-8'), bcrypt.gensalt())
+
+db_location = 'var/database.db'
 
 def retrievePublisherVolumes():
     # Codes:
@@ -63,6 +66,7 @@ def requires_login(f):
 @app.route('/logout/')
 def logout():
     session['logged_in'] = False
+    session['name'] = None
     return redirect(url_for('root'))
     
 @app.route('/login/', methods=['GET', 'POST'])
@@ -73,6 +77,7 @@ def login():
         
         if check_auth(request.form['email'], request.form['password']):
             session['logged_in'] = True
+            session['name'] = user
             return redirect(url_for('homepage'))
     
     return render_template('login.html')
@@ -81,6 +86,31 @@ def check_auth(email, password):
     if email==valid_email and valid_pwhash == bcrypt.hashpw(password.encode('utf-8'), valid_pwhash):
             return True
     return False
+
+@app.route('/create_account/', methods=['GET', 'POST'])
+def create_account():
+    message=""
+    if request.method=='POST':
+        email=request.form['email']
+        username=request.form['username']
+        password=bcrypt.hashpw(request.form['password'].encode('utf-8'), bcrypt.gensalt())
+        repeat_password=bcrypt.hashpw(request.form['repeat-password'].encode('utf-8'), bcrypt.gensalt())
+        
+        if password == repeat_password: 
+            db = get_db()
+            sql = "SELECT * FROM users WHERE email={email}"
+            if db.cursor().execute(sql) is None:
+                db.cursor().execute('INSERT INTO users VALUES ("{email}", "{username}", "{password}")')
+                session['logged_in'] = True
+                session['name']=email
+            else:
+                message+="Email is already in use.\n"
+        else:
+            message+="Passwords do not match.\n"
+                
+    return render_template('create_account.html', message=message)
+
+
 
 @app.route('/')
 def root():
@@ -130,16 +160,13 @@ def search():
 def other_collection():
     return render_template('other_collection.html')
     
-@app.route('/create_account/')
-def create_account():
-    return render_template('create_account.html')
-
 def retrieveIssuesByDateWeekly(endDate, offset):
     url = "https://comicvine.gamespot.com/api/issues/"
     api_key = "2b739459da8dc4ec62f68656b642554dea026eca"
     headers = {
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:144.0) Gecko/20100101 Firefox/144.0',
     }
+    
     #Filters down to the endDate minus 6 so it doesn't cover a whole week. Ex. Thursday<Day<=Thursday
     params={
         "api_key" : api_key,
@@ -202,3 +229,22 @@ def retrieveIndexData():
     #print(request, file=sys.stderr)
     return comic
     
+def get_db():
+    db = getattr(g, 'db', None)
+    if db is None:
+        db = sqlite3.connect(db_location)
+        g.db = db
+    return db
+
+@app.teardown_appcontext
+def close_db_connection(exception):
+    db = getattr(g, 'db', None)
+    if db is not None:
+        db.close()
+        
+def init_db():
+    with app.app_context():
+        db = get_db()
+        with app.open_resource('schema.sql', mode = 'r') as f:
+            db.cursor().executescript(f.read())
+        db.commit()
