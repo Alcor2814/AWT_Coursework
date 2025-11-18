@@ -109,7 +109,7 @@ def specific_book():
     #Evaluates it into a dictionary since the specific data structure is lost on POSTing.
     comic=ast.literal_eval(postedComic)
     
-    return render_template('specific-book.html', comic=comic)
+    return render_template('specific_book.html', comic=comic)
     
 @app.route('/weekly/')
 @requires_login
@@ -128,17 +128,11 @@ def search():
 @app.route('/other_collection/')
 @requires_login
 def other_collection():
-    return render_template('other-collection.html')
+    return render_template('other_collection.html')
     
 @app.route('/create_account/')
 def create_account():
-    return render_template('create-account.html')
-    
-@app.route('/test/')
-def test_page():
-    return render_template('test_page.html')
-
-
+    return render_template('create_account.html')
 
 def retrieveIssuesByDateWeekly(endDate, offset):
     url = "https://comicvine.gamespot.com/api/issues/"
