@@ -10,9 +10,9 @@
 		</div>
 		<div class="content">
 			<div id = "button_box">
-				<button class="button">Collection</button>
-				<button class="button">Search</button>
-				<button class="button">Weekly Comics</button>
+				<button class="button" onclick="window.location.href='{{url_for('collection')}}'">Collection</button>
+				<button class="button" onclick="window.location.href='{{url_for('search')}}'">Search</button>
+				<button class="button" onclick="window.location.href='{{url_for('weekly')}}'">Weekly Comics</button>
 			</div>
 			<div id = "user_box">
 				<div id = "display_users">

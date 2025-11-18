@@ -7,6 +7,15 @@
 <div class="overall">
 	<div class="title">
 		<h1> Search Comics </h1>
+		<div class="toolbar">
+			<button class="toolbarButton">Toolbar</button>
+			<div class="toolbar-content">
+				<a onclick="window.location.href='{{url_for('search')}}'">Search</a>
+				<a onclick="window.location.href='{{url_for('collection')}}'">Collection</a>
+				<a onclick="window.location.href='{{url_for('weekly')}}'">Weekly</a>
+				<a onclick="window.location.href='{{url_for('homepage')}}'">Homepage</a>
+			</div>
+		</div>
 	</div>
 	<div class="search_bar">
 		<input type="text" placeholder="Search..." id="search">
