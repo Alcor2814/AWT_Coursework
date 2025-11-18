@@ -8,14 +8,13 @@
 			<h1> Login </h1>
 		</div>
 		<div id="content">
-			<form id="login_form">
+			<form id="login_form" action="" method="POST">
 				<div id="login_box">
-					<label for="uname"><b>Username</b></label>
-					<input type="text" placeholder="Enter Username" name="uname" required>
-					<label for="psw"><b>Password</b></label>
-					<input type="password" placeholder="Enter Password" name="psw" required>
-
-					<button type="submit" onclick="window.location.href='{{url_for('homepage')}}'">Login</button>
+					<input type="email" placeholder="Email" name="email">
+					<input type="password" placeholder="Password" name="password">
+					<button type="submit" class="btn" name="button" value="login">
+						Sign in
+					</button>
 				</div>
 				<div id="context">
 					
