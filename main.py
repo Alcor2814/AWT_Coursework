@@ -29,7 +29,7 @@ def specific_book():
     #Receives the comic sent to it via search/collection/weekly
     postedComic = request.args.get('comic', None)
     
-    if(comic == ''): 
+    if(postedComic is None): 
         return redirect(url_for('homepage'))
         
     #Evaluates it into a dictionary since the specific data structure is lost on POSTing.
