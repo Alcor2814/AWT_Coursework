@@ -16,7 +16,6 @@ import re
 
 app = Flask(__name__)
 app.secret_key = ""
-valid_email='person@napier.ac.uk'
 db_location='var/database.db'
 
 def init(app):
@@ -105,6 +104,8 @@ def logout():
 @app.route('/login/', methods=['GET', 'POST'])
 def login():
     if request.method=='POST':
+        app.logger.info("Starting login attempt.")
+
         user=request.form['email']
         pw=request.form['password']
         
@@ -116,8 +117,24 @@ def login():
     return render_template('login.html')
     
 def check_auth(email, password):
-    if email==valid_email and pw_salt == bcrypt.hashpw(password.encode('utf-8'), pw_salt):
+    db = get_db()
+    app.logger.info("Checking for matching emails: " + email)
+    
+    #Checks that the input email exists in the database
+    sql = f'SELECT * FROM users WHERE UserEmail="{email}"'
+    cursor = db.cursor().execute(sql)
+    result = cursor.fetchone()
+    
+    if result:
+        #Checks that the hashed password matches the stored hashed password
+        if result[2].encode('utf-8') ==  bcrypt.hashpw(password.encode('utf-8'), result[2].encode('utf-8')):
             return True
+            app.logger.info("User input password matched email: " + email)
+        else:
+            app.logger.warning("User input password did not match expected email: " + email)
+    else:
+        app.logger.info("User input email did not match expected database: " + email)
+        
     return False
 
 @app.route('/create_account/', methods=['GET', 'POST'])
@@ -135,6 +152,8 @@ def create_account():
         
         #Checks that the password and repeated password match so the user definitely enters the right password.
         if password == repeat_password: 
+            password=password.decode('utf-8')
+            
             #Found an expected pattern for emails to verify the email structure.
             pattern = r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$'
             if re.match(pattern, email) is not None:
@@ -142,7 +161,7 @@ def create_account():
                 
                 #Retrieves any User emails that match the input email to prevent creation of accounts using existing emails.
                 sql = f'SELECT * FROM users WHERE UserEmail="{email}"'
-                app.logger.info("Checking for matching emails: " + sql)
+                app.logger.info("Creation - Checking for matching emails: " + sql)
                 result = db.cursor().execute(sql).fetchall()
                 
                 if not result:
