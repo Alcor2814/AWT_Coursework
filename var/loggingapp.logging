@@ -1,0 +1,77 @@
+INFO | 2025-11-18 18:06:36,815 | main | create_account | Logging email: person@napier.ac.uk
+INFO | 2025-11-18 18:06:55,666 | main | create_account | Logging email: person@napier.ac.uk
+INFO | 2025-11-18 18:19:27,027 | main | create_account | Logging sql statement: SELECT * FROM users WHERE email=person@napier.ac.uk
+INFO | 2025-11-19 13:33:59,657 | main | create_account | Beginning account creation.
+INFO | 2025-11-19 13:34:00,643 | main | create_account | Checking for matching emails: SELECT * FROM users WHERE email=person@napier.ac.uk
+INFO | 2025-11-19 13:37:58,774 | main | create_account | Beginning account creation.
+INFO | 2025-11-19 13:37:59,774 | main | create_account | Checking for matching emails: SELECT * FROM users WHERE email=person@gmail.com
+INFO | 2025-11-19 13:39:34,525 | main | create_account | Beginning account creation.
+INFO | 2025-11-19 13:39:35,497 | main | create_account | Checking for matching emails: SELECT * FROM users WHERE email='person@gmail.com'
+INFO | 2025-11-19 13:40:28,380 | main | create_account | Beginning account creation.
+INFO | 2025-11-19 13:40:29,366 | main | create_account | Checking for matching emails: SELECT * FROM users WHERE UserEmail="person@gmail.com"
+WARNING | 2025-11-19 13:40:29,367 | main | create_account | User attempted to create account using existing email: person@gmail.com
+INFO | 2025-11-19 13:51:16,065 | main | create_account | Beginning account creation.
+INFO | 2025-11-19 13:51:17,048 | main | create_account | Checking for matching emails: SELECT * FROM users WHERE UserEmail="person@gmail.com"
+WARNING | 2025-11-19 13:51:17,050 | main | create_account | User attempted to create account using existing email: person@gmail.com
+INFO | 2025-11-19 13:51:36,464 | main | create_account | Beginning account creation.
+INFO | 2025-11-19 13:51:37,440 | main | create_account | Checking for matching emails: SELECT * FROM users WHERE UserEmail="person@napier.ac.uk"
+WARNING | 2025-11-19 13:51:37,442 | main | create_account | User attempted to create account using existing email: person@napier.ac.uk
+INFO | 2025-11-19 13:52:27,880 | main | create_account | Beginning account creation.
+INFO | 2025-11-19 13:52:28,869 | main | create_account | Checking for matching emails: SELECT * FROM users WHERE UserEmail="person@napier.ac.uk"
+WARNING | 2025-11-19 13:52:28,871 | main | create_account | User attempted to create account using existing email: person@napier.ac.uk
+INFO | 2025-11-19 13:52:47,663 | main | create_account | Beginning account creation.
+INFO | 2025-11-19 13:52:48,632 | main | create_account | Checking for matching emails: SELECT * FROM users WHERE UserEmail="person@gmail.com"
+WARNING | 2025-11-19 13:52:48,633 | main | create_account | User attempted to create account using existing email: person@gmail.com
+INFO | 2025-11-19 13:55:03,943 | main | create_account | Beginning account creation.
+INFO | 2025-11-19 13:55:04,911 | main | create_account | Checking for matching emails: SELECT * FROM users WHERE UserEmail="person@gmail.com"
+INFO | 2025-11-19 13:55:40,713 | main | create_account | Beginning account creation.
+INFO | 2025-11-19 13:55:41,692 | main | create_account | Checking for matching emails: SELECT * FROM users WHERE UserEmail="person@gmail.com"
+WARNING | 2025-11-19 13:55:41,695 | main | create_account | User attempted to create account using existing email: person@gmail.com
+INFO | 2025-11-19 13:55:58,195 | main | create_account | Beginning account creation.
+INFO | 2025-11-19 13:55:59,167 | main | create_account | Checking for matching emails: SELECT * FROM users WHERE UserEmail="person@gmail.com"
+WARNING | 2025-11-19 13:55:59,168 | main | create_account | User attempted to create account using existing email: person@gmail.com
+INFO | 2025-11-19 13:59:19,188 | main | create_account | Beginning account creation.
+INFO | 2025-11-19 13:59:19,618 | main | create_account | Checking for matching emails: SELECT * FROM users WHERE UserEmail="person@gmail.com"
+INFO | 2025-11-19 13:59:19,623 | main | create_account | Added new account to the database: INSERT INTO users VALUES ("person@gmail.com", "Person", "b'$2b$12$5JLokzZFV37JLr1a4cNpT.MgKR0sSeZ/8zES5/Arc/Pl4GEQPydvS'")
+INFO | 2025-11-19 13:59:30,361 | main | create_account | Beginning account creation.
+INFO | 2025-11-19 13:59:30,790 | main | create_account | Checking for matching emails: SELECT * FROM users WHERE UserEmail="person@gmail.com"
+WARNING | 2025-11-19 13:59:30,791 | main | create_account | User attempted to create account using existing email: person@gmail.com
+INFO | 2025-11-19 14:02:16,847 | main | create_account | Beginning account creation.
+INFO | 2025-11-19 14:02:17,272 | main | create_account | Checking for matching emails: SELECT * FROM users WHERE UserEmail="person@gmail.com"
+WARNING | 2025-11-19 14:02:17,273 | main | create_account | User attempted to create account using existing email: person@gmail.com
+INFO | 2025-11-19 14:03:20,154 | main | create_account | Beginning account creation.
+INFO | 2025-11-19 14:03:20,580 | main | create_account | Checking for matching emails: SELECT * FROM users WHERE UserEmail="person@gmail.com"
+WARNING | 2025-11-19 14:03:20,581 | main | create_account | User attempted to create account using existing email: person@gmail.com
+INFO | 2025-11-19 14:03:35,384 | main | create_account | Beginning account creation.
+INFO | 2025-11-19 14:03:35,812 | main | create_account | Checking for matching emails: SELECT * FROM users WHERE UserEmail="person@gmail.com"
+WARNING | 2025-11-19 14:03:35,812 | main | create_account | User attempted to create account using existing email: person@gmail.com
+INFO | 2025-11-19 14:03:50,602 | main | create_account | Beginning account creation.
+INFO | 2025-11-19 14:03:51,028 | main | create_account | Checking for matching emails: SELECT * FROM users WHERE UserEmail="person@gmail.com"
+WARNING | 2025-11-19 14:03:51,028 | main | create_account | User attempted to create account using existing email: person@gmail.com
+INFO | 2025-11-19 14:03:55,564 | main | create_account | Beginning account creation.
+INFO | 2025-11-19 14:03:55,993 | main | create_account | Checking for matching emails: SELECT * FROM users WHERE UserEmail="person@gmail.com"
+WARNING | 2025-11-19 14:03:55,994 | main | create_account | User attempted to create account using existing email: person@gmail.com
+INFO | 2025-11-19 14:04:01,529 | main | create_account | Beginning account creation.
+INFO | 2025-11-19 14:04:01,956 | main | create_account | Checking for matching emails: SELECT * FROM users WHERE UserEmail="person@gmail.com"
+WARNING | 2025-11-19 14:04:01,956 | main | create_account | User attempted to create account using existing email: person@gmail.com
+INFO | 2025-11-19 14:04:14,948 | main | create_account | Beginning account creation.
+INFO | 2025-11-19 14:04:15,375 | main | create_account | Checking for matching emails: SELECT * FROM users WHERE UserEmail="person@gmail.com"
+WARNING | 2025-11-19 14:04:15,376 | main | create_account | User attempted to create account using existing email: person@gmail.com
+INFO | 2025-11-19 14:04:27,533 | main | create_account | Beginning account creation.
+INFO | 2025-11-19 14:04:27,959 | main | create_account | Checking for matching emails: SELECT * FROM users WHERE UserEmail="person@gmail.com"
+WARNING | 2025-11-19 14:04:27,960 | main | create_account | User attempted to create account using existing email: person@gmail.com
+INFO | 2025-11-19 14:04:54,642 | main | create_account | Beginning account creation.
+INFO | 2025-11-19 14:04:55,068 | main | create_account | Checking for matching emails: SELECT * FROM users WHERE UserEmail="person@gmail.com"
+WARNING | 2025-11-19 14:04:55,068 | main | create_account | User attempted to create account using existing email: person@gmail.com
+INFO | 2025-11-19 14:06:33,480 | main | create_account | Beginning account creation.
+INFO | 2025-11-19 14:06:33,908 | main | create_account | User passwords did not match
+INFO | 2025-11-19 14:07:03,706 | main | create_account | Beginning account creation.
+INFO | 2025-11-19 14:07:04,137 | main | create_account | User passwords did not match
+INFO | 2025-11-19 14:08:54,173 | main | create_account | Beginning account creation.
+INFO | 2025-11-19 14:08:54,599 | main | create_account | Checking for matching emails: SELECT * FROM users WHERE UserEmail="person@napier.ac.uk"
+INFO | 2025-11-19 14:08:54,609 | main | create_account | Added new account to the database: INSERT INTO users VALUES ("person@napier.ac.uk", "person", "b'$2b$12$wHM/fiL6l3cO32xz8NXjT./kjE9CSc84UjZN7/ImyNahitlQ69k9W'")
+INFO | 2025-11-19 14:41:38,703 | main | create_account | Beginning account creation.
+INFO | 2025-11-19 14:43:15,059 | main | create_account | Beginning account creation.
+INFO | 2025-11-19 14:44:29,615 | main | create_account | Beginning account creation.
+INFO | 2025-11-19 14:44:30,611 | main | create_account | Checking for matching emails: SELECT * FROM users WHERE UserEmail="person@napier.ac.uk"
+INFO | 2025-11-19 14:44:30,632 | main | create_account | Added new account to the database: INSERT INTO users VALUES ("person@napier.ac.uk", "Person", "b'$2b$12$EPVP4DyMIuefy6qJ.ItCLOVkyrgR81pobQstSuHgDG1kVcIAeZMAK'")
