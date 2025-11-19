@@ -9,5 +9,6 @@ CREATE TABLE users (
 
 CREATE TABLE collections (
 	UserEmail text,
-	ComicJson text
+	ComicJson text,
+	ComicReview text
 );

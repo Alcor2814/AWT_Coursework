@@ -1,4 +1,8 @@
 from flask import Flask, render_template, request, redirect, session, url_for, g
+from datetime import timedelta
+from functools import wraps
+from logging.handlers import RotatingFileHandler
+
 import json
 import requests
 import sys
@@ -6,16 +10,45 @@ import datetime
 import ast
 import bcrypt
 import sqlite3
-from datetime import timedelta
-from functools import wraps
+import configparser
+import logging
+import re
 
 app = Flask(__name__)
-app.secret_key='SecretKey'
-
+app.secret_key = ""
 valid_email='person@napier.ac.uk'
-valid_pwhash=bcrypt.hashpw('comic'.encode('utf-8'), bcrypt.gensalt())
+db_location='var/database.db'
 
-db_location = 'var/database.db'
+def init(app):
+    config = configparser.ConfigParser()
+    try:
+        config_location = "etc/defaults.cfg"
+        config.read(config_location)
+        
+        app.config['DEBUG'] = config.get("config", "debug")
+        app.config['ip_address'] = config.get("config", "ip_address")
+        app.config['port'] = config.get("config", "port")
+        app.config['url'] = config.get("config", "url")
+        
+        app.config['log_file'] = config.get("logging", "name")
+        app.config['log_location'] = config.get("logging", "location")
+        app.config['log_level'] = config.get("logging", "level")
+        
+        app.secret_key = config.get("session", "secret_key")
+    except:
+        app.logger.error("Could not read configs from: ", config_location)
+
+def logs(app): 
+    log_pathname = app.config['log_location'] + app.config['log_file']
+    file_handler = RotatingFileHandler(log_pathname, maxBytes=1024*1024*10, backupCount=1024)
+    file_handler.setLevel(app.config['log_level'])
+    formatter = logging.Formatter("%(levelname)s | %(asctime)s | %(module)s | %(funcName)s | %(message)s")
+    file_handler.setFormatter(formatter)
+    app.logger.setLevel(app.config['log_level'])
+    app.logger.addHandler(file_handler)
+    
+init(app)
+logs(app)
 
 def retrievePublisherVolumes():
     # Codes:
@@ -83,7 +116,7 @@ def login():
     return render_template('login.html')
     
 def check_auth(email, password):
-    if email==valid_email and valid_pwhash == bcrypt.hashpw(password.encode('utf-8'), valid_pwhash):
+    if email==valid_email and pw_salt == bcrypt.hashpw(password.encode('utf-8'), pw_salt):
             return True
     return False
 
@@ -91,21 +124,46 @@ def check_auth(email, password):
 def create_account():
     message=""
     if request.method=='POST':
-        email=request.form['email']
-        username=request.form['username']
-        password=bcrypt.hashpw(request.form['password'].encode('utf-8'), bcrypt.gensalt())
-        repeat_password=bcrypt.hashpw(request.form['repeat-password'].encode('utf-8'), bcrypt.gensalt())
+        app.logger.info("Beginning account creation.")
         
+        #Normalises so that all user emails are in lowercase and uppercase does not throw off checking for matching emails.
+        email=request.form['email'].lower()
+        username=request.form['username']
+        #Immediately encrypts password to limit chance for leak.
+        password=bcrypt.hashpw(request.form['password'].encode('utf-8'), bcrypt.gensalt())
+        repeat_password=bcrypt.hashpw(request.form['repeat-password'].encode('utf-8'), password)
+        
+        #Checks that the password and repeated password match so the user definitely enters the right password.
         if password == repeat_password: 
-            db = get_db()
-            sql = "SELECT * FROM users WHERE email={email}"
-            if db.cursor().execute(sql) is None:
-                db.cursor().execute('INSERT INTO users VALUES ("{email}", "{username}", "{password}")')
-                session['logged_in'] = True
-                session['name']=email
+            #Found an expected pattern for emails to verify the email structure.
+            pattern = r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$'
+            if re.match(pattern, email) is not None:
+                db = get_db()
+                
+                #Retrieves any User emails that match the input email to prevent creation of accounts using existing emails.
+                sql = f'SELECT * FROM users WHERE UserEmail="{email}"'
+                app.logger.info("Checking for matching emails: " + sql)
+                result = db.cursor().execute(sql).fetchall()
+                
+                if not result:
+                    sql = f'INSERT INTO users VALUES ("{email}", "{username}", "{password}")'
+                    db.cursor().execute(sql)
+                    db.commit()
+                    #Logs the user in.
+                    session['logged_in'] = True
+                    #Stores unique user information for retrieving unique experience.
+                    session['name']=email
+                   
+                    app.logger.info("Added new account to the database: " + sql)
+                    return redirect(url_for('homepage'))
+                else:
+                    app.logger.warning("User attempted to create account using existing email: " + email)
+                    message+="Email is already in use.\n" 
             else:
-                message+="Email is already in use.\n"
+                app.logger.warning("User input email did not match expected pattern: " + email)
+                message+="Email does not match expected pattern"
         else:
+            app.logger.info("User passwords did not match")
             message+="Passwords do not match.\n"
                 
     return render_template('create_account.html', message=message)
