@@ -50,6 +50,8 @@ init(app)
 logs(app)
 
 def retrievePublisherVolumes():
+    app.logger.info("Retrieving publishers.")
+
     # Codes:
         # 31 - Marvel
         # 10 - DC
@@ -61,25 +63,28 @@ def retrievePublisherVolumes():
         # This information can be used to check the publisher of each issue in their volume sections (since this is the only publisher specific information available)
         # By making this a key in a dict, the look-up process is much faster which is important given that Marvel alone has upwards of 13,000 volumes to consider.
     for p in publishers:
-        url = "https://comicvine.gamespot.com/api/publisher/" + str(p) + "/"
-        api_key = "2b739459da8dc4ec62f68656b642554dea026eca"
-        headers = {
-            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:144.0) Gecko/20100101 Firefox/144.0',
-        }
-        params={
-            "api_key" : api_key,
-            "format" : "json",
-        }
-        session = requests.Session()
-        session.headers = headers
-        response = session.get(url, params=params)
-        data = response.json()
+        try:
+            url = "https://comicvine.gamespot.com/api/publisher/" + str(p) + "/"
+            api_key = "2b739459da8dc4ec62f68656b642554dea026eca"
+            headers = {
+                'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:144.0) Gecko/20100101 Firefox/144.0',
+            }
+            params={
+                "api_key" : api_key,
+                "format" : "json",
+            }
+            session = requests.Session()
+            session.headers = headers
+            response = session.get(url, params=params)
+            data = response.json()
 
-        for x in data['results']['volumes']:
-            if p == publishers[0]:
-                publisherDict.update({x['id'] : "Marvel"})
-            if p == publishers[1]:
-                publisherDict.update({x['id'] : "DC Comics"})
+            for x in data['results']['volumes']:
+                if p == publishers[0]:
+                    publisherDict.update({x['id'] : "Marvel"})
+                if p == publishers[1]:
+                    publisherDict.update({x['id'] : "DC Comics"})
+        except:
+            app.logger.error("Publisher "+ p + "failed to retrieve.")
     
     return publisherDict
 
@@ -97,8 +102,10 @@ def requires_login(f):
 
 @app.route('/logout/')
 def logout():
+    app.logger.info("User "+ session['name'] + "logged out.")
     session['logged_in'] = False
     session['name'] = None
+
     return redirect(url_for('root'))
     
 @app.route('/login/', methods=['GET', 'POST'])
@@ -110,7 +117,11 @@ def login():
         pw=request.form['password']
         
         if check_auth(request.form['email'], request.form['password']):
+            #Clears password as soon as it is no longer needed.
+            pw=""
+            #Logs the user in.
             session['logged_in'] = True
+            #Gives the session the user's email as a name so they can be given an experience unique to their account.
             session['name'] = user
             return redirect(url_for('homepage'))
     
@@ -123,6 +134,7 @@ def check_auth(email, password):
     #Checks that the input email exists in the database
     sql = f'SELECT * FROM users WHERE UserEmail="{email}"'
     cursor = db.cursor().execute(sql)
+    #Only one row should be possible to fetch, but the result needs to be limited to one row to be better operated upon.
     result = cursor.fetchone()
     
     if result:
@@ -157,27 +169,30 @@ def create_account():
             #Found an expected pattern for emails to verify the email structure.
             pattern = r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$'
             if re.match(pattern, email) is not None:
-                db = get_db()
-                
-                #Retrieves any User emails that match the input email to prevent creation of accounts using existing emails.
-                sql = f'SELECT * FROM users WHERE UserEmail="{email}"'
-                app.logger.info("Creation - Checking for matching emails: " + sql)
-                result = db.cursor().execute(sql).fetchall()
-                
-                if not result:
-                    sql = f'INSERT INTO users VALUES ("{email}", "{username}", "{password}")'
-                    db.cursor().execute(sql)
-                    db.commit()
-                    #Logs the user in.
-                    session['logged_in'] = True
-                    #Stores unique user information for retrieving unique experience.
-                    session['name']=email
-                   
-                    app.logger.info("Added new account to the database: " + sql)
-                    return redirect(url_for('homepage'))
-                else:
-                    app.logger.warning("User attempted to create account using existing email: " + email)
-                    message+="Email is already in use.\n" 
+                try:
+                    db = get_db()
+                    
+                    #Retrieves any User emails that match the input email to prevent creation of accounts using existing emails.
+                    sql = f'SELECT * FROM users WHERE UserEmail="{email}"'
+                    app.logger.info("Creation - Checking for matching emails: " + sql)
+                    result = db.cursor().execute(sql).fetchall()
+                    
+                    if not result:
+                        sql = f'INSERT INTO users VALUES ("{email}", "{username}", "{password}")'
+                        db.cursor().execute(sql)
+                        db.commit()
+                        #Logs the user in.
+                        session['logged_in'] = True
+                        #Stores unique user information for retrieving unique experience.
+                        session['name']=email
+                       
+                        app.logger.info("Added new account to the database: " + sql)
+                        return redirect(url_for('homepage'))
+                    else:
+                        app.logger.warning("User attempted to create account using existing email: " + email)
+                        message+="Email is already in use.\n" 
+                except:
+                    app.logger.error("Failed to connect to database.")
             else:
                 app.logger.warning("User input email did not match expected pattern: " + email)
                 message+="Email does not match expected pattern"
