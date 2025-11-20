@@ -230,8 +230,18 @@ def specific_book():
         
     #Evaluates it into a dictionary since the specific data structure is lost on POSTing.
     comic=ast.literal_eval(postedComic)
+    #Removes html tags from description because it is unnecessary/shouldn't be implicitly trusted.
+    comic['description'] = re.sub(r"<.*?>", " ", comic['description'])
     
     return render_template('specific_book.html', comic=comic)
+   
+@app.route('/add_to_collection/')
+def add_to_collection():
+    comic = request.args.get('comic', None)
+    if(comic is None):
+        return redirect(url_for('homepage'))
+    
+    return redirect(url_for('specific_book', comic=comic))
     
 @app.route('/weekly/')
 @requires_login

@@ -1,14 +1,25 @@
 DROP TABLE if EXISTS users;
 DROP TABLE if EXISTS collections;
+DROP TABLE if EXISTS comics;
 
 CREATE TABLE users (
-	UserEmail text,
-	UserName text,
-	EncryptedPassword text
+	UserEmail TEXT,
+	UserName TEXT,
+	EncryptedPassword TEXT
 );
 
 CREATE TABLE collections (
-	UserEmail text,
-	ComicJson text,
-	ComicReview text
+	UserEmail TEXT,
+	ComicId INTEGER,
+	ComicReview TEXT
+);
+
+CREATE TABLE comics (
+	id INTEGER
+	name TEXT
+	store_date TEXT
+	image TEXT
+	issue_number INTEGER
+	description TEXT
+	volume TEXT
 );
