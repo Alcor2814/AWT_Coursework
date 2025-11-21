@@ -202,8 +202,6 @@ def create_account():
                 
     return render_template('create_account.html', message=message)
 
-
-
 @app.route('/')
 def root():
     #On load retrieves the comic to be displayed on the index.
@@ -217,7 +215,41 @@ def homepage():
 @app.route('/collection/')
 @requires_login
 def collection():
-    return render_template('collection.html')
+    
+    db = get_db()
+    sql = f'SELECT * FROM collections WHERE UserEmail="{session['name']}"'
+    result = db.cursor().execute(sql)
+    if (result is not None):
+        findIds="("
+        
+        for row in result:
+            findIds += '"' + str(row[1]) + '",'
+        findIds = findIds.rstrip(',')
+        findIds+= ")"
+        
+        sql = f'SELECT * FROM comics WHERE Id IN {findIds}'
+        result = db.cursor().execute(sql)
+        
+        # Converts the retrieved database info into a dict that can be used by the collection page
+        
+        collection=[]
+        for row in result:
+            tempComic = {
+                "id" : row[0],
+                "name" : row[1],
+                "store_date" : row[2],
+                "image" : ast.literal_eval(row[3]),
+                "issue_number" : row[4],
+                "description" : row[5],
+                "volume" : ast.literal_eval(row[6])
+            }
+            collection.append(tempComic)
+        
+        app.logger.info(str(collection[0]))
+    else:
+        collection=[]
+        
+    return render_template('collection.html', collection = collection)
     
 @app.route('/specific_book/')
 @requires_login
@@ -230,8 +262,78 @@ def specific_book():
         
     #Evaluates it into a dictionary since the specific data structure is lost on POSTing.
     comic=ast.literal_eval(postedComic)
+    #Removes html tags from description because it is unnecessary/shouldn't be implicitly trusted.
+    if(comic['description'] is not None):
+        comic['description'] = re.sub(r"<.*?>", " ", comic['description'])
     
     return render_template('specific_book.html', comic=comic)
+   
+@app.route('/add_to_collection/')
+def add_to_collection():
+    comic = request.args.get('comic', None)
+    comic=ast.literal_eval(comic)
+    
+    if(comic is None):
+        return redirect(url_for('homepage'))
+    
+    if (check_comic_in_collection(comic) is False):
+        if (check_comic_in_database(comic) is False):
+            add_comic_to_database(comic)
+        
+        db = get_db()
+        userEmail = session['name']
+        sql = f'INSERT INTO collections VALUES ("{session['name']}", "{comic['id']}", "", "")'
+        app.logger.info("Adding comic to user collection: " + str(comic['id']))
+        db.cursor().execute(sql)
+        db.commit()
+    else:
+        app.logger.info("User attempted to add already present comic to their collection: " + session['name'])
+    
+    return redirect(url_for('specific_book', comic=comic))
+
+@app.route('/remove_from_collection/')
+def remove_from_collection():
+    comicId = request.args.get('comicId', None)
+    
+    db = get_db()
+    userEmail = session['name']
+    sql = f'DELETE FROM collections WHERE UserEmail ="{userEmail}" AND ComicId="{comicId}"'
+    app.logger.warning("Deleting comic " + comicId + "from user " + userEmail + " collection")
+    db.cursor().execute(sql)
+    db.commit()
+    return redirect(url_for('collection'))
+    
+def check_comic_in_database(comic):
+    db = get_db()
+    #Retrieves the comic to check if it exists.
+    sql = f'SELECT * FROM comics WHERE id="{comic['id']}"'
+    app.logger.info("Checking if comic exists: " + str(comic['id']))
+    result = db.cursor().execute(sql).fetchall()
+    
+    if(not result):
+        return False
+    else:
+        return True
+
+def add_comic_to_database(comic):
+    db = get_db()
+    app.logger.info("Adding comic to database: " + str(comic['id']))
+    sql = f'INSERT INTO comics VALUES ("{comic['id']}", "{comic['name']}", "{comic['store_date']}", "{comic['image']}", "{comic['issue_number']}", "{comic['description']}", "{comic['volume']}")'
+    db.cursor().execute(sql)
+    db.commit()
+    return 0
+
+def check_comic_in_collection(comic):
+    db = get_db()
+    #Retrieves the comic to check if it exists.
+    sql = f'SELECT * FROM collections WHERE UserEmail="{session['name']}" AND ComicId="{comic['id']}"'
+    app.logger.info("Checking if comic is in user collection: " + str(comic['id']))
+    result = db.cursor().execute(sql).fetchall()
+    
+    if(not result):
+        return False
+    else:
+        return True
     
 @app.route('/weekly/')
 @requires_login
@@ -284,8 +386,6 @@ def retrieveIssuesByDateWeekly(endDate, offset):
         filteredData= filteredData + retrieveIssuesByDateWeekly(endDate, offset+100)
     
     return filteredData
-
-
 
 def retrieveIndexData():
     url = "https://comicvine.gamespot.com/api/issues/"

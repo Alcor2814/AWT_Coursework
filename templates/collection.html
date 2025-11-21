@@ -2,30 +2,41 @@
 <head>
 	<link rel="stylesheet" href="{{ url_for('static', filename='css/stylesheet.css') }}">
 	<link rel="stylesheet" href="{{ url_for('static', filename='css/collection.css') }}">
+	<script src="{{url_for('static', filename='scripts/collection.js')}}"></script>
 </head>
+<body onload='previewComic("{{collection[0]['image']['small_url']}}")'>
 <div class="overall">
 	<div class="title">
-		<h1> Collection </h1>
+		<h1> Your Collection </h1>
 	</div>
 	<div class="content">
 		<div id="left">
-			<div id="display_comics">
-				
-			</div>
+			{% for comic in collection %}
+				<div class="display_comics">
+					{% set name = comic['volume']['name'] %}
+					{% if comic['issue_number'] is not none %}
+						{% set name = name ~ " #" ~ comic['issue_number'] %}
+					{% endif %}
+					{% if comic['name'] != "None" %}
+						{% set name = name ~ " - " ~ comic['name'] %}
+					{% endif %}
+					<button onclick="previewComic('{{comic['image']['small_url']}}')" class="previewButton">
+						<p>{{name}}</p>
+					</button>
+					<a class="buttonHolder" href="{{url_for('remove_from_collection', comicId = comic['id'])}}">
+						<button class="formButton">Remove</button>
+					</a>
+					<a class="buttonHolder" href="{{url_for('specific_book', comic = comic)}}">
+						<button class="formButton">View</button>
+					</a>
+				</div>
+			{% endfor %}
 		</div>
 		<div id="right">
 			<div id="sort_filter">
-				
+				<button class="btn">Sort and Filter</button>
 			</div>
-			<div id="highlight">
-				
-			</div>
-			<div id="manage">
-				
-			</div>
-			<div id="add_new">
-				
-			</div>
+			<img id="preview" src="">
 		</div>
 	</div>
 	<div class="information">

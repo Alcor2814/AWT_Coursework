@@ -9,7 +9,7 @@
 		{% if comic['issue_number'] is not none %}
 			{% set name = name ~ " #" ~ comic['issue_number'] %}
 		{% endif %}
-		{% if comic['name'] is not none %}
+		{% if comic['name'] is not none and comic['name'] != "None" %}
 			{% set name = name ~ " - " ~ comic['name'] %}
 		{% endif %}
 		<h1>{{name}}</h1>
@@ -19,11 +19,12 @@
 			<div class="comicBox">
 				<div class="comic">
 					<img src={{comic['image']['small_url']}}>
+					<a id = "add" href="{{url_for('add_to_collection', comic = comic)}}">
+						Add to collection
+					</a>
 				</div>
 			</div>
-			<div id="additional_information">
-				
-			</div>
+			<p>{{comic['description']}}</p>
 		</div>
 		<div id="right">
 			<div id="reviews">
