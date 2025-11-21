@@ -238,7 +238,7 @@ def collection():
                 "id" : row[0],
                 "name" : row[1],
                 "store_date" : row[2],
-                "image" : row[3],
+                "image" : ast.literal_eval(row[3]),
                 "issue_number" : row[4],
                 "description" : row[5],
                 "volume" : ast.literal_eval(row[6])

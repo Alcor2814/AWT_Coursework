@@ -2,7 +2,9 @@
 <head>
 	<link rel="stylesheet" href="{{ url_for('static', filename='css/stylesheet.css') }}">
 	<link rel="stylesheet" href="{{ url_for('static', filename='css/collection.css') }}">
+	<script src="{{url_for('static', filename='scripts/collection.js')}}"></script>
 </head>
+<!--<body onload="previewComic('{{collection[0]['image']['small_url']}}')">-->
 <div class="overall">
 	<div class="title">
 		<h1> Your Collection </h1>
@@ -11,31 +13,28 @@
 		<div id="left">
 			{% for comic in collection %}
 				<div class="display_comics">
-					<a class = "linkBox" href="{{url_for('specific_book', comic = comic)}}">
-						{% set name = comic['volume']['name'] %}
-						{% if comic['issue_number'] is not none %}
-							{% set name = name ~ " #" ~ comic['issue_number'] %}
-						{% endif %}
-						{% if comic['name'] != "None" %}
-							{% set name = name ~ " - " ~ comic['name'] %}
-						{% endif %}
+					{% set name = comic['volume']['name'] %}
+					{% if comic['issue_number'] is not none %}
+						{% set name = name ~ " #" ~ comic['issue_number'] %}
+					{% endif %}
+					{% if comic['name'] != "None" %}
+						{% set name = name ~ " - " ~ comic['name'] %}
+					{% endif %}
+					<button onclick="previewComic('{{comic['image']['small_url']}}')" class="btn">
 						<p>{{name}}</p>
-					</a>
+					</button>
 				</div>
 			{% endfor %}
 		</div>
 		<div id="right">
 			<div id="sort_filter">
-				
+				<button class="btn">Sort and Filter</button>
 			</div>
 			<div id="highlight">
-				
+				<img id="preview" src="">
 			</div>
 			<div id="manage">
-				<button class="button">Manage Comics</button>
-			</div>
-			<div id="add_new">
-				<button class="button">Add new comics</button>
+				<button class="btn">Remove Highlighted Comic</button>
 			</div>
 		</div>
 	</div>
