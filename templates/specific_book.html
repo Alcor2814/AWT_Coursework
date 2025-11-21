@@ -9,7 +9,7 @@
 		{% if comic['issue_number'] is not none %}
 			{% set name = name ~ " #" ~ comic['issue_number'] %}
 		{% endif %}
-		{% if comic['name'] is not none %}
+		{% if comic['name'] is not none and comic['name'] != "None" %}
 			{% set name = name ~ " - " ~ comic['name'] %}
 		{% endif %}
 		<h1>{{name}}</h1>

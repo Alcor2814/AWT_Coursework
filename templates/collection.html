@@ -4,7 +4,7 @@
 	<link rel="stylesheet" href="{{ url_for('static', filename='css/collection.css') }}">
 	<script src="{{url_for('static', filename='scripts/collection.js')}}"></script>
 </head>
-<body onload="previewComic('{{collection[0]['image']['small_url']}}')">
+<body onload='previewComic("{{collection[0]['image']['small_url']}}")'>
 <div class="overall">
 	<div class="title">
 		<h1> Your Collection </h1>
@@ -20,9 +20,15 @@
 					{% if comic['name'] != "None" %}
 						{% set name = name ~ " - " ~ comic['name'] %}
 					{% endif %}
-					<button onclick="previewComic('{{comic['image']['small_url']}}')" class="btn">
+					<button onclick="previewComic('{{comic['image']['small_url']}}')" class="previewButton">
 						<p>{{name}}</p>
 					</button>
+					<a class="buttonHolder" href="{{url_for('remove_from_collection', comicId = comic['id'])}}">
+						<button class="formButton">Remove</button>
+					</a>
+					<a class="buttonHolder" href="{{url_for('specific_book', comic = comic)}}">
+						<button class="formButton">View</button>
+					</a>
 				</div>
 			{% endfor %}
 		</div>
@@ -30,12 +36,7 @@
 			<div id="sort_filter">
 				<button class="btn">Sort and Filter</button>
 			</div>
-			<a id="comicPreview" href="">
-				<img id="preview" src="">
-			</a>
-			<div id="remove">
-				<button class="btn">Remove Highlighted Comic</button>
-			</div>
+			<img id="preview" src="">
 		</div>
 	</div>
 	<div class="information">

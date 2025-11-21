@@ -290,6 +290,18 @@ def add_to_collection():
         app.logger.info("User attempted to add already present comic to their collection: " + session['name'])
     
     return redirect(url_for('specific_book', comic=comic))
+
+@app.route('/remove_from_collection/')
+def remove_from_collection():
+    comicId = request.args.get('comicId', None)
+    
+    db = get_db()
+    userEmail = session['name']
+    sql = f'DELETE FROM collections WHERE UserEmail ="{userEmail}" AND ComicId="{comicId}"'
+    app.logger.warning("Deleting comic " + comicId + "from user " + userEmail + " collection")
+    db.cursor().execute(sql)
+    db.commit()
+    return redirect(url_for('collection'))
     
 def check_comic_in_database(comic):
     db = get_db()
