@@ -5,13 +5,24 @@
 </head>
 <div class="overall">
 	<div class="title">
-		<h1> Collection </h1>
+		<h1> Your Collection </h1>
 	</div>
 	<div class="content">
 		<div id="left">
-			<div id="display_comics">
-				
-			</div>
+			{% for comic in collection %}
+				<div class="display_comics">
+					<a class = "linkBox" href="{{url_for('specific_book', comic = comic)}}">
+						{% set name = comic['volume']['name'] %}
+						{% if comic['issue_number'] is not none %}
+							{% set name = name ~ " #" ~ comic['issue_number'] %}
+						{% endif %}
+						{% if comic['name'] != "None" %}
+							{% set name = name ~ " - " ~ comic['name'] %}
+						{% endif %}
+						<p>{{name}}</p>
+					</a>
+				</div>
+			{% endfor %}
 		</div>
 		<div id="right">
 			<div id="sort_filter">
@@ -21,10 +32,10 @@
 				
 			</div>
 			<div id="manage">
-				
+				<button class="button">Manage Comics</button>
 			</div>
 			<div id="add_new">
-				
+				<button class="button">Add new comics</button>
 			</div>
 		</div>
 	</div>

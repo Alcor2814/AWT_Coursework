@@ -11,15 +11,16 @@ CREATE TABLE users (
 CREATE TABLE collections (
 	UserEmail TEXT,
 	ComicId INTEGER,
-	ComicReview TEXT
+	ComicReview TEXT,
+	DisplayReview TEXT
 );
 
 CREATE TABLE comics (
-	id INTEGER
-	name TEXT
-	store_date TEXT
-	image TEXT
-	issue_number INTEGER
-	description TEXT
+	id INTEGER,
+	name TEXT,
+	store_date TEXT,
+	image TEXT,
+	issue_number INTEGER,
+	description TEXT,
 	volume TEXT
 );
