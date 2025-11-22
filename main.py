@@ -273,7 +273,7 @@ def specific_book():
     if(comic['description'] is not None):
         comic['description'] = re.sub(r"<.*?>", " ", comic['description'])
     
-    return render_template('specific_book.html', comic=comic)
+    return render_template('specific_book.html', comic=comic, renderAdd= not check_comic_in_collection(comic))
    
 @app.route('/add_to_collection/')
 def add_to_collection():

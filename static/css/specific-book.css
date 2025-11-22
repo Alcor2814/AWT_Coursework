@@ -34,8 +34,10 @@
 	text-align:center;
 }
 
-#left p{
+#left span{
 	border-style:solid;
+	max-height:20%;
+	overflow-y:scroll;
 }
 
 #reviews{
