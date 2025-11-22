@@ -19,12 +19,14 @@
 			<div class="comicBox">
 				<div class="comic">
 					<img src={{comic['image']['small_url']}}>
-					<a id = "add" href="{{url_for('add_to_collection', comic = comic)}}">
-						Add to collection
-					</a>
+					{% if renderAdd == true %}
+						<a id = "add" href="{{url_for('add_to_collection', comic = comic)}}">
+							Add to collection
+						</a>
+					{% endif %}
 				</div>
 			</div>
-			<p>{{comic['description']}}</p>
+			<span>{{comic['description']}}</span>
 		</div>
 		<div id="right">
 			<div id="reviews">
