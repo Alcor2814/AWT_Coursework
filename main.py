@@ -13,6 +13,7 @@ import sqlite3
 import configparser
 import logging
 import re
+import random
 
 app = Flask(__name__)
 db_location='var/database.db'
@@ -61,6 +62,7 @@ def retrievePublisherVolumes():
         # Assigns each of those volume ids as a key in the dict indicating the publisher.
         # This information can be used to check the publisher of each issue in their volume sections (since this is the only publisher specific information available)
         # By making this a key in a dict, the look-up process is much faster which is important given that Marvel alone has upwards of 13,000 volumes to consider.
+        # Time complexity O(1) for checking a volume in the dict.
         
     config = configparser.ConfigParser()
     try:
@@ -70,8 +72,6 @@ def retrievePublisherVolumes():
     except:
         app.logger.error("Error retrieving API Key")
         
-    url = "https://comicvine.gamespot.com/api/publisher/" + str(p) + "/"
-    api_key = "2b739459da8dc4ec62f68656b642554dea026eca"
     headers = {
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:144.0) Gecko/20100101 Firefox/144.0',
     }
@@ -81,6 +81,7 @@ def retrievePublisherVolumes():
     }
     
     for p in publishers:
+        url = "https://comicvine.gamespot.com/api/publisher/" + str(p) + "/"
         try:
             session = requests.Session()
             session.headers = headers
@@ -420,23 +421,25 @@ def retrieveIndexData():
         api_key = config.get("query_parameters", "api_key")
     except:
         app.logger.error("Error retrieving API Key")
-    
+        
     url = "https://comicvine.gamespot.com/api/issues/"
     headers = {
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:144.0) Gecko/20100101 Firefox/144.0',
     }
+    selectedVolume = random.choice(list(publisherDict.keys()))
     params={
         "api_key" : api_key,
         "format" : "json",
-        "filter" : "volume:91078",
+        "filter" : f"volume:{selectedVolume}",
         "sort" : "store_date:desc",
-        "limit" : 1
     }
     
     session = requests.Session()
     session.headers = headers
     response = session.get(url, params=params)
     data = response.json()
+    
+    selectedIssue = random.randrange(0, len(data['results']))
     
     cover = data['results'][0]['image']['small_url']
     volumeName = data['results'][0]['volume']['name']
