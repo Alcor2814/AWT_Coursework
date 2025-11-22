@@ -98,7 +98,7 @@ def retrievePublisherVolumes():
     
     return publisherDict
 
-#Calls retrievePublisherVolumes once on starting the server.
+#Calls retrievePublisherVolumes on starting the server.
 publisherDict = retrievePublisherVolumes()
 
 def requires_login(f):
@@ -352,8 +352,14 @@ def weekly():
         #weekly calls the retrieveIssuesByDateWeekly to collect all of the issues in a given week in an API call.
         return render_template('weekly.html', comics=comics, dates=dates)
     elif request.method == 'POST':
-        app.logger.info("Received calendar date " + str(date))
+        #Receives the sent date as a datetime
         date=datetime.datetime.strptime(request.form['calendar'], '%Y-%m-%d')
+        #Converts to date - unsure how to make it just receive as date.
+        date=date.date()
+        
+        app.logger.info("Received calendar date " + str(date))
+        #Checks if the date received is greater than today. If yes, redirects to today.
+            #The calendar can be limited via JavaScript Max, but this doesn't work on all browsers.
         if date > datetime.date.today():
             app.logger.info("User attempted to input date greater than today.")
             date=datetime.date.today()
