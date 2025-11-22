@@ -1,8 +1,13 @@
+.content{
+	max-height:80%;
+}
+
 #left{
 	border-style:solid;
 	margin-right:15px;
 	flex-grow:1;
 	overflow-y: scroll;
+	max-height:100%;
 }
 #right{
 	display:flex;
@@ -17,6 +22,7 @@
 	border-style:solid;
 	flex-grow:1;
 	margin-bottom:10px;
+	max-height:20%;
 }
 
 #preview{
