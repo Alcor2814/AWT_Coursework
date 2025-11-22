@@ -244,8 +244,6 @@ def collection():
                 "volume" : ast.literal_eval(row[6])
             }
             collection.append(tempComic)
-        
-        app.logger.info(str(collection[0]))
     else:
         collection=[]
         
@@ -255,13 +253,13 @@ def collection():
 @requires_login
 def specific_book():
     #Receives the comic sent to it via search/collection/weekly
-    postedComic = request.args.get('comic', None)
+    sentComic = request.args.get('comic', None)
     
-    if(postedComic is None): 
+    if(sentComic is None): 
         return redirect(url_for('homepage'))
         
     #Evaluates it into a dictionary since the specific data structure is lost on POSTing.
-    comic=ast.literal_eval(postedComic)
+    comic=ast.literal_eval(sentComic)
     #Removes html tags from description because it is unnecessary/shouldn't be implicitly trusted.
     if(comic['description'] is not None):
         comic['description'] = re.sub(r"<.*?>", " ", comic['description'])
@@ -335,14 +333,24 @@ def check_comic_in_collection(comic):
     else:
         return True
     
-@app.route('/weekly/')
+@app.route('/weekly/', methods=['GET', 'POST'])
 @requires_login
 def weekly():
-    #By default the weekly page starts on today's date.
-    dates = [datetime.date.today()-timedelta(days=6), datetime.date.today()]
-    
-    #weekly calls the retrieveIssuesByDateWeekly to collect all of the issues in a given week in an API call.
-    return render_template('weekly.html', comics=retrieveIssuesByDateWeekly(dates[1], 0), dates = dates)
+    if request.method == 'GET':
+        #By default the weekly page starts on today's date.
+        dates = [datetime.date.today()-timedelta(days=6), datetime.date.today()]
+        comics=retrieveIssuesByDateWeekly(dates[1], 0)
+        #weekly calls the retrieveIssuesByDateWeekly to collect all of the issues in a given week in an API call.
+        return render_template('weekly.html', comics=comics, dates=dates)
+    elif request.method == 'POST':
+        app.logger.info("Received calendar date " + str(date))
+        date=datetime.datetime.strptime(request.form['calendar'], '%Y-%m-%d')
+        if date > datetime.date.today():
+            app.logger.info("User attempted to input date greater than today.")
+            date=datetime.date.today()
+        dates=[date-timedelta(days=6), date]
+        comics = retrieveIssuesByDateWeekly(dates[1], 0)
+        return render_template('weekly.html', comics=comics, dates=dates)
 
 @app.route('/search/')
 @requires_login
@@ -355,6 +363,7 @@ def other_collection():
     return render_template('other_collection.html')
     
 def retrieveIssuesByDateWeekly(endDate, offset):
+    app.logger.info("Retrieving issues for week ending " + str(endDate) + " with offset of " + str(offset))
     url = "https://comicvine.gamespot.com/api/issues/"
     api_key = "2b739459da8dc4ec62f68656b642554dea026eca"
     headers = {
