@@ -15,7 +15,6 @@ import logging
 import re
 
 app = Flask(__name__)
-app.secret_key = ""
 db_location='var/database.db'
 
 def init(app):
@@ -62,17 +61,27 @@ def retrievePublisherVolumes():
         # Assigns each of those volume ids as a key in the dict indicating the publisher.
         # This information can be used to check the publisher of each issue in their volume sections (since this is the only publisher specific information available)
         # By making this a key in a dict, the look-up process is much faster which is important given that Marvel alone has upwards of 13,000 volumes to consider.
+        
+    config = configparser.ConfigParser()
+    try:
+        config_location = "etc/defaults.cfg"
+        config.read(config_location)
+        api_key = config.get("query_parameters", "api_key")
+    except:
+        app.logger.error("Error retrieving API Key")
+        
+    url = "https://comicvine.gamespot.com/api/publisher/" + str(p) + "/"
+    api_key = "2b739459da8dc4ec62f68656b642554dea026eca"
+    headers = {
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:144.0) Gecko/20100101 Firefox/144.0',
+    }
+    params={
+        "api_key" : api_key,
+        "format" : "json",
+    }
+    
     for p in publishers:
         try:
-            url = "https://comicvine.gamespot.com/api/publisher/" + str(p) + "/"
-            api_key = "2b739459da8dc4ec62f68656b642554dea026eca"
-            headers = {
-                'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:144.0) Gecko/20100101 Firefox/144.0',
-            }
-            params={
-                "api_key" : api_key,
-                "format" : "json",
-            }
             session = requests.Session()
             session.headers = headers
             response = session.get(url, params=params)
@@ -215,7 +224,6 @@ def homepage():
 @app.route('/collection/')
 @requires_login
 def collection():
-    
     db = get_db()
     sql = f'SELECT * FROM collections WHERE UserEmail="{session['name']}"'
     result = db.cursor().execute(sql)
@@ -364,8 +372,16 @@ def other_collection():
     
 def retrieveIssuesByDateWeekly(endDate, offset):
     app.logger.info("Retrieving issues for week ending " + str(endDate) + " with offset of " + str(offset))
+
+    config = configparser.ConfigParser()
+    try:
+        config_location = "etc/defaults.cfg"
+        config.read(config_location)
+        api_key = config.get("query_parameters", "api_key")
+    except:
+        app.logger.error("Error retrieving API Key")
+    
     url = "https://comicvine.gamespot.com/api/issues/"
-    api_key = "2b739459da8dc4ec62f68656b642554dea026eca"
     headers = {
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:144.0) Gecko/20100101 Firefox/144.0',
     }
@@ -397,8 +413,15 @@ def retrieveIssuesByDateWeekly(endDate, offset):
     return filteredData
 
 def retrieveIndexData():
+    config = configparser.ConfigParser()
+    try:
+        config_location = "etc/defaults.cfg"
+        config.read(config_location)
+        api_key = config.get("query_parameters", "api_key")
+    except:
+        app.logger.error("Error retrieving API Key")
+    
     url = "https://comicvine.gamespot.com/api/issues/"
-    api_key = "2b739459da8dc4ec62f68656b642554dea026eca"
     headers = {
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:144.0) Gecko/20100101 Firefox/144.0',
     }
