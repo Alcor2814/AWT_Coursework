@@ -1,3 +1,7 @@
+.title h1{
+	margin-left:1%;
+}
+
 .content{
 	max-height:80%;
 }
@@ -47,6 +51,7 @@
 
 .previewButton{
 	flex-grow:5;
+	text-align:left;
 }
 
 .formButton{
