@@ -10,13 +10,25 @@
 		<h1> Your Collection </h1>
 		<div class="toolbar">
 			<button class="toolbarButton">
-				Toolbar
+				<img src = {{url_for ('static' , filename = 'img/Hamburger.png')}}>
 			</button>
-			<div class="toolbar-content">
-				<a onclick="window.location.href='{{url_for('search')}}'">Search</a>
-				<a onclick="window.location.href='{{url_for('collection')}}'">Collection</a>
-				<a onclick="window.location.href='{{url_for('weekly')}}'">Weekly</a>
-				<a onclick="window.location.href='{{url_for('homepage')}}'">Homepage</a>
+			<div class="toolbarContent">
+				<a onclick="window.location.href='{{url_for('search')}}'" class="toolbarOption">
+					<img src = {{url_for ('static' , filename = 'img/Search.png')}}>
+					Search
+				</a>
+				<a onclick="window.location.href='{{url_for('weekly')}}'" class="toolbarOption">
+					<img src = {{url_for ('static' , filename = 'img/Calendar.png')}}>
+					Weekly
+				</a>
+				<a onclick="window.location.href='{{url_for('homepage')}}'" class="toolbarOption">
+					<img src = {{url_for ('static' , filename = 'img/Home.png')}}>
+					Homepage
+				</a>
+				<a onclick="window.location.href='{{url_for('logout')}}'" class="toolbarOption">
+					<img src = {{url_for ('static' , filename = 'img/Logout.png')}}>
+					Logout
+				</a>
 			</div>
 		</div>
 	</div>

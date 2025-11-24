@@ -8,12 +8,26 @@
 	<div class="title">
 		<h1> Search Comics </h1>
 		<div class="toolbar">
-			<button class="toolbarButton">Toolbar</button>
-			<div class="toolbar-content">
-				<a onclick="window.location.href='{{url_for('search')}}'">Search</a>
-				<a onclick="window.location.href='{{url_for('collection')}}'">Collection</a>
-				<a onclick="window.location.href='{{url_for('weekly')}}'">Weekly</a>
-				<a onclick="window.location.href='{{url_for('homepage')}}'">Homepage</a>
+			<button class="toolbarButton">
+				<img src = {{url_for ('static' , filename = 'img/Hamburger.png')}}>
+			</button>
+			<div class="toolbarContent">
+				<a onclick="window.location.href='{{url_for('collection')}}'" class="toolbarOption">
+					<img src = {{url_for ('static' , filename = 'img/Books.png')}}>
+					Collection
+				</a>
+				<a onclick="window.location.href='{{url_for('weekly')}}'" class="toolbarOption">
+					<img src = {{url_for ('static' , filename = 'img/Calendar.png')}}>
+					Weekly
+				</a>
+				<a onclick="window.location.href='{{url_for('homepage')}}'" class="toolbarOption">
+					<img src = {{url_for ('static' , filename = 'img/Home.png')}}>
+					Homepage
+				</a>
+				<a onclick="window.location.href='{{url_for('logout')}}'" class="toolbarOption">
+					<img src = {{url_for ('static' , filename = 'img/Logout.png')}}>
+					Logout
+				</a>
 			</div>
 		</div>
 	</div>
