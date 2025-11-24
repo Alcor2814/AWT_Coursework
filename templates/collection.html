@@ -2,12 +2,35 @@
 <head>
 	<link rel="stylesheet" href="{{ url_for('static', filename='css/stylesheet.css') }}">
 	<link rel="stylesheet" href="{{ url_for('static', filename='css/collection.css') }}">
-	<script src="{{url_for('static', filename='scripts/collection.js')}}"></script>
+	<script src="{{url_for('static', filename='js/collection.js')}}"></script>
 </head>
 <body onload='previewComic("{{collection[0]['image']['small_url']}}")'>
 <div class="overall">
 	<div class="title">
 		<h1> Your Collection </h1>
+		<div class="toolbar">
+			<button class="toolbarButton">
+				<img src = {{url_for ('static' , filename = 'img/Hamburger.png')}}>
+			</button>
+			<div class="toolbarContent">
+				<a onclick="window.location.href='{{url_for('search')}}'" class="toolbarOption">
+					<img src = {{url_for ('static' , filename = 'img/Search.png')}}>
+					Search
+				</a>
+				<a onclick="window.location.href='{{url_for('weekly')}}'" class="toolbarOption">
+					<img src = {{url_for ('static' , filename = 'img/Calendar.png')}}>
+					Weekly
+				</a>
+				<a onclick="window.location.href='{{url_for('homepage')}}'" class="toolbarOption">
+					<img src = {{url_for ('static' , filename = 'img/Home.png')}}>
+					Homepage
+				</a>
+				<a onclick="window.location.href='{{url_for('logout')}}'" class="toolbarOption">
+					<img src = {{url_for ('static' , filename = 'img/Logout.png')}}>
+					Logout
+				</a>
+			</div>
+		</div>
 	</div>
 	<div class="content">
 		<div id="left">

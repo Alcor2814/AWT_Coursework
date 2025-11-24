@@ -7,6 +7,29 @@
 <div class="overall">
 	<div class="title">
 		<h1> Weekly Comics </h1>
+		<div class="toolbar">
+			<button class="toolbarButton">
+				<img src = {{url_for ('static' , filename = 'img/Hamburger.png')}}>
+			</button>
+			<div class="toolbarContent">
+				<a onclick="window.location.href='{{url_for('collection')}}'" class="toolbarOption">
+					<img src = {{url_for ('static' , filename = 'img/Books.png')}}>
+					Collection
+				</a>
+				<a onclick="window.location.href='{{url_for('search')}}'" class="toolbarOption">
+					<img src = {{url_for ('static' , filename = 'img/Search.png')}}>
+					Search
+				</a>
+				<a onclick="window.location.href='{{url_for('homepage')}}'" class="toolbarOption">
+					<img src = {{url_for ('static' , filename = 'img/Home.png')}}>
+					Homepage
+				</a>
+				<a onclick="window.location.href='{{url_for('logout')}}'" class="toolbarOption">
+					<img src = {{url_for ('static' , filename = 'img/Logout.png')}}>
+					Logout
+				</a>
+			</div>
+		</div>
 	</div>
 	<div class="search_bar">
 		<span>Week: {{dates[0]}} to {{dates[1]}}</span>
