@@ -9,6 +9,7 @@
 .content{
 	flex-wrap:wrap;
 	overflow-y:scroll;
+	justify-content:flex-start;
 }
 
 .comicBox{
@@ -18,6 +19,7 @@
 	max-width:20%;
 	text-decoration:none;
 	color:black;
+	margin-bottom:5px;
 }
 .linkBox{
 	display:flex;
@@ -40,8 +42,4 @@
 	border-right:0px;
 	border-bottom:0px;
 	margin-top:0px;
-}
-
-.content{
-	justify-content:flex-start;
 }

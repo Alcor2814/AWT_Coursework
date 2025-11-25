@@ -32,7 +32,12 @@
 		</div>
 	</div>
 	<div class="search_bar">
-		<input type="text" placeholder="Search..." id="search">
+		<form id="search_form" action="" method="POST">
+			<input type="text" name="search" id="search" placeholder="Search..." required>
+			<button type="submit" class="button" value="submit_search">
+				Search
+			</button>
+		</form>
 		<div class="dropdown">
 			<button class="dropbtn">Sort and Filter</button>
 			<div class="dropdown-content">
@@ -43,42 +48,31 @@
 		</div>
 	</div>
 	<div class="content">
-		<div class="comicBox">
-			<div class="comic">
-				<img src={{comic[0]}}>
-				<p>{{comic[1]}}</p>
+		{% for suggestion in suggestions %}
+			<form class="suggestionBox" action="" method="POST">
+				<input type = "hidden" name = "volume" value = "{{suggestion}}"/>
+				<button type="submit" class="submit_button">
+					<p>{{suggestion[1][1]}}</p>
+				</button>
+			</form>
+		{% endfor %}
+		{% for comic in comics %}
+			<div class="comicBox">
+				<a class = "linkBox" href="{{url_for('specific_book', comic = comic)}}">
+					<div class="comic">
+						<img src={{comic['image']['small_url']}}>
+						{% set name = comic['volume']['name'] %}
+						{% if comic['issue_number'] is not none %}
+							{% set name = name ~ " #" ~ comic['issue_number'] %}
+						{% endif %}
+						{% if comic['name'] is not none %}
+							{% set name = name ~ " - " ~ comic['name'] %}
+						{% endif %}
+						<p>{{name}}</p>
+					</div>
+				</a>
 			</div>
-		</div>
-		<div class="comicBox">
-			<div class="comic">
-				<img src={{comic[0]}}>
-				<p>{{comic[1]}}</p>
-			</div>
-		</div>
-		<div class="comicBox">
-			<div class="comic">
-				<img src={{comic[0]}}>
-				<p>{{comic[1]}}</p>
-			</div>
-		</div>
-		<div class="comicBox">
-			<div class="comic">
-				<img src={{comic[0]}}>
-				<p>{{comic[1]}}</p>
-			</div>
-		</div>
-		<div class="comicBox">
-			<div class="comic">
-				<img src={{comic[0]}}>
-				<p>{{comic[1]}}</p>
-			</div>
-		</div>
-		<div class="comicBox">
-			<div class="comic">
-				<img src={{comic[0]}}>
-				<p>{{comic[1]}}</p>
-			</div>
-		</div>
+		{% endfor %}
 	</div>
 	<div class="information">
 		<p>Example text</p>
