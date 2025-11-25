@@ -1,45 +1,91 @@
-INFO | 2025-11-22 14:07:17,145 | main | retrievePublisherVolumes | Retrieving publishers.
-INFO | 2025-11-22 14:07:18,938 | main | retrievePublisherVolumes | Retrieving publishers.
-INFO | 2025-11-22 14:07:48,741 | main | login | Starting login attempt.
-INFO | 2025-11-22 14:07:48,746 | main | check_auth | Checking for matching emails: person@napier.ac.uk
-INFO | 2025-11-22 14:07:59,571 | main | retrieveIssuesByDateWeekly | Retrieving issues for week ending 2025-11-22 with offset of 0
-INFO | 2025-11-22 14:08:03,196 | main | retrieveIssuesByDateWeekly | Retrieving issues for week ending 2025-11-22 with offset of 100
-INFO | 2025-11-22 14:09:21,867 | main | retrievePublisherVolumes | Retrieving publishers.
-INFO | 2025-11-22 14:10:39,684 | main | retrievePublisherVolumes | Retrieving publishers.
-INFO | 2025-11-22 14:11:04,235 | main | retrievePublisherVolumes | Retrieving publishers.
-INFO | 2025-11-22 14:11:46,737 | main | retrievePublisherVolumes | Retrieving publishers.
-INFO | 2025-11-22 14:11:49,786 | main | retrievePublisherVolumes | Retrieving publishers.
-INFO | 2025-11-22 14:15:27,962 | main | retrievePublisherVolumes | Retrieving publishers.
-INFO | 2025-11-22 14:16:02,655 | main | retrievePublisherVolumes | Retrieving publishers.
-INFO | 2025-11-22 14:16:23,068 | main | retrievePublisherVolumes | Retrieving publishers.
-INFO | 2025-11-22 14:16:26,437 | main | weekly | Received calendar date 2003-09-11
-INFO | 2025-11-22 14:16:26,437 | main | retrieveIssuesByDateWeekly | Retrieving issues for week ending 2003-09-11 with offset of 0
-INFO | 2025-11-22 14:17:06,038 | main | retrievePublisherVolumes | Retrieving publishers.
-INFO | 2025-11-22 14:17:17,226 | main | retrievePublisherVolumes | Retrieving publishers.
-INFO | 2025-11-22 14:17:53,927 | main | retrievePublisherVolumes | Retrieving publishers.
-INFO | 2025-11-22 14:20:41,934 | main | retrievePublisherVolumes | Retrieving publishers.
-INFO | 2025-11-22 14:22:04,196 | main | retrievePublisherVolumes | Retrieving publishers.
-INFO | 2025-11-22 14:22:06,512 | main | check_comic_in_collection | Checking if comic is in user collection: 111046
-INFO | 2025-11-22 14:22:09,136 | main | retrieveIssuesByDateWeekly | Retrieving issues for week ending 2025-11-22 with offset of 0
-INFO | 2025-11-22 14:22:09,657 | main | retrieveIssuesByDateWeekly | Retrieving issues for week ending 2025-11-22 with offset of 100
-INFO | 2025-11-22 14:22:18,499 | main | weekly | Received calendar date 2025-11-29
-INFO | 2025-11-22 14:22:18,499 | main | weekly | User attempted to input date greater than today.
-INFO | 2025-11-22 14:22:18,499 | main | retrieveIssuesByDateWeekly | Retrieving issues for week ending 2025-11-22 with offset of 0
-INFO | 2025-11-22 14:22:18,979 | main | retrieveIssuesByDateWeekly | Retrieving issues for week ending 2025-11-22 with offset of 100
-INFO | 2025-11-22 14:22:21,582 | main | retrieveIssuesByDateWeekly | Retrieving issues for week ending 2025-11-22 with offset of 0
-INFO | 2025-11-22 14:22:21,991 | main | retrieveIssuesByDateWeekly | Retrieving issues for week ending 2025-11-22 with offset of 100
-INFO | 2025-11-22 14:22:27,599 | main | check_comic_in_collection | Checking if comic is in user collection: 1144102
-INFO | 2025-11-22 14:22:31,086 | main | check_comic_in_collection | Checking if comic is in user collection: 1144102
-INFO | 2025-11-22 14:22:38,628 | main | check_comic_in_collection | Checking if comic is in user collection: 1144216
-INFO | 2025-11-22 14:23:01,730 | main | check_comic_in_collection | Checking if comic is in user collection: 1144084
-INFO | 2025-11-22 14:23:05,906 | main | check_comic_in_collection | Checking if comic is in user collection: 1136070
-INFO | 2025-11-22 14:23:08,768 | main | check_comic_in_collection | Checking if comic is in user collection: 1136239
-INFO | 2025-11-22 14:24:02,029 | main | check_comic_in_collection | Checking if comic is in user collection: 1136239
-INFO | 2025-11-22 14:24:10,484 | main | check_comic_in_collection | Checking if comic is in user collection: 1136239
-INFO | 2025-11-22 14:24:20,964 | main | check_comic_in_collection | Checking if comic is in user collection: 1136239
-INFO | 2025-11-22 14:24:26,781 | main | check_comic_in_collection | Checking if comic is in user collection: 1136239
-INFO | 2025-11-22 14:24:32,320 | main | check_comic_in_collection | Checking if comic is in user collection: 1141905
-INFO | 2025-11-22 14:26:02,112 | main | check_comic_in_collection | Checking if comic is in user collection: 1141905
-INFO | 2025-11-22 14:26:11,116 | main | check_comic_in_collection | Checking if comic is in user collection: 1141905
-INFO | 2025-11-22 14:26:22,033 | main | check_comic_in_collection | Checking if comic is in user collection: 1136239
-INFO | 2025-11-22 14:27:14,131 | main | check_comic_in_collection | Checking if comic is in user collection: 119476
+
+INFO | 2025-11-25 16:00:25,492 | main | retrievePublisherVolumes | Retrieving publishers.
+INFO | 2025-11-25 16:00:57,785 | main | retrievePublisherVolumes | Retrieving publishers.
+INFO | 2025-11-25 16:01:25,708 | main | search | Volume Selected: (160511, ['DC Comics', 'Absolute Wonder Woman'])
+INFO | 2025-11-25 16:01:25,708 | main | retrieveVolumeIssues | Retrieving issues for volume Absolute Wonder Woman with offset of 0
+INFO | 2025-11-25 16:01:27,138 | main | retrieveVolumeIssues | https://comicvine.gamespot.com/api/issues/?api_key=2b739459da8dc4ec62f68656b642554dea026eca&format=json&filter=volume%3A160511&sort=store_date%3Adesc
+INFO | 2025-11-25 16:03:34,435 | main | retrievePublisherVolumes | Retrieving publishers.
+INFO | 2025-11-25 16:04:28,042 | main | search | Volume Selected: (160511, ['DC Comics', 'Absolute Wonder Woman'])
+INFO | 2025-11-25 16:04:28,043 | main | retrieveVolumeIssues | Retrieving issues for volume Absolute Wonder Woman with offset of 0
+INFO | 2025-11-25 16:04:29,323 | main | retrieveVolumeIssues | https://comicvine.gamespot.com/api/issues/?api_key=2b739459da8dc4ec62f68656b642554dea026eca&format=json&filter=volume%3A160511&sort=store_date%3Adesc
+INFO | 2025-11-25 16:04:29,327 | main | search | Type: <class 'dict'>
+INFO | 2025-11-25 16:05:35,379 | main | retrievePublisherVolumes | Retrieving publishers.
+INFO | 2025-11-25 16:05:49,327 | main | search | Volume Selected: (160511, ['DC Comics', 'Absolute Wonder Woman'])
+INFO | 2025-11-25 16:05:49,327 | main | retrieveVolumeIssues | Retrieving issues for volume Absolute Wonder Woman with offset of 0
+INFO | 2025-11-25 16:05:50,599 | main | retrieveVolumeIssues | https://comicvine.gamespot.com/api/issues/?api_key=2b739459da8dc4ec62f68656b642554dea026eca&format=json&filter=volume%3A160511&sort=store_date%3Adesc
+INFO | 2025-11-25 16:05:50,603 | main | search | Type: <class 'dict'>
+INFO | 2025-11-25 16:05:57,826 | main | retrievePublisherVolumes | Retrieving publishers.
+INFO | 2025-11-25 16:06:25,459 | main | search | Volume Selected: (160511, ['DC Comics', 'Absolute Wonder Woman'])
+INFO | 2025-11-25 16:06:25,459 | main | retrieveVolumeIssues | Retrieving issues for volume Absolute Wonder Woman with offset of 0
+INFO | 2025-11-25 16:06:28,252 | main | retrieveVolumeIssues | https://comicvine.gamespot.com/api/issues/?api_key=2b739459da8dc4ec62f68656b642554dea026eca&format=json&filter=volume%3A160511&sort=store_date%3Adesc
+INFO | 2025-11-25 16:06:28,257 | main | search | Type: <class 'dict'>
+INFO | 2025-11-25 16:06:28,258 | main | search | Type Comic: <class 'dict'>
+INFO | 2025-11-25 16:06:28,258 | main | search | Comic: {'aliases': None, 'api_detail_url': 'https://comicvine.gamespot.com/api/issue/4000-1139062/', 'cover_date': '2025-12-01', 'date_added': '2025-10-21 12:46:00', 'date_last_updated': '2025-10-26 19:51:00', 'deck': None, 'description': '<p><em><b>THE TRUTH OF THE AMAZONS!</b></em></p><p><em>As Diana learns more of the "myth of the Amazons" from Barbara in Gateway City, a series of violent supernatural events begins occurring one after another, drawing Diana all over the globe to fight. Noticing a pattern, Diana enlists Etta to help her crack the mystery of why these events are happening in these places and how to stop them.</em></p><p><em>The answer?</em></p><p><em>Too personal to imagine.</em></p>', 'has_staff_review': False, 'id': 1139062, 'image': {'icon_url': 'https://comicvine.gamespot.com/a/uploads/square_avatar/11/110017/9897366-wwww.jpg', 'medium_url': 'https://comicvine.gamespot.com/a/uploads/scale_medium/11/110017/9897366-wwww.jpg', 'screen_url': 'https://comicvine.gamespot.com/a/uploads/screen_medium/11/110017/9897366-wwww.jpg', 'screen_large_url': 'https://comicvine.gamespot.com/a/uploads/screen_kubrick/11/110017/9897366-wwww.jpg', 'small_url': 'https://comicvine.gamespot.com/a/uploads/scale_small/11/110017/9897366-wwww.jpg', 'super_url': 'https://comicvine.gamespot.com/a/uploads/scale_large/11/110017/9897366-wwww.jpg', 'thumb_url': 'https://comicvine.gamespot.com/a/uploads/scale_avatar/11/110017/9897366-wwww.jpg', 'tiny_url': 'https://comicvine.gamespot.com/a/uploads/square_mini/11/110017/9897366-wwww.jpg', 'original_url': 'https://comicvine.gamespot.com/a/uploads/original/11/110017/9897366-wwww.jpg', 'image_tags': 'All Images'}, 'associated_images': [], 'issue_number': '13', 'name': 'The Price, Part 1 of 2', 'site_detail_url': 'https://comicvine.gamespot.com/absolute-wonder-woman-13-the-price-part-1-of-2/4000-1139062/', 'store_date': '2025-10-22', 'volume': {'api_detail_url': 'https://comicvine.gamespot.com/api/volume/4050-160511/', 'id': 160511, 'name': 'Absolute Wonder Woman', 'site_detail_url': 'https://comicvine.gamespot.com/absolute-wonder-woman/4050-160511/'}}
+INFO | 2025-11-25 16:09:16,241 | main | retrievePublisherVolumes | Retrieving publishers.
+INFO | 2025-11-25 16:09:35,118 | main | retrievePublisherVolumes | Retrieving publishers.
+INFO | 2025-11-25 16:09:45,838 | main | retrievePublisherVolumes | Retrieving publishers.
+INFO | 2025-11-25 16:09:58,408 | main | retrievePublisherVolumes | Retrieving publishers.
+INFO | 2025-11-25 16:10:16,681 | main | search | Volume Selected: (160511, ['DC Comics', 'Absolute Wonder Woman'])
+INFO | 2025-11-25 16:10:16,682 | main | retrieveVolumeIssues | Retrieving issues for volume Absolute Wonder Woman with offset of 0
+INFO | 2025-11-25 16:10:17,939 | main | retrieveVolumeIssues | https://comicvine.gamespot.com/api/issues/?api_key=2b739459da8dc4ec62f68656b642554dea026eca&format=json&filter=volume%3A160511&sort=store_date%3Adesc
+INFO | 2025-11-25 16:10:58,819 | main | retrievePublisherVolumes | Retrieving publishers.
+INFO | 2025-11-25 16:11:03,261 | main | search | Volume Selected: (160511, ['DC Comics', 'Absolute Wonder Woman'])
+INFO | 2025-11-25 16:11:03,262 | main | retrieveVolumeIssues | Retrieving issues for volume Absolute Wonder Woman with offset of 0
+INFO | 2025-11-25 16:11:04,748 | main | retrieveVolumeIssues | https://comicvine.gamespot.com/api/issues/?api_key=2b739459da8dc4ec62f68656b642554dea026eca&format=json&filter=volume%3A160511&sort=store_date%3Aasc
+INFO | 2025-11-25 16:11:09,994 | main | check_comic_in_collection | Checking if comic is in user collection: 1079209
+INFO | 2025-11-25 16:11:15,955 | main | check_comic_in_collection | Checking if comic is in user collection: 1100111
+INFO | 2025-11-25 16:11:17,767 | main | check_comic_in_collection | Checking if comic is in user collection: 1100111
+INFO | 2025-11-25 16:11:17,768 | main | check_comic_in_database | Checking if comic exists: 1100111
+INFO | 2025-11-25 16:11:17,769 | main | add_comic_to_database | Adding comic to database: 1100111
+INFO | 2025-11-25 16:11:17,796 | main | add_to_collection | Adding comic to user collection: 1100111
+INFO | 2025-11-25 16:11:18,166 | main | check_comic_in_collection | Checking if comic is in user collection: 1100111
+INFO | 2025-11-25 16:11:23,776 | main | check_comic_in_collection | Checking if comic is in user collection: 1096891
+INFO | 2025-11-25 16:11:29,194 | main | check_comic_in_collection | Checking if comic is in user collection: 1128888
+INFO | 2025-11-25 16:11:30,701 | main | check_comic_in_collection | Checking if comic is in user collection: 1128888
+INFO | 2025-11-25 16:11:30,703 | main | check_comic_in_database | Checking if comic exists: 1128888
+INFO | 2025-11-25 16:11:30,703 | main | add_comic_to_database | Adding comic to database: 1128888
+INFO | 2025-11-25 16:11:30,729 | main | add_to_collection | Adding comic to user collection: 1128888
+INFO | 2025-11-25 16:11:31,077 | main | check_comic_in_collection | Checking if comic is in user collection: 1128888
+INFO | 2025-11-25 16:11:35,549 | main | check_comic_in_collection | Checking if comic is in user collection: 1134428
+INFO | 2025-11-25 16:11:38,770 | main | check_comic_in_collection | Checking if comic is in user collection: 1134428
+INFO | 2025-11-25 16:11:49,216 | main | retrieveIssuesByDateWeekly | Retrieving issues for week ending 2025-11-25 with offset of 0
+INFO | 2025-11-25 16:11:53,522 | main | retrieveIssuesByDateWeekly | Retrieving issues for week ending 2025-11-25 with offset of 100
+INFO | 2025-11-25 16:12:13,061 | main | findMatchingValueInPublisherDict | Finding volumes matching Absolute
+INFO | 2025-11-25 16:12:13,066 | main | findMatchingValueInPublisherDict | Matches found: 119
+INFO | 2025-11-25 16:12:19,453 | main | search | Volume Selected: (160511, ['DC Comics', 'Absolute Wonder Woman'])
+INFO | 2025-11-25 16:12:19,454 | main | retrieveVolumeIssues | Retrieving issues for volume Absolute Wonder Woman with offset of 0
+INFO | 2025-11-25 16:12:20,622 | main | retrieveVolumeIssues | https://comicvine.gamespot.com/api/issues/?api_key=2b739459da8dc4ec62f68656b642554dea026eca&format=json&filter=volume%3A160511&sort=store_date%3Aasc
+INFO | 2025-11-25 16:13:24,093 | main | search | Volume Selected: (160511, ['DC Comics', 'Absolute Wonder Woman'])
+INFO | 2025-11-25 16:13:24,094 | main | retrieveVolumeIssues | Retrieving issues for volume Absolute Wonder Woman with offset of 0
+INFO | 2025-11-25 16:13:25,234 | main | retrieveVolumeIssues | https://comicvine.gamespot.com/api/issues/?api_key=2b739459da8dc4ec62f68656b642554dea026eca&format=json&filter=volume%3A160511&sort=store_date%3Aasc
+INFO | 2025-11-25 16:13:42,159 | main | search | Volume Selected: (160511, ['DC Comics', 'Absolute Wonder Woman'])
+INFO | 2025-11-25 16:13:42,159 | main | retrieveVolumeIssues | Retrieving issues for volume Absolute Wonder Woman with offset of 0
+INFO | 2025-11-25 16:13:43,170 | main | retrieveVolumeIssues | https://comicvine.gamespot.com/api/issues/?api_key=2b739459da8dc4ec62f68656b642554dea026eca&format=json&filter=volume%3A160511&sort=store_date%3Aasc
+INFO | 2025-11-25 16:14:39,175 | main | retrieveIssuesByDateWeekly | Retrieving issues for week ending 2025-11-25 with offset of 0
+INFO | 2025-11-25 16:14:40,849 | main | retrieveIssuesByDateWeekly | Retrieving issues for week ending 2025-11-25 with offset of 100
+INFO | 2025-11-25 16:16:16,215 | main | search | Volume Selected: (160511, ['DC Comics', 'Absolute Wonder Woman'])
+INFO | 2025-11-25 16:16:16,215 | main | retrieveVolumeIssues | Retrieving issues for volume Absolute Wonder Woman with offset of 0
+INFO | 2025-11-25 16:16:17,678 | main | retrieveVolumeIssues | https://comicvine.gamespot.com/api/issues/?api_key=2b739459da8dc4ec62f68656b642554dea026eca&format=json&filter=volume%3A160511&sort=store_date%3Aasc
+INFO | 2025-11-25 16:16:20,318 | main | retrieveIssuesByDateWeekly | Retrieving issues for week ending 2025-11-25 with offset of 0
+INFO | 2025-11-25 16:16:21,531 | main | retrieveIssuesByDateWeekly | Retrieving issues for week ending 2025-11-25 with offset of 100
+INFO | 2025-11-25 16:17:16,306 | main | retrieveIssuesByDateWeekly | Retrieving issues for week ending 2025-11-25 with offset of 0
+INFO | 2025-11-25 16:17:17,412 | main | retrieveIssuesByDateWeekly | Retrieving issues for week ending 2025-11-25 with offset of 100
+INFO | 2025-11-25 16:17:28,103 | main | findMatchingValueInPublisherDict | Finding volumes matching Absolute
+INFO | 2025-11-25 16:17:28,110 | main | findMatchingValueInPublisherDict | Matches found: 119
+INFO | 2025-11-25 16:17:31,862 | main | search | Volume Selected: (160511, ['DC Comics', 'Absolute Wonder Woman'])
+INFO | 2025-11-25 16:17:31,862 | main | retrieveVolumeIssues | Retrieving issues for volume Absolute Wonder Woman with offset of 0
+INFO | 2025-11-25 16:17:33,060 | main | retrieveVolumeIssues | https://comicvine.gamespot.com/api/issues/?api_key=2b739459da8dc4ec62f68656b642554dea026eca&format=json&filter=volume%3A160511&sort=store_date%3Aasc
+INFO | 2025-11-25 16:18:00,064 | main | findMatchingValueInPublisherDict | Finding volumes matching Action Comics
+INFO | 2025-11-25 16:18:00,071 | main | findMatchingValueInPublisherDict | Matches found: 36
+INFO | 2025-11-25 16:18:07,048 | main | search | Volume Selected: (3973, ['DC Comics', 'Action Comics Weekly'])
+INFO | 2025-11-25 16:18:07,048 | main | retrieveVolumeIssues | Retrieving issues for volume Action Comics Weekly with offset of 0
+INFO | 2025-11-25 16:18:08,933 | main | retrieveVolumeIssues | https://comicvine.gamespot.com/api/issues/?api_key=2b739459da8dc4ec62f68656b642554dea026eca&format=json&filter=volume%3A3973&sort=store_date%3Aasc
+INFO | 2025-11-25 16:18:30,263 | main | search | Volume Selected: (18005, ['DC Comics', 'Action Comics'])
+INFO | 2025-11-25 16:18:30,264 | main | retrieveVolumeIssues | Retrieving issues for volume Action Comics with offset of 0
+INFO | 2025-11-25 16:19:05,221 | main | retrievePublisherVolumes | Retrieving publishers.
+INFO | 2025-11-25 16:19:38,480 | main | retrievePublisherVolumes | Retrieving publishers.
+INFO | 2025-11-25 16:20:00,006 | main | search | Volume Selected: (18005, ['DC Comics', 'Action Comics'])
+INFO | 2025-11-25 16:20:00,006 | main | retrieveVolumeIssues | Retrieving issues for volume Action Comics with offset of 0
+INFO | 2025-11-25 16:20:02,772 | main | retrieveVolumeIssues | https://comicvine.gamespot.com/api/issues/?api_key=2b739459da8dc4ec62f68656b642554dea026eca&format=json&filter=volume%3A18005&sort=store_date%3Aasc
+INFO | 2025-11-25 16:21:35,875 | main | retrievePublisherVolumes | Retrieving publishers.
+INFO | 2025-11-25 16:26:00,081 | main | retrievePublisherVolumes | Retrieving publishers.

@@ -1,5 +1,22 @@
-#search{
+#search_form{
 	flex:1;
+	display:flex;
+}
+#search{
+	flex-grow:1;
+}
+
+.suggestionBox{
+	border-style:solid;
+	flex:1 0 20%;
+	margin:5px;
+}
+.linkBox{
+	margin-bottom:5px;
+}
+
+.submit_button{
+	width:100%;
 }
 
 /* Dropdown content */

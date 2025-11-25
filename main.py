@@ -90,9 +90,9 @@ def retrievePublisherVolumes():
 
             for x in data['results']['volumes']:
                 if p == publishers[0]:
-                    publisherDict.update({x['id'] : "Marvel"})
+                    publisherDict.update({x['id'] : ["Marvel", x['name']]})
                 if p == publishers[1]:
-                    publisherDict.update({x['id'] : "DC Comics"})
+                    publisherDict.update({x['id'] : ["DC Comics", x['name']]})
         except:
             app.logger.error("Publisher "+ p + "failed to retrieve.")
     
@@ -367,16 +367,6 @@ def weekly():
         comics = retrieveIssuesByDateWeekly(dates[1], 0)
         return render_template('weekly.html', comics=comics, dates=dates)
 
-@app.route('/search/')
-@requires_login
-def search():
-    return render_template('search.html', comic=retrieveIndexData())
-
-@app.route('/other_collection/')
-@requires_login
-def other_collection():
-    return render_template('other_collection.html')
-    
 def retrieveIssuesByDateWeekly(endDate, offset):
     app.logger.info("Retrieving issues for week ending " + str(endDate) + " with offset of " + str(offset))
 
@@ -419,6 +409,78 @@ def retrieveIssuesByDateWeekly(endDate, offset):
     
     return filteredData
 
+@app.route('/search/', methods=['GET', 'POST'])
+@requires_login
+def search():
+    if request.method == 'GET':
+        return render_template('search.html', comics=[], suggestions=[])
+    elif request.method == 'POST':
+        try:
+            search = request.form['search']
+            req="search"
+        except:
+            req="retrieve"
+            
+        if req == "search":
+            suggestions = findMatchingValueInPublisherDict(search)
+            comics=[]
+        else:
+            # Turns the returned string into a dict
+            volume = eval(request.form['volume'])
+            app.logger.info("Volume Selected: " + str(volume))
+            suggestions=[]
+            comics = retrieveVolumeIssues(volume, 0)['results']
+            
+    return render_template('search.html', comics=comics, suggestions=suggestions)
+        
+def findMatchingValueInPublisherDict(search):
+    app.logger.info("Finding volumes matching " + search)
+    matchingVolumes = []
+    for volume in publisherDict.items():
+        if search in volume[1][1]:
+            matchingVolumes.append(volume)
+    app.logger.info("Matches found: " + str(len(matchingVolumes)))
+    return matchingVolumes
+    
+def retrieveVolumeIssues(volume, offset):
+    app.logger.info("Retrieving issues for volume " + str(volume[1][1]) + " with offset of " + str(offset))
+    
+    config = configparser.ConfigParser()
+    try:
+        config_location = "etc/defaults.cfg"
+        config.read(config_location)
+        api_key = config.get("query_parameters", "api_key")
+    except:
+        app.logger.error("Error retrieving API Key")
+        
+    url = "https://comicvine.gamespot.com/api/issues/"
+    headers = {
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:144.0) Gecko/20100101 Firefox/144.0',
+    }
+    params={
+        "api_key" : api_key,
+        "format" : "json",
+        "filter" : f"volume:{volume[0]}",
+        "sort" : "store_date:asc",
+    }
+    
+    session = requests.Session()
+    session.headers = headers
+    response = session.get(url, params=params)
+    data = response.json()
+    
+    if len(data['results']) == 100 & offset < 1000:
+        data=data + retrieveVolumeIssues(endDate, offset+100)
+    app.logger.info(response.url)
+    return data
+
+@app.route('/other_collection/')
+@requires_login
+def other_collection():
+    return render_template('other_collection.html')
+    
+
+
 def retrieveIndexData():
     config = configparser.ConfigParser()
     try:
@@ -445,12 +507,15 @@ def retrieveIndexData():
     response = session.get(url, params=params)
     data = response.json()
     
-    selectedIssue = random.randrange(0, len(data['results']))
+    if len(data['results']) > 1:
+        selectedIssue = random.randrange(0, len(data['results'])-1)
+    else:
+        selectedIssue = 0
     
-    cover = data['results'][0]['image']['small_url']
-    volumeName = data['results'][0]['volume']['name']
-    issueNumber = data['results'][0]['issue_number']
-    issueName = data['results'][0]['name']
+    cover = data['results'][selectedIssue]['image']['small_url']
+    volumeName = data['results'][selectedIssue]['volume']['name']
+    issueNumber = data['results'][selectedIssue]['issue_number']
+    issueName = data['results'][selectedIssue]['name']
     name = volumeName
     
     if issueNumber is not None:
@@ -458,8 +523,7 @@ def retrieveIndexData():
     if issueName is not None:
         name += " - " + issueName
     comic = [cover, name]
-    #print(response.request.url, file=sys.stderr)
-    #print(request, file=sys.stderr)
+    
     return comic
     
 def get_db():
