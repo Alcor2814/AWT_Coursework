@@ -417,19 +417,17 @@ def search():
     elif request.method == 'POST':
         try:
             search = request.form['search']
-            req="search"
-        except:
-            req="retrieve"
-            
-        if req == "search":
             suggestions = findMatchingValueInPublisherDict(search)
             comics=[]
-        else:
-            # Turns the returned string into a dict
-            volume = eval(request.form['volume'])
-            app.logger.info("Volume Selected: " + str(volume))
-            suggestions=[]
-            comics = retrieveVolumeIssues(volume, 0)['results']
+        except:
+            try:
+                # Turns the returned string into a dict
+                volume = eval(request.form['volume'])
+                app.logger.info("Volume Selected: " + str(volume))
+                suggestions=[]
+                comics = retrieveVolumeIssues(volume, 0)['results']
+            except:
+                app.logger.error("Unable to interpret string or volume")
             
     return render_template('search.html', comics=comics, suggestions=suggestions)
         
