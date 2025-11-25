@@ -403,7 +403,7 @@ def retrieveIssuesByDateWeekly(endDate, offset):
         if x['volume']['id'] in publisherDict:
             filteredData.append(x)
     # If the results are greater than 100 then every issue in a given week may not be covered.
-    # As such, it polymorphically loops through retrieving issues until all issues have been collected.
+    # As such, it recursively loops through retrieving issues until all issues have been collected.
     if len(data['results']) == 100:
         filteredData= filteredData + retrieveIssuesByDateWeekly(endDate, offset+100)
     
@@ -457,11 +457,14 @@ def retrieveVolumeIssues(volume, offset):
     headers = {
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:144.0) Gecko/20100101 Firefox/144.0',
     }
+    # The search function will operate on cover date.
+        # Dates are less important when doing a generalised search, and many records don't have recorded store dates (which would have been preferred).
     params={
         "api_key" : api_key,
         "format" : "json",
         "filter" : f"volume:{volume[0]}",
-        "sort" : "store_date:asc",
+        "sort" : "cover_date:asc",
+        "offset" : offset
     }
     
     session = requests.Session()
@@ -469,17 +472,18 @@ def retrieveVolumeIssues(volume, offset):
     response = session.get(url, params=params)
     data = response.json()
     
-    if len(data['results']) == 100 & offset < 1000:
-        data=data + retrieveVolumeIssues(endDate, offset+100)
-    app.logger.info(response.url)
+    # Recursively searches through the volume.
+        # If it were any more than one person using this in any given hour (me) I would add a limiter to how far offset it can become to limit API calls.
+    if len(data['results']) == 100 :
+        data['results'] = data['results'] + retrieveVolumeIssues(volume, offset+100)['results']
+    
+    app.logger.info("Retrieved " + str(len(data['results'])) + " issues.")
     return data
 
 @app.route('/other_collection/')
 @requires_login
 def other_collection():
     return render_template('other_collection.html')
-    
-
 
 def retrieveIndexData():
     config = configparser.ConfigParser()
