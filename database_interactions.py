@@ -8,7 +8,6 @@ from logging.handlers import RotatingFileHandler
 from flask import Flask, g, session
 
 db_location='var/database.db'
-app = Flask(__name__)
 
 def get_db():
     db = getattr(g, 'db', None)
@@ -17,14 +16,14 @@ def get_db():
         g.db = db
     return db
 
-def init_db():
+def init_db(app):
     with app.app_context():
         db = get_db()
         with app.open_resource('schema.sql', mode = 'r') as f:
             db.cursor().executescript(f.read())
         db.commit()
         
-def check_auth(email, password):
+def check_auth(app, email, password):
     db = get_db()
     app.logger.info("Checking for matching emails: " + email)
     
@@ -46,7 +45,7 @@ def check_auth(email, password):
         
     return False
 
-def create_account_database(email, username, password):
+def create_account_database(app, email, username, password):
     try:
         db = get_db()
         
@@ -74,7 +73,8 @@ def create_account_database(email, username, password):
         
     return 0
         
-def retrieve_collection(user):
+def retrieve_collection(app, user):
+    app.logger.info("Retrieving " + str(user) + " collection.")
     db = get_db()
     sql = f'SELECT * FROM collections WHERE UserEmail="{user}"'
     result = db.cursor().execute(sql)
@@ -108,7 +108,7 @@ def retrieve_collection(user):
     return collection
 
 # Makes no distinction on user because users can only manage their own collections.
-def add_to_collection_database(comic):
+def add_to_collection_database(app, comic):
     if (check_comic_in_collection(comic) is False):
         if (check_comic_in_database(comic) is False):
             add_comic_to_database(comic)
@@ -125,7 +125,7 @@ def add_to_collection_database(comic):
     return 0
     
 # Makes no distinction on user because users can only manage their own collections.
-def remove_from_collection_database(comicId):
+def remove_from_collection_database(app, comicId):
     db = get_db()
     userEmail = session['name']
     sql = f'DELETE FROM collections WHERE UserEmail ="{userEmail}" AND ComicId="{comicId}"'
@@ -135,7 +135,7 @@ def remove_from_collection_database(comicId):
     
     return 0
     
-def check_comic_in_database(comic):
+def check_comic_in_database(app, comic):
     db = get_db()
     #Retrieves the comic to check if it exists.
     sql = f'SELECT * FROM comics WHERE id="{comic['id']}"'
@@ -147,7 +147,7 @@ def check_comic_in_database(comic):
     else:
         return True
         
-def add_comic_to_database(comic):
+def add_comic_to_database(app, comic):
     db = get_db()
     app.logger.info("Adding comic to database: " + str(comic['id']))
     sql = f'INSERT INTO comics VALUES ("{comic['id']}", "{comic['name']}", "{comic['store_date']}", "{comic['image']}", "{comic['issue_number']}", "{comic['description']}", "{comic['volume']}")'
@@ -155,7 +155,7 @@ def add_comic_to_database(comic):
     db.commit()
     return 0
 
-def check_comic_in_collection(comic):
+def check_comic_in_collection(app, comic):
     db = get_db()
     #Retrieves the comic to check if it exists.
     sql = f'SELECT * FROM collections WHERE UserEmail="{session['name']}" AND ComicId="{comic['id']}"'
@@ -166,3 +166,13 @@ def check_comic_in_collection(comic):
         return False
     else:
         return True
+        
+def retrieve_user_list(app):
+    db = get_db()
+    #Retrieves the username and email.
+        # Does not retrieve password as this is not needed.
+    sql = f'SELECT UserName, UserEmail FROM users'
+    app.logger.info("Retrieving all users for display")
+    result = db.cursor().execute(sql).fetchall()
+    
+    return result

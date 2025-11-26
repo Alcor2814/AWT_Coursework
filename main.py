@@ -4,7 +4,6 @@ import datetime
 from flask import Flask, render_template, request, redirect, session, url_for
 from datetime import timedelta
 from functools import wraps
-from logging.handlers import RotatingFileHandler
 
 import api_interactions
 import database_interactions
@@ -19,7 +18,7 @@ init(app)
 logs(app)
 
 #Calls retrievePublisherVolumes on starting the server.
-retrievePublisherVolumes()
+retrievePublisherVolumes(app)
 
 def requires_login(f):
     @wraps(f)
@@ -32,7 +31,7 @@ def requires_login(f):
 
 @app.route('/logout/')
 def logout():
-    app.logger.info("User "+ session['name'] + "logged out.")
+    app.logger.info("User "+ session['name'] + " logged out.")
     session['logged_in'] = False
     session['name'] = None
 
@@ -76,7 +75,7 @@ def create_account():
             #Found an expected pattern for emails to verify the email structure.
             pattern = r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$'
             if re.match(pattern, email) is not None:
-                create_account_database(email, username, password)
+                create_account_database(app, email, username, password)
             else:
                 app.logger.warning("User input email did not match expected pattern: " + email)
                 message+="Email does not match expected pattern"
@@ -89,18 +88,27 @@ def create_account():
 @app.route('/')
 def root():
     #On load retrieves the comic to be displayed on the index.
-    return render_template('index.html', comic=retrieveIndexData())
+    return render_template('index.html', comic=retrieveIndexData(app))
     
 @app.route('/homepage/')
 @requires_login
 def homepage():
-    return render_template('homepage.html')
-    
+    users = retrieve_user_list(app)
+    return render_template('homepage.html', users=users)
+
 @app.route('/collection/')
 @requires_login
 def collection():
-    collection = retrieve_collection(session['name'])
+    collection = retrieve_collection(app, session['name'])
     return render_template('collection.html', collection = collection)
+
+@app.route('/other_collection/', methods=['POST'])
+@requires_login
+def other_collection():
+    user= request.form['user']
+    user = ast.literal_eval(user)
+    collection = retrieve_collection(app, user[1])
+    return render_template("other_collection.html", collection=collection, user=user[0])
     
 @app.route('/specific_book/')
 @requires_login
@@ -117,7 +125,7 @@ def specific_book():
     if(comic['description'] is not None):
         comic['description'] = re.sub(r"<.*?>", " ", comic['description'])
     
-    return render_template('specific_book.html', comic=comic, renderAdd= not check_comic_in_collection(comic))
+    return render_template('specific_book.html', comic=comic, renderAdd= not check_comic_in_collection(app, comic))
    
 @app.route('/add_to_collection/')
 def add_to_collection():
@@ -144,7 +152,7 @@ def weekly():
     if request.method == 'GET':
         #By default the weekly page starts on today's date.
         dates = [datetime.date.today()-timedelta(days=6), datetime.date.today()]
-        comics=retrieveIssuesByDateWeekly(dates[1], 0)
+        comics=retrieveIssuesByDateWeekly(app, dates[1], 0)
         #weekly calls the retrieveIssuesByDateWeekly to collect all of the issues in a given week in an API call.
         return render_template('weekly.html', comics=comics, dates=dates)
     elif request.method == 'POST':
@@ -160,7 +168,7 @@ def weekly():
             app.logger.info("User attempted to input date greater than today.")
             date=datetime.date.today()
         dates=[date-timedelta(days=6), date]
-        comics = retrieveIssuesByDateWeekly(dates[1], 0)
+        comics = retrieveIssuesByDateWeekly(app, dates[1], 0)
         return render_template('weekly.html', comics=comics, dates=dates)
 
 @app.route('/search/', methods=['GET', 'POST'])
@@ -171,7 +179,7 @@ def search():
     elif request.method == 'POST':
         try:
             search = request.form['search']
-            suggestions = findMatchingValueInPublisherDict(search)
+            suggestions = findMatchingValueInPublisherDict(app, search)
             comics=[]
         except:
             try:
@@ -179,18 +187,13 @@ def search():
                 volume = eval(request.form['volume'])
                 app.logger.info("Volume Selected: " + str(volume))
                 suggestions=[]
-                comics = retrieveIssuesByVolume(volume, 0)['results']
+                comics = retrieveIssuesByVolume(app, volume, 0)['results']
                 app.logger.info("Retrieved " + str(len(comics)) + " issues.")
             except:
                 app.logger.error("Unable to interpret string or volume")
             
     return render_template('search.html', comics=comics, suggestions=suggestions)
-        
-@app.route('/other_collection/')
-@requires_login
-def other_collection():
-    return render_template('other_collection.html')
-
+    
 @app.teardown_appcontext
 def close_db_connection(exception):
     db = getattr(g, 'db', None)

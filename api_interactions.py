@@ -8,9 +8,8 @@ from datetime import timedelta
 from flask import Flask, session
 
 publisherDict = dict()
-app = Flask(__name__)
     
-def retrievePublisherVolumes():
+def retrievePublisherVolumes(app):
     app.logger.info("Retrieving publishers.")
 
     # Codes:
@@ -58,7 +57,7 @@ def retrievePublisherVolumes():
     
     return publisherDict
 
-def retrieveIssuesByDateWeekly(endDate, offset):
+def retrieveIssuesByDateWeekly(app, endDate, offset):
     app.logger.info("Retrieving issues for week ending " + str(endDate) + " with offset of " + str(offset))
 
     config = configparser.ConfigParser()
@@ -96,11 +95,11 @@ def retrieveIssuesByDateWeekly(endDate, offset):
     # If the results are greater than 100 then every issue in a given week may not be covered.
     # As such, it recursively loops through retrieving issues until all issues have been collected.
     if len(data['results']) == 100:
-        filteredData= filteredData + retrieveIssuesByDateWeekly(endDate, offset+100)
+        filteredData= filteredData + retrieveIssuesByDateWeekly(app, endDate, offset+100)
     
     return filteredData
 
-def findMatchingValueInPublisherDict(search):
+def findMatchingValueInPublisherDict(app, search):
     app.logger.info("Finding volumes matching " + search)
     matchingVolumes = []
     for volume in publisherDict.items():
@@ -109,7 +108,7 @@ def findMatchingValueInPublisherDict(search):
     app.logger.info("Matches found: " + str(len(matchingVolumes)))
     return matchingVolumes
     
-def retrieveIssuesByVolume(volume, offset):
+def retrieveIssuesByVolume(app, volume, offset):
     app.logger.info("Retrieving issues for volume " + str(volume[1][1]) + " with offset of " + str(offset))
     
     config = configparser.ConfigParser()
@@ -142,11 +141,11 @@ def retrieveIssuesByVolume(volume, offset):
     # Recursively searches through the volume.
         # If it were any more than one person (me) using this in any given hour I would add a limiter to how far offset it can become to limit API calls.
     if len(data['results']) == 100 :
-        data['results'] = data['results'] + retrieveIssuesByVolume(volume, offset+100)['results']
+        data['results'] = data['results'] + retrieveIssuesByVolume(app, volume, offset+100)['results']
     
     return data
 
-def retrieveIndexData():
+def retrieveIndexData(app):
     config = configparser.ConfigParser()
     try:
         config_location = "etc/defaults.cfg"

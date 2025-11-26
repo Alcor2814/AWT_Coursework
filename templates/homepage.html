@@ -27,7 +27,14 @@
 			</div>
 			<div id = "user_box">
 				<div id = "display_users">
-					
+					{% for user in users %}
+						<form class="userBox" action="{{url_for('other_collection')}}" method="POST">
+							<input type = "hidden" name = "user" value = "{{user}}"/>
+							<button type="submit" class="submit_button">
+								<p>{{user[0]}}</p>
+							</button>
+						</form>
+					{% endfor %}
 				</div>
 				<div id = "search_users">
 					

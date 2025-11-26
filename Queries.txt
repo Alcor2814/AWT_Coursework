@@ -13,25 +13,13 @@ Issues
 https://comicvine.gamespot.com/api/issues/?api_key=2b739459da8dc4ec62f68656b642554dea026eca&format=json&filter=cover_date:2026-01-01&sort=cover_date%3Adesc - only retrieves 2026-01-01
 https://comicvine.gamespot.com/api/issues/?api_key=2b739459da8dc4ec62f68656b642554dea026eca&format=json&filter=cover_date:2025-11-25|2025-12-20&sort=cover_date%3Adesc - Retrieves a range between and inclusive of 2025-11-25 and 2025-12-20
 
-Volumes
 
-
-Note: Issues contains volume. Volume is the only way to determine publisher, but this does mean making multiple calls unless info can be used to filter publisher.
-	Investigation:
-		- site_detail_url: https://comicvine.gamespot.com/wolverine-revenge-red-band-raw-black-and-white-edi/4000-1143331/
-		- api_detail_url: https://comicvine.gamespot.com/api/volume/4050-165536/
-		- Marvel and DC both use 4000/4050 for each url. Not a publisher identifier.
-	- Idea:
-		- Retrieving the publisher also retrieves every volume associated with them. 
-		- Retrieving the most recent issues (filtered by week) retrieves the volume information with it. 
-		- Every issue must be compared to the list of volume ids retrieved via the publisher to create a filter.
-			- This seems quite costly.
-			
-{% set name = comic['volume']['name'] %}
-{% if comic['issue_number'] is not none %}
-	{% set name = name ~ " #" ~ comic['issue_number'] %}
-{% endif %}
-{% if comic['name'] is not none %}
-	{% set name = name ~ " - " ~ comic['name'] %}
-{% endif %}
-<h1>{{name}}</h1>
+Features to implememt:
+	- Displaying other users
+	- Displaying other users' collections
+	- Writing Reviews
+	- Displaying Reviews (build on collection work)
+	- Add settings page
+		- Change colour scheme
+		- Allow users to delete their data/accounts.
+	- Rework specific-book to make better use of posting?

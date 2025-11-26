@@ -18,8 +18,15 @@
 	flex-grow:1;
 }
 #display_users{
-	overflow:scroll;
+	overflow-y:scroll;
 	flex-grow:10;
+	max-height:90%;
+}
+.submit_button{
+	width:100%;
+}
+.content{
+	max-height:80%;
 }
 #search_users{
 	border-style:solid;
