@@ -49,9 +49,10 @@
 					<a class="buttonHolder" href="{{url_for('remove_from_collection', comicId = comic['id'])}}">
 						<button class="formButton">Remove</button>
 					</a>
-					<a class="buttonHolder" href="{{url_for('specific_book', comic = comic)}}">
-						<button class="formButton">View</button>
-					</a>
+					<form class="view" action="{{url_for('specific_book')}}" method="POST">
+						<input type = "hidden" name = "comic" value = "{{comic}}"/>
+						<button type="submit" class="formButton">View</button>
+					</form>
 				</div>
 			{% endfor %}
 		</div>

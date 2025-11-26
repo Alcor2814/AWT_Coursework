@@ -115,11 +115,12 @@ def other_collection():
     collection = retrieve_collection(app, user[1])
     return render_template("other_collection.html", collection=collection, user=user[0])
     
-@app.route('/specific_book/')
+@app.route('/specific_book/', methods=['POST'])
 @requires_login
 def specific_book():
     #Receives the comic sent to it via search/collection/weekly
-    sentComic = request.args.get('comic', None)
+    sentComic = request.form.get('comic')
+    app.logger.info(sentComic)
     
     if(sentComic is None): 
         return redirect(url_for('homepage'))
