@@ -99,12 +99,14 @@ def retrieveIssuesByDateWeekly(app, endDate, offset):
     
     return filteredData
 
-def findMatchingValueInPublisherDict(app, search):
+def findMatchingValueInPublisherDict(app, search, publisherInclude):
     app.logger.info("Finding volumes matching " + search)
     matchingVolumes = []
     for volume in publisherDict.items():
         if search in volume[1][1]:
-            matchingVolumes.append(volume)
+            for publisher in publisherInclude:
+                if volume[1][0] == publisher:
+                    matchingVolumes.append(volume)
     app.logger.info("Matches found: " + str(len(matchingVolumes)))
     return matchingVolumes
     
