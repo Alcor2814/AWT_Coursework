@@ -46,32 +46,26 @@ def check_auth(app, email, password):
     return False
 
 def create_account_database(app, email, username, password):
-    try:
-        db = get_db()
-        
-        #Retrieves any User emails that match the input email to prevent creation of accounts using existing emails.
-        sql = f'SELECT * FROM users WHERE UserEmail="{email}"'
-        app.logger.info("Creation - Checking for matching emails: " + sql)
-        result = db.cursor().execute(sql).fetchall()
-        
-        if not result:
-            sql = f'INSERT INTO users VALUES ("{email}", "{username}", "{password}")'
-            db.cursor().execute(sql)
-            db.commit()
-            #Logs the user in.
-            session['logged_in'] = True
-            #Stores unique user information for retrieving unique experience.
-            session['name']=email
-           
-            app.logger.info("Added new account to the database: " + sql)
-            return redirect(url_for('homepage'))
-        else:
-            app.logger.warning("User attempted to create account using existing email: " + email)
-            message+="Email is already in use.\n" 
-    except:
-        app.logger.error("Failed to connect to database.")
-        
-    return 0
+    db = get_db()
+    #Retrieves any User emails that match the input email to prevent creation of accounts using existing emails.
+    sql = f'SELECT * FROM users WHERE UserEmail="{email}"'
+    app.logger.info("Creation - Checking for matching emails: " + sql)
+    result = db.cursor().execute(sql).fetchall()
+    
+    if not result:
+        sql = f'INSERT INTO users VALUES ("{email}", "{username}", "{password}")'
+        db.cursor().execute(sql)
+        db.commit()
+        #Logs the user in.
+        session['logged_in'] = True
+        #Stores unique user information for retrieving unique experience.
+        session['name']=email
+       
+        app.logger.info("Added new account to the database: " + sql)
+        return True
+    else:
+        app.logger.warning("User attempted to create account using existing email: " + email)
+    return False
         
 def retrieve_collection(app, user):
     app.logger.info("Retrieving " + str(user) + " collection.")
@@ -109,9 +103,9 @@ def retrieve_collection(app, user):
 
 # Makes no distinction on user because users can only manage their own collections.
 def add_to_collection_database(app, comic):
-    if (check_comic_in_collection(comic) is False):
-        if (check_comic_in_database(comic) is False):
-            add_comic_to_database(comic)
+    if (check_comic_in_collection(app, comic) is False):
+        if (check_comic_in_database(app, comic) is False):
+            add_comic_to_database(app, comic)
         
         db = get_db()
         userEmail = session['name']

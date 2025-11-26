@@ -45,7 +45,7 @@ def login():
         user=request.form['email']
         pw=request.form['password']
         
-        if check_auth(user, pw):
+        if check_auth(app, user, pw):
             #Clears password as soon as it is no longer needed.
             pw=""
             #Logs the user in.
@@ -75,13 +75,17 @@ def create_account():
             #Found an expected pattern for emails to verify the email structure.
             pattern = r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$'
             if re.match(pattern, email) is not None:
-                create_account_database(app, email, username, password)
+                status = create_account_database(app, email, username, password)
+                if (status==True):
+                    return redirect(url_for('homepage'))
+                else:
+                    message = message + "Email is already in use.\n" 
             else:
                 app.logger.warning("User input email did not match expected pattern: " + email)
-                message+="Email does not match expected pattern"
+                message = message + "Email does not match expected pattern"
         else:
             app.logger.info("User passwords did not match")
-            message+="Passwords do not match.\n"
+            message = message + "Passwords do not match.\n"
                 
     return render_template('create_account.html', message=message)
 
@@ -94,6 +98,7 @@ def root():
 @requires_login
 def homepage():
     users = retrieve_user_list(app)
+    users = [user for user in users if user[1] != session['name']]
     return render_template('homepage.html', users=users)
 
 @app.route('/collection/')
@@ -136,7 +141,7 @@ def add_to_collection():
     except:
         return redirect(url_for('homepage'))
     
-    add_to_collection_database(comic)
+    add_to_collection_database(app, comic)
     return redirect(url_for('specific_book', comic=comic))
 
 @app.route('/remove_from_collection/')
