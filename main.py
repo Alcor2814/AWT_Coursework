@@ -115,16 +115,17 @@ def other_collection():
     collection = retrieve_collection(app, user[1])
     return render_template("other_collection.html", collection=collection, user=user[0])
     
-@app.route('/specific_book/', methods=['POST'])
+@app.route('/specific_book/', methods=['GET', 'POST'])
 @requires_login
 def specific_book():
+    # Redirects the user to the homepage if they haven't gone through an expected route.
+    if request.method != 'POST':
+        return redirect(url_for('homepage'))
+        
     #Receives the comic sent to it via search/collection/weekly
     sentComic = request.form.get('comic')
     app.logger.info(sentComic)
     
-    if(sentComic is None): 
-        return redirect(url_for('homepage'))
-        
     #Evaluates it into a dictionary since the specific data structure is lost on receiving.
     comic=ast.literal_eval(sentComic)
     #Removes html tags from description because it is unnecessary/shouldn't be implicitly trusted.
