@@ -124,7 +124,7 @@ def specific_book():
     if(sentComic is None): 
         return redirect(url_for('homepage'))
         
-    #Evaluates it into a dictionary since the specific data structure is lost on POSTing.
+    #Evaluates it into a dictionary since the specific data structure is lost on receiving.
     comic=ast.literal_eval(sentComic)
     #Removes html tags from description because it is unnecessary/shouldn't be implicitly trusted.
     if(comic['description'] is not None):
@@ -182,20 +182,30 @@ def search():
     if request.method == 'GET':
         return render_template('search.html', comics=[], suggestions=[])
     elif request.method == 'POST':
+        comics=[]
+        suggestions=[]
+        
         try:
             search = request.form['search']
-            suggestions = findMatchingValueInPublisherDict(app, search)
-            comics=[]
+            searchRoute = True
         except:
+            searchRoute = False
+        
+        if searchRoute:
+            publisherInclude = [request.form.get('Marvel'), request.form.get('DC')]
+            suggestions = findMatchingValueInPublisherDict(app, search, publisherInclude)
+        elif not searchRoute:
             try:
-                # Turns the returned string into a dict
                 volume = eval(request.form['volume'])
-                app.logger.info("Volume Selected: " + str(volume))
-                suggestions=[]
-                comics = retrieveIssuesByVolume(app, volume, 0)['results']
-                app.logger.info("Retrieved " + str(len(comics)) + " issues.")
             except:
-                app.logger.error("Unable to interpret string or volume")
+                app.logger.error("Unable to interpret volume")
+                
+            # Turns the returned string into a dict
+            app.logger.info("Volume Selected: " + str(volume))
+            comics = retrieveIssuesByVolume(app, volume, 0)['results']
+            app.logger.info("Retrieved " + str(len(comics)) + " issues.")
+        else:
+            app.logger.error("Unable to interpret search")
             
     return render_template('search.html', comics=comics, suggestions=suggestions)
     
