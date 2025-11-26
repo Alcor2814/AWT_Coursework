@@ -5,10 +5,12 @@ import json
 import configparser
 
 from datetime import timedelta
+from flask import Flask, session
 
 publisherDict = dict()
+app = Flask(__name__)
     
-def retrievePublisherVolumes(app):
+def retrievePublisherVolumes():
     app.logger.info("Retrieving publishers.")
 
     # Codes:
@@ -56,7 +58,7 @@ def retrievePublisherVolumes(app):
     
     return publisherDict
 
-def retrieveIssuesByDateWeekly(endDate, offset, app):
+def retrieveIssuesByDateWeekly(endDate, offset):
     app.logger.info("Retrieving issues for week ending " + str(endDate) + " with offset of " + str(offset))
 
     config = configparser.ConfigParser()
@@ -98,7 +100,7 @@ def retrieveIssuesByDateWeekly(endDate, offset, app):
     
     return filteredData
 
-def findMatchingValueInPublisherDict(search, app):
+def findMatchingValueInPublisherDict(search):
     app.logger.info("Finding volumes matching " + search)
     matchingVolumes = []
     for volume in publisherDict.items():
@@ -107,7 +109,7 @@ def findMatchingValueInPublisherDict(search, app):
     app.logger.info("Matches found: " + str(len(matchingVolumes)))
     return matchingVolumes
     
-def retrieveVolumeIssues(volume, offset, app):
+def retrieveIssuesByVolume(volume, offset):
     app.logger.info("Retrieving issues for volume " + str(volume[1][1]) + " with offset of " + str(offset))
     
     config = configparser.ConfigParser()
@@ -138,14 +140,13 @@ def retrieveVolumeIssues(volume, offset, app):
     data = response.json()
     
     # Recursively searches through the volume.
-        # If it were any more than one person using this in any given hour (me) I would add a limiter to how far offset it can become to limit API calls.
+        # If it were any more than one person (me) using this in any given hour I would add a limiter to how far offset it can become to limit API calls.
     if len(data['results']) == 100 :
-        data['results'] = data['results'] + retrieveVolumeIssues(volume, offset+100)['results']
+        data['results'] = data['results'] + retrieveIssuesByVolume(volume, offset+100)['results']
     
-    app.logger.info("Retrieved " + str(len(data['results'])) + " issues.")
     return data
 
-def retrieveIndexData(app):
+def retrieveIndexData():
     config = configparser.ConfigParser()
     try:
         config_location = "etc/defaults.cfg"
