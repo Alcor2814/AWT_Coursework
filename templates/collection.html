@@ -46,9 +46,10 @@
 					<button onclick="previewComic('{{comic['image']['small_url']}}')" class="previewButton">
 						<p>{{name}}</p>
 					</button>
-					<a class="buttonHolder" href="{{url_for('remove_from_collection', comicId = comic['id'])}}">
-						<button class="formButton">Remove</button>
-					</a>
+					<form class="view" action="" method="POST">
+						<input type = "hidden" name = "comicId" value = "{{comic['id']}}"/>
+						<button type="submit" class="formButton">Remove</button>
+					</form>
 					<form class="view" action="{{url_for('specific_book')}}" method="POST">
 						<input type = "hidden" name = "comic" value = "{{comic}}"/>
 						<button type="submit" class="formButton">View</button>
