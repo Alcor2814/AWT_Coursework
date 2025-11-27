@@ -46,6 +46,8 @@
 #reviews{
 	border-style:solid;
 	flex-grow:6;
+	overflow-y:scroll;
+	max-height:75%;
 }
 
 #reviews h2{

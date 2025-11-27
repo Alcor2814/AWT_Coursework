@@ -101,10 +101,16 @@ def homepage():
     users = [user for user in users if user[1] != session['name']]
     return render_template('homepage.html', users=users)
 
-@app.route('/collection/')
+@app.route('/collection/', methods=['GET', 'POST'])
 @requires_login
 def collection():
-    collection = retrieve_collection(app, session['name'])
+    if request.method == 'POST':
+        comicId = request.form.get('comicId')
+        remove_from_collection_database(app, comicId)
+        
+        return redirect(url_for('collection'))
+    else:
+        collection = retrieve_collection(app, session['name'])
     return render_template('collection.html', collection = collection)
 
 @app.route('/other_collection/', methods=['POST'])
@@ -157,13 +163,6 @@ def specific_book():
     renderAdd = not check_comic_in_collection(app, comic['id'])
     userReview = retrieve_user_review(app, comic['id'])
     return render_template('specific_book.html', comic=comic, renderAdd=renderAdd, reviews=reviews, userReview = userReview)
-
-@app.route('/remove_from_collection/')
-def remove_from_collection():
-    comicId = request.args.get('comicId', None)
-    
-    remove_from_collection_database(comicId)
-    return redirect(url_for('collection'))
     
 @app.route('/weekly/', methods=['GET', 'POST'])
 @requires_login
