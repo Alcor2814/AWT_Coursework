@@ -29,6 +29,9 @@
 	width:100%;
 	flex-grow:2;
 }
+.comic button{
+	width:100%;
+}
 
 #add{
 	text-align:center;

@@ -624,3 +624,84 @@ INFO | 2025-11-27 16:40:28,979 | database_interactions | retrieve_user_review | 
 INFO | 2025-11-27 16:40:37,497 | database_interactions | check_comic_in_database | Checking if comic exists: 140005
 INFO | 2025-11-27 16:40:37,498 | database_interactions | check_comic_in_collection | Checking if comic is in user collection: 140005
 INFO | 2025-11-27 16:40:37,499 | database_interactions | retrieve_user_review | Retrieving user person@napier.ac.uk's review for 140005
+INFO | 2025-11-27 16:49:24,248 | api_interactions | retrievePublisherVolumes | Retrieving publishers.
+INFO | 2025-11-27 16:49:46,634 | api_interactions | retrievePublisherVolumes | Retrieving publishers.
+INFO | 2025-11-27 16:49:54,659 | api_interactions | findMatchingValueInPublisherDict | Finding volumes matching Captain America
+INFO | 2025-11-27 16:49:54,666 | api_interactions | findMatchingValueInPublisherDict | Matches found: 367
+INFO | 2025-11-27 16:49:56,050 | main | search | Volume Selected: (1628, ['Marvel', 'Captain America Comics'])
+INFO | 2025-11-27 16:49:56,051 | api_interactions | retrieveIssuesByVolume | Retrieving issues for volume Captain America Comics with offset of 0
+INFO | 2025-11-27 16:49:58,837 | main | search | Retrieved 73 issues.
+INFO | 2025-11-27 16:50:00,538 | database_interactions | check_comic_in_database | Checking if comic exists: 107871
+INFO | 2025-11-27 16:50:00,540 | database_interactions | check_comic_in_collection | Checking if comic is in user collection: 107871
+INFO | 2025-11-27 16:50:00,541 | database_interactions | retrieve_user_review | Retrieving user person@napier.ac.uk's review for 107871
+INFO | 2025-11-27 16:50:15,698 | database_interactions | check_comic_in_database | Checking if comic exists: 107871
+INFO | 2025-11-27 16:50:15,699 | database_interactions | check_comic_in_collection | Checking if comic is in user collection: 107871
+INFO | 2025-11-27 16:50:15,700 | database_interactions | retrieve_user_review | Retrieving user person@napier.ac.uk's review for 107871
+INFO | 2025-11-27 16:51:24,278 | database_interactions | check_comic_in_database | Checking if comic exists: 107871
+INFO | 2025-11-27 16:51:24,280 | database_interactions | check_comic_in_collection | Checking if comic is in user collection: 107871
+INFO | 2025-11-27 16:51:24,280 | database_interactions | retrieve_user_review | Retrieving user person@napier.ac.uk's review for 107871
+INFO | 2025-11-27 16:51:34,243 | database_interactions | check_comic_in_database | Checking if comic exists: 107871
+INFO | 2025-11-27 16:51:34,244 | database_interactions | check_comic_in_collection | Checking if comic is in user collection: 107871
+INFO | 2025-11-27 16:51:34,245 | database_interactions | retrieve_user_review | Retrieving user person@napier.ac.uk's review for 107871
+INFO | 2025-11-27 16:51:53,016 | database_interactions | check_comic_in_database | Checking if comic exists: 107871
+INFO | 2025-11-27 16:51:53,017 | database_interactions | check_comic_in_collection | Checking if comic is in user collection: 107871
+INFO | 2025-11-27 16:51:53,018 | database_interactions | retrieve_user_review | Retrieving user person@napier.ac.uk's review for 107871
+INFO | 2025-11-27 16:52:06,045 | api_interactions | findMatchingValueInPublisherDict | Finding volumes matching Fantastic
+INFO | 2025-11-27 16:52:06,053 | api_interactions | findMatchingValueInPublisherDict | Matches found: 361
+INFO | 2025-11-27 16:52:07,298 | main | search | Volume Selected: (2045, ['Marvel', 'Fantastic Four'])
+INFO | 2025-11-27 16:52:07,298 | api_interactions | retrieveIssuesByVolume | Retrieving issues for volume Fantastic Four with offset of 0
+INFO | 2025-11-27 16:52:10,419 | api_interactions | retrieveIssuesByVolume | Retrieving issues for volume Fantastic Four with offset of 100
+INFO | 2025-11-27 16:52:14,805 | api_interactions | retrieveIssuesByVolume | Retrieving issues for volume Fantastic Four with offset of 200
+INFO | 2025-11-27 16:52:18,985 | api_interactions | retrieveIssuesByVolume | Retrieving issues for volume Fantastic Four with offset of 300
+INFO | 2025-11-27 16:52:24,520 | api_interactions | retrieveIssuesByVolume | Retrieving issues for volume Fantastic Four with offset of 400
+INFO | 2025-11-27 16:52:26,333 | main | search | Retrieved 416 issues.
+INFO | 2025-11-27 16:52:32,327 | database_interactions | check_comic_in_database | Checking if comic exists: 5558
+INFO | 2025-11-27 16:52:32,328 | database_interactions | check_comic_in_collection | Checking if comic is in user collection: 5558
+INFO | 2025-11-27 16:52:32,328 | database_interactions | retrieve_user_review | Retrieving user person@napier.ac.uk's review for 5558
+INFO | 2025-11-27 16:56:59,964 | api_interactions | retrievePublisherVolumes | Retrieving publishers.
+INFO | 2025-11-27 16:57:10,766 | api_interactions | retrievePublisherVolumes | Retrieving publishers.
+INFO | 2025-11-27 16:57:41,877 | api_interactions | retrievePublisherVolumes | Retrieving publishers.
+INFO | 2025-11-27 16:58:07,135 | api_interactions | retrievePublisherVolumes | Retrieving publishers.
+INFO | 2025-11-27 16:58:27,942 | api_interactions | retrievePublisherVolumes | Retrieving publishers.
+INFO | 2025-11-27 16:58:32,308 | database_interactions | check_comic_in_collection | Checking if comic is in user collection: 5558
+INFO | 2025-11-27 16:58:32,309 | database_interactions | check_comic_in_database | Checking if comic exists: 5558
+INFO | 2025-11-27 16:58:32,309 | database_interactions | add_comic_to_database | Adding comic to database: 5558
+INFO | 2025-11-27 16:58:32,314 | database_interactions | add_to_collection_database | Adding comic to user collection: 5558
+INFO | 2025-11-27 16:58:32,318 | database_interactions | check_comic_in_database | Checking if comic exists: 5558
+INFO | 2025-11-27 16:58:32,318 | database_interactions | retrieve_comic_reviews | Retrieving reviews for comic: 5558
+INFO | 2025-11-27 16:58:32,318 | database_interactions | check_comic_in_collection | Checking if comic is in user collection: 5558
+INFO | 2025-11-27 16:58:32,319 | database_interactions | retrieve_user_review | Retrieving user person@napier.ac.uk's review for 5558
+INFO | 2025-11-27 16:58:36,054 | database_interactions | retrieve_collection | Retrieving person@napier.ac.uk collection.
+INFO | 2025-11-27 16:58:38,591 | database_interactions | check_comic_in_database | Checking if comic exists: 5558
+INFO | 2025-11-27 16:58:38,592 | database_interactions | retrieve_comic_reviews | Retrieving reviews for comic: 5558
+INFO | 2025-11-27 16:58:38,592 | database_interactions | check_comic_in_collection | Checking if comic is in user collection: 5558
+INFO | 2025-11-27 16:58:38,593 | database_interactions | retrieve_user_review | Retrieving user person@napier.ac.uk's review for 5558
+INFO | 2025-11-27 16:59:10,998 | database_interactions | check_comic_in_database | Checking if comic exists: 5712
+INFO | 2025-11-27 16:59:10,999 | database_interactions | check_comic_in_collection | Checking if comic is in user collection: 5712
+INFO | 2025-11-27 16:59:10,999 | database_interactions | retrieve_user_review | Retrieving user person@napier.ac.uk's review for 5712
+INFO | 2025-11-27 16:59:12,300 | database_interactions | check_comic_in_collection | Checking if comic is in user collection: 5712
+INFO | 2025-11-27 16:59:12,300 | database_interactions | check_comic_in_database | Checking if comic exists: 5712
+INFO | 2025-11-27 16:59:12,301 | database_interactions | add_comic_to_database | Adding comic to database: 5712
+INFO | 2025-11-27 16:59:12,304 | database_interactions | add_to_collection_database | Adding comic to user collection: 5712
+INFO | 2025-11-27 16:59:12,308 | database_interactions | check_comic_in_database | Checking if comic exists: 5712
+INFO | 2025-11-27 16:59:12,308 | database_interactions | retrieve_comic_reviews | Retrieving reviews for comic: 5712
+INFO | 2025-11-27 16:59:12,308 | database_interactions | check_comic_in_collection | Checking if comic is in user collection: 5712
+INFO | 2025-11-27 16:59:12,309 | database_interactions | retrieve_user_review | Retrieving user person@napier.ac.uk's review for 5712
+INFO | 2025-11-27 16:59:19,817 | database_interactions | check_comic_in_database | Checking if comic exists: 5712
+INFO | 2025-11-27 16:59:19,817 | database_interactions | retrieve_comic_reviews | Retrieving reviews for comic: 5712
+INFO | 2025-11-27 16:59:19,818 | database_interactions | check_comic_in_collection | Checking if comic is in user collection: 5712
+INFO | 2025-11-27 16:59:19,818 | database_interactions | retrieve_user_review | Retrieving user person@napier.ac.uk's review for 5712
+INFO | 2025-11-27 16:59:23,160 | database_interactions | retrieve_collection | Retrieving person@napier.ac.uk collection.
+INFO | 2025-11-27 16:59:34,532 | database_interactions | check_comic_in_database | Checking if comic exists: 110227
+INFO | 2025-11-27 16:59:34,533 | database_interactions | retrieve_comic_reviews | Retrieving reviews for comic: 110227
+INFO | 2025-11-27 16:59:34,533 | database_interactions | check_comic_in_collection | Checking if comic is in user collection: 110227
+INFO | 2025-11-27 16:59:34,533 | database_interactions | retrieve_user_review | Retrieving user person@napier.ac.uk's review for 110227
+WARNING | 2025-11-27 16:59:55,040 | main | specific_book | Attempting to save person@napier.ac.uk's review: I am a fan of this character
+INFO | 2025-11-27 16:59:55,040 | database_interactions | add_review_to_comic | Adding review to comic 110227
+WARNING | 2025-11-27 16:59:55,041 | database_interactions | add_review_to_comic | Adding review to comic statement: UPDATE collections SET ComicReview='I am a fan of this character', DisplayReview=True WHERE ComicId = 110227 AND UserEmail = 'person@napier.ac.uk'
+INFO | 2025-11-27 16:59:55,049 | database_interactions | check_comic_in_database | Checking if comic exists: 110227
+INFO | 2025-11-27 16:59:55,050 | database_interactions | retrieve_comic_reviews | Retrieving reviews for comic: 110227
+INFO | 2025-11-27 16:59:55,050 | database_interactions | retrieve_username_by_email | Retrieved person@napier.ac.uk username: Persoon
+INFO | 2025-11-27 16:59:55,050 | database_interactions | check_comic_in_collection | Checking if comic is in user collection: 110227
+INFO | 2025-11-27 16:59:55,050 | database_interactions | retrieve_user_review | Retrieving user person@napier.ac.uk's review for 110227
+INFO | 2025-11-27 16:59:57,042 | database_interactions | retrieve_collection | Retrieving person@napier.ac.uk collection.
