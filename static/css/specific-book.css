@@ -42,17 +42,37 @@
 
 #reviews{
 	border-style:solid;
-	flex-grow:5;
-	margin-bottom:10px;
+	flex-grow:6;
 }
 
-#user_review{
-	border-style:solid;
-	flex-grow:2;
-	margin-bottom:10px;
+#reviews h2{
+	border-bottom:solid;
+	margin:0px;
+	padding-left:2px;
+}
+
+.review{
+	border-bottom:solid;
+	padding-bottom:2px;
+	padding-left:2px;
 }
 
 #review_write{
+	margin-top:5px;
 	border-style:solid;
+	flex-grow:2;
+	display:flex;
+	flex-direction:column;
+	overflow-y:scroll;
+}
+
+#userReview{
+	flex-grow:10;
+}
+#submission{
+	display:flex;
+}
+.submit_button{
 	flex-grow:1;
+	margin-right:10%;
 }

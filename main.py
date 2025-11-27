@@ -121,18 +121,33 @@ def specific_book():
     # Redirects the user to the homepage if they haven't gone through an expected route.
     if request.method != 'POST':
         return redirect(url_for('homepage'))
+    
+    if (request.form.get('userReview') is None):
+        #Receives the comic sent to it via search/collection/weekly
+        sentComic = request.form.get('comic')
         
-    #Receives the comic sent to it via search/collection/weekly
-    sentComic = request.form.get('comic')
-    app.logger.info(sentComic)
-    
-    #Evaluates it into a dictionary since the specific data structure is lost on receiving.
-    comic=ast.literal_eval(sentComic)
-    #Removes html tags from description because it is unnecessary/shouldn't be implicitly trusted.
-    if(comic['description'] is not None):
-        comic['description'] = re.sub(r"<.*?>", " ", comic['description'])
-    
-    return render_template('specific_book.html', comic=comic, renderAdd= not check_comic_in_collection(app, comic))
+        #Evaluates it into a dictionary since the specific data structure is lost on receiving.
+        comic=ast.literal_eval(sentComic)
+        #Removes html tags from description because it is unnecessary/shouldn't be implicitly trusted.
+        if(comic['description'] is not None):
+            comic['description'] = re.sub(r"<.*?>", " ", comic['description'])
+    else:
+        review = request.form.get('userReview')
+        review = re.sub(r'"<*>', "", review)
+        app.logger.warning("Attempting to save " + session['name'] + "'s review: " + review)
+        visibility = request.form.get('public_checkbox')
+        if visibility == "Publicly":
+            displayReview = True
+        else:
+            displayReview = False
+        sentComic = request.form.get('comic')
+        comic=ast.literal_eval(sentComic)
+        add_review_to_comic(app, review, comic['id'], displayReview)
+        
+    reviews = retrieve_comic_reviews(app, comic['id'])
+    renderAdd = not check_comic_in_collection(app, comic['id'])
+    userReview = retrieve_user_review(app, comic['id'])
+    return render_template('specific_book.html', comic=comic, renderAdd=renderAdd, reviews=reviews, userReview = userReview)
    
 @app.route('/add_to_collection/')
 def add_to_collection():

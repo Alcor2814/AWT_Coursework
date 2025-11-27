@@ -3,6 +3,7 @@ import logging
 import sqlite3
 import bcrypt
 import ast
+import re
 
 from logging.handlers import RotatingFileHandler
 from flask import Flask, g, session
@@ -103,8 +104,8 @@ def retrieve_collection(app, user):
 
 # Makes no distinction on user because users can only manage their own collections.
 def add_to_collection_database(app, comic):
-    if (check_comic_in_collection(app, comic) is False):
-        if (check_comic_in_database(app, comic) is False):
+    if (check_comic_in_collection(app, comic['id']) is False):
+        if (check_comic_in_database(app, comic['id']) is False):
             add_comic_to_database(app, comic)
         
         db = get_db()
@@ -129,11 +130,11 @@ def remove_from_collection_database(app, comicId):
     
     return 0
     
-def check_comic_in_database(app, comic):
+def check_comic_in_database(app, comicId):
     db = get_db()
     #Retrieves the comic to check if it exists.
-    sql = f'SELECT * FROM comics WHERE id="{comic['id']}"'
-    app.logger.info("Checking if comic exists: " + str(comic['id']))
+    sql = f'SELECT * FROM comics WHERE id="{comicId}"'
+    app.logger.info("Checking if comic exists: " + str(comicId))
     result = db.cursor().execute(sql).fetchall()
     
     if(not result):
@@ -144,22 +145,59 @@ def check_comic_in_database(app, comic):
 def add_comic_to_database(app, comic):
     db = get_db()
     app.logger.info("Adding comic to database: " + str(comic['id']))
+    if(comic['description'] is not None):
+        # The use of " can break the statement below.
+            # Uses are limited but should be handled.
+        comic['description'] = re.sub(r'"', "'", comic['description'])
     sql = f'INSERT INTO comics VALUES ("{comic['id']}", "{comic['name']}", "{comic['store_date']}", "{comic['image']}", "{comic['issue_number']}", "{comic['description']}", "{comic['volume']}")'
     db.cursor().execute(sql)
     db.commit()
     return 0
 
-def check_comic_in_collection(app, comic):
+def check_comic_in_collection(app, comicId):
     db = get_db()
     #Retrieves the comic to check if it exists.
-    sql = f'SELECT * FROM collections WHERE UserEmail="{session['name']}" AND ComicId="{comic['id']}"'
-    app.logger.info("Checking if comic is in user collection: " + str(comic['id']))
+    sql = f'SELECT * FROM collections WHERE UserEmail="{session['name']}" AND ComicId="{comicId}"'
+    app.logger.info("Checking if comic is in user collection: " + str(comicId))
     result = db.cursor().execute(sql).fetchall()
     
     if(not result):
         return False
     else:
         return True
+
+def retrieve_comic_reviews(app, comicId):
+    if(check_comic_in_database(app, comicId)):
+        db = get_db()
+        app.logger.info("Retrieving reviews for comic: " + str(comicId))
+        sql = f'SELECT UserEmail, ComicReview, DisplayReview FROM collections WHERE ComicId = {comicId} AND ComicReview <> ""'
+        result = db.cursor().execute(sql).fetchall()
+        resultPlusUsername = []
+        
+        if result is not None:
+            for row in result:
+                resultPlusUsername.append(row + retrieve_username_by_email(app, row[0]))
+        return resultPlusUsername
+    return []
+
+def retrieve_user_review(app, comicId):
+    app.logger.info("Retrieving user " + session['name'] + "'s review for " + str(comicId))
+    db = get_db()
+    sql = f"SELECT ComicReview FROM collections WHERE ComicId = {comicId} AND UserEmail = '{session['name']}'"
+    # User reviews overwrite instead of stack so only one should be possible.
+    result = db.cursor().execute(sql).fetchone()
+    if result is not None:
+        result = result[0]
+    return result
+    
+def add_review_to_comic(app, review, comicId, displayReview):
+    app.logger.info("Adding review to comic " + str(comicId))
+    db = get_db()
+    sql = f"UPDATE collections SET ComicReview='{review}', DisplayReview={displayReview} WHERE ComicId = {comicId} AND UserEmail = '{session['name']}'"
+    app.logger.warning("Adding review to comic statement: " + sql)
+    db.cursor().execute(sql)
+    db.commit()
+    return 0
         
 def retrieve_user_list(app):
     db = get_db()
@@ -168,5 +206,14 @@ def retrieve_user_list(app):
     sql = f'SELECT UserName, UserEmail FROM users'
     app.logger.info("Retrieving all users for display")
     result = db.cursor().execute(sql).fetchall()
+    
+    return result
+
+def retrieve_username_by_email(app, userEmail):
+    db = get_db()
+    sql = f'SELECT UserName FROM users WHERE UserEmail="{userEmail}"'
+    # Each email can only have one username.
+    result = db.cursor().execute(sql).fetchone()
+    app.logger.info("Retrieved " + userEmail + " username: " + result[0])
     
     return result
