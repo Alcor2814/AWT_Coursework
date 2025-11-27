@@ -122,7 +122,28 @@ def specific_book():
     if request.method != 'POST':
         return redirect(url_for('homepage'))
     
-    if (request.form.get('userReview') is None):
+    if request.form.get('userReview') is not None:
+        review = request.form.get('userReview')
+        review = re.sub(r'"<*>', "", review)
+        app.logger.warning("Attempting to save " + session['name'] + "'s review: " + review)
+        
+        visibility = request.form.get('public_checkbox')
+        if visibility == "Publicly":
+            displayReview = True
+        else:
+            displayReview = False
+            
+        sentComic = request.form.get('comic')
+        # Evaluates the comic because dict type is lost in transit.
+        comic=ast.literal_eval(sentComic)
+        add_review_to_comic(app, review, comic['id'], displayReview)
+    elif request.form.get('add_comic') is not None:
+        comic = request.form.get('add_comic')
+        # Evaluates the comic because dict type is lost in transit.
+        comic=ast.literal_eval(comic)
+        
+        add_to_collection_database(app, comic)
+    else:
         #Receives the comic sent to it via search/collection/weekly
         sentComic = request.form.get('comic')
         
@@ -131,35 +152,11 @@ def specific_book():
         #Removes html tags from description because it is unnecessary/shouldn't be implicitly trusted.
         if(comic['description'] is not None):
             comic['description'] = re.sub(r"<.*?>", " ", comic['description'])
-    else:
-        review = request.form.get('userReview')
-        review = re.sub(r'"<*>', "", review)
-        app.logger.warning("Attempting to save " + session['name'] + "'s review: " + review)
-        visibility = request.form.get('public_checkbox')
-        if visibility == "Publicly":
-            displayReview = True
-        else:
-            displayReview = False
-        sentComic = request.form.get('comic')
-        comic=ast.literal_eval(sentComic)
-        add_review_to_comic(app, review, comic['id'], displayReview)
         
     reviews = retrieve_comic_reviews(app, comic['id'])
     renderAdd = not check_comic_in_collection(app, comic['id'])
     userReview = retrieve_user_review(app, comic['id'])
     return render_template('specific_book.html', comic=comic, renderAdd=renderAdd, reviews=reviews, userReview = userReview)
-   
-@app.route('/add_to_collection/')
-def add_to_collection():
-    comic = request.args.get('comic', None)
-    # Evaluates the comic because dict type is lost in transit.
-    try:
-        comic=ast.literal_eval(comic)
-    except:
-        return redirect(url_for('homepage'))
-    
-    add_to_collection_database(app, comic)
-    return redirect(url_for('specific_book', comic=comic))
 
 @app.route('/remove_from_collection/')
 def remove_from_collection():
