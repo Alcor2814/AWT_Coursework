@@ -39,3 +39,6 @@
 .dropdown:hover .dropdown-content {
   display: block;
 }
+.dropbtn{
+	border-style:solid;
+}

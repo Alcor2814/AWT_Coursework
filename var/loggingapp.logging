@@ -1,1 +1,626 @@
-
+INFO | 2025-11-27 15:51:12,087 | api_interactions | retrievePublisherVolumes | Retrieving publishers.
+INFO | 2025-11-27 15:52:31,678 | database_interactions | check_comic_in_database | Checking if comic exists: 1144102
+INFO | 2025-11-27 15:52:31,681 | database_interactions | retrieve_comic_reviews | Retrieving reviews for comic: 1144102
+INFO | 2025-11-27 15:52:31,681 | database_interactions | check_comic_in_collection | Checking if comic is in user collection: 1144102
+INFO | 2025-11-27 15:52:31,682 | database_interactions | retrieve_user_review | Retrieving user person@napier.ac.uk's review for 1144102
+INFO | 2025-11-27 15:55:43,114 | api_interactions | retrievePublisherVolumes | Retrieving publishers.
+INFO | 2025-11-27 15:56:15,473 | api_interactions | retrievePublisherVolumes | Retrieving publishers.
+INFO | 2025-11-27 15:56:37,148 | api_interactions | retrievePublisherVolumes | Retrieving publishers.
+INFO | 2025-11-27 15:57:25,329 | api_interactions | retrievePublisherVolumes | Retrieving publishers.
+INFO | 2025-11-27 15:57:31,609 | api_interactions | retrievePublisherVolumes | Retrieving publishers.
+INFO | 2025-11-27 15:57:36,465 | database_interactions | check_comic_in_database | Checking if comic exists: 1144102
+INFO | 2025-11-27 15:57:36,467 | database_interactions | retrieve_comic_reviews | Retrieving reviews for comic: 1144102
+INFO | 2025-11-27 15:57:36,468 | database_interactions | check_comic_in_collection | Checking if comic is in user collection: 1144102
+INFO | 2025-11-27 15:57:36,469 | database_interactions | retrieve_user_review | Retrieving user person@napier.ac.uk's review for 1144102
+INFO | 2025-11-27 15:59:35,803 | api_interactions | retrievePublisherVolumes | Retrieving publishers.
+INFO | 2025-11-27 15:59:40,654 | database_interactions | check_comic_in_database | Checking if comic exists: 1144102
+INFO | 2025-11-27 15:59:40,657 | database_interactions | retrieve_comic_reviews | Retrieving reviews for comic: 1144102
+INFO | 2025-11-27 15:59:40,657 | database_interactions | check_comic_in_collection | Checking if comic is in user collection: 1144102
+INFO | 2025-11-27 15:59:40,658 | database_interactions | retrieve_user_review | Retrieving user person@napier.ac.uk's review for 1144102
+INFO | 2025-11-27 16:01:25,860 | api_interactions | retrievePublisherVolumes | Retrieving publishers.
+INFO | 2025-11-27 16:01:44,802 | database_interactions | check_comic_in_database | Checking if comic exists: 1144102
+INFO | 2025-11-27 16:01:44,804 | database_interactions | retrieve_comic_reviews | Retrieving reviews for comic: 1144102
+INFO | 2025-11-27 16:01:44,805 | database_interactions | check_comic_in_collection | Checking if comic is in user collection: 1144102
+INFO | 2025-11-27 16:01:44,805 | database_interactions | retrieve_user_review | Retrieving user person@napier.ac.uk's review for 1144102
+INFO | 2025-11-27 16:02:26,342 | api_interactions | retrievePublisherVolumes | Retrieving publishers.
+INFO | 2025-11-27 16:02:30,891 | database_interactions | check_comic_in_database | Checking if comic exists: 1144102
+INFO | 2025-11-27 16:02:30,893 | database_interactions | retrieve_comic_reviews | Retrieving reviews for comic: 1144102
+INFO | 2025-11-27 16:02:30,894 | database_interactions | check_comic_in_collection | Checking if comic is in user collection: 1144102
+INFO | 2025-11-27 16:02:30,895 | database_interactions | retrieve_user_review | Retrieving user person@napier.ac.uk's review for 1144102
+WARNING | 2025-11-27 16:03:00,197 | main | specific_book | Attempting to save person@napier.ac.uk's review: I like this comic book
+INFO | 2025-11-27 16:03:00,198 | database_interactions | add_review_to_comic | Adding review to comic 1144102
+INFO | 2025-11-27 16:03:15,274 | api_interactions | retrievePublisherVolumes | Retrieving publishers.
+WARNING | 2025-11-27 16:03:19,609 | main | specific_book | Attempting to save person@napier.ac.uk's review: I like this comic book
+INFO | 2025-11-27 16:03:19,610 | database_interactions | add_review_to_comic | Adding review to comic 1144102
+INFO | 2025-11-27 16:03:45,880 | api_interactions | retrievePublisherVolumes | Retrieving publishers.
+WARNING | 2025-11-27 16:03:51,715 | main | specific_book | Attempting to save person@napier.ac.uk's review: I like this comic book
+INFO | 2025-11-27 16:03:51,716 | database_interactions | add_review_to_comic | Adding review to comic 1144102
+INFO | 2025-11-27 16:04:41,500 | api_interactions | retrievePublisherVolumes | Retrieving publishers.
+WARNING | 2025-11-27 16:04:45,636 | main | specific_book | Attempting to save person@napier.ac.uk's review: I like this comic book
+INFO | 2025-11-27 16:04:45,637 | main | specific_book | Comic Id: 1144102
+INFO | 2025-11-27 16:04:45,637 | database_interactions | add_review_to_comic | Adding review to comic 1144102
+INFO | 2025-11-27 16:05:07,710 | api_interactions | retrievePublisherVolumes | Retrieving publishers.
+INFO | 2025-11-27 16:06:46,273 | api_interactions | retrievePublisherVolumes | Retrieving publishers.
+WARNING | 2025-11-27 16:06:51,072 | main | specific_book | Attempting to save person@napier.ac.uk's review: I like this comic book
+INFO | 2025-11-27 16:06:51,073 | database_interactions | add_review_to_comic | Adding review to comic 1144102
+INFO | 2025-11-27 16:07:12,117 | api_interactions | retrievePublisherVolumes | Retrieving publishers.
+WARNING | 2025-11-27 16:07:19,909 | main | specific_book | Attempting to save person@napier.ac.uk's review: I like this comic book
+INFO | 2025-11-27 16:07:19,910 | database_interactions | add_review_to_comic | Adding review to comic 1144102
+INFO | 2025-11-27 16:07:19,911 | database_interactions | add_review_to_comic | Sql: UPDATE collections SET ComicReview=I like this comic book, DisplayReview=True WHERE ComicId = 1144102 AND UserEmail = person@napier.ac.uk
+INFO | 2025-11-27 16:07:42,022 | api_interactions | retrievePublisherVolumes | Retrieving publishers.
+WARNING | 2025-11-27 16:07:50,583 | main | specific_book | Attempting to save person@napier.ac.uk's review: I like this comic book
+INFO | 2025-11-27 16:07:50,584 | database_interactions | add_review_to_comic | Adding review to comic 1144102
+INFO | 2025-11-27 16:07:50,586 | database_interactions | add_review_to_comic | Sql: UPDATE collections SET ComicReview='I like this comic book', DisplayReview=True WHERE ComicId = 1144102 AND UserEmail = person@napier.ac.uk
+INFO | 2025-11-27 16:08:09,625 | api_interactions | retrievePublisherVolumes | Retrieving publishers.
+WARNING | 2025-11-27 16:08:14,052 | main | specific_book | Attempting to save person@napier.ac.uk's review: I like this comic book
+INFO | 2025-11-27 16:08:14,053 | database_interactions | add_review_to_comic | Adding review to comic 1144102
+INFO | 2025-11-27 16:08:14,055 | database_interactions | add_review_to_comic | Sql: UPDATE collections SET ComicReview='I like this comic book', DisplayReview=True WHERE ComicId = 1144102 AND UserEmail = 'person@napier.ac.uk'
+INFO | 2025-11-27 16:08:14,074 | database_interactions | check_comic_in_database | Checking if comic exists: 1144102
+INFO | 2025-11-27 16:08:14,074 | database_interactions | retrieve_comic_reviews | Retrieving reviews for comic: 1144102
+INFO | 2025-11-27 16:08:14,075 | database_interactions | retrieve_username_by_email | Retrieved person@napier.ac.uk username: Persoon
+INFO | 2025-11-27 16:08:14,076 | database_interactions | retrieve_comic_reviews | Row: ('person@napier.ac.uk', 'I like this comic book', '1', 'Persoon')
+INFO | 2025-11-27 16:08:14,076 | database_interactions | check_comic_in_collection | Checking if comic is in user collection: 1144102
+INFO | 2025-11-27 16:08:14,077 | database_interactions | retrieve_user_review | Retrieving user person@napier.ac.uk's review for 1144102
+WARNING | 2025-11-27 16:08:20,754 | main | specific_book | Attempting to save person@napier.ac.uk's review: I like this comic book
+INFO | 2025-11-27 16:08:20,755 | database_interactions | add_review_to_comic | Adding review to comic 1144102
+INFO | 2025-11-27 16:08:20,756 | database_interactions | add_review_to_comic | Sql: UPDATE collections SET ComicReview='I like this comic book', DisplayReview=True WHERE ComicId = 1144102 AND UserEmail = 'person@napier.ac.uk'
+INFO | 2025-11-27 16:08:20,758 | database_interactions | check_comic_in_database | Checking if comic exists: 1144102
+INFO | 2025-11-27 16:08:20,759 | database_interactions | retrieve_comic_reviews | Retrieving reviews for comic: 1144102
+INFO | 2025-11-27 16:08:20,760 | database_interactions | retrieve_username_by_email | Retrieved person@napier.ac.uk username: Persoon
+INFO | 2025-11-27 16:08:20,760 | database_interactions | retrieve_comic_reviews | Row: ('person@napier.ac.uk', 'I like this comic book', '1', 'Persoon')
+INFO | 2025-11-27 16:08:20,760 | database_interactions | check_comic_in_collection | Checking if comic is in user collection: 1144102
+INFO | 2025-11-27 16:08:20,761 | database_interactions | retrieve_user_review | Retrieving user person@napier.ac.uk's review for 1144102
+INFO | 2025-11-27 16:08:42,476 | api_interactions | retrievePublisherVolumes | Retrieving publishers.
+INFO | 2025-11-27 16:08:58,217 | api_interactions | retrievePublisherVolumes | Retrieving publishers.
+INFO | 2025-11-27 16:09:13,098 | api_interactions | retrievePublisherVolumes | Retrieving publishers.
+INFO | 2025-11-27 16:10:10,778 | api_interactions | retrievePublisherVolumes | Retrieving publishers.
+WARNING | 2025-11-27 16:10:20,157 | main | specific_book | Attempting to save person@napier.ac.uk's review: I like this comic book
+INFO | 2025-11-27 16:10:20,157 | database_interactions | add_review_to_comic | Adding review to comic 1144102
+WARNING | 2025-11-27 16:10:20,159 | database_interactions | add_review_to_comic | Adding review to comic statement: UPDATE collections SET ComicReview='I like this comic book', DisplayReview=True WHERE ComicId = 1144102 AND UserEmail = 'person@napier.ac.uk'
+INFO | 2025-11-27 16:10:20,161 | database_interactions | check_comic_in_database | Checking if comic exists: 1144102
+INFO | 2025-11-27 16:10:20,162 | database_interactions | retrieve_comic_reviews | Retrieving reviews for comic: 1144102
+INFO | 2025-11-27 16:10:20,164 | database_interactions | retrieve_username_by_email | Retrieved person@napier.ac.uk username: Persoon
+INFO | 2025-11-27 16:10:29,707 | api_interactions | retrievePublisherVolumes | Retrieving publishers.
+WARNING | 2025-11-27 16:10:33,884 | main | specific_book | Attempting to save person@napier.ac.uk's review: I like this comic book
+INFO | 2025-11-27 16:10:33,885 | database_interactions | add_review_to_comic | Adding review to comic 1144102
+WARNING | 2025-11-27 16:10:33,887 | database_interactions | add_review_to_comic | Adding review to comic statement: UPDATE collections SET ComicReview='I like this comic book', DisplayReview=True WHERE ComicId = 1144102 AND UserEmail = 'person@napier.ac.uk'
+INFO | 2025-11-27 16:10:33,888 | database_interactions | check_comic_in_database | Checking if comic exists: 1144102
+INFO | 2025-11-27 16:10:33,889 | database_interactions | retrieve_comic_reviews | Retrieving reviews for comic: 1144102
+INFO | 2025-11-27 16:10:33,890 | database_interactions | retrieve_username_by_email | Retrieved person@napier.ac.uk username: Persoon
+INFO | 2025-11-27 16:10:33,891 | main | specific_book | Reviews: [('person@napier.ac.uk', 'I like this comic book', '1')]
+INFO | 2025-11-27 16:10:33,892 | database_interactions | check_comic_in_collection | Checking if comic is in user collection: 1144102
+INFO | 2025-11-27 16:10:33,893 | database_interactions | retrieve_user_review | Retrieving user person@napier.ac.uk's review for 1144102
+INFO | 2025-11-27 16:11:51,645 | api_interactions | retrievePublisherVolumes | Retrieving publishers.
+INFO | 2025-11-27 16:12:39,970 | api_interactions | retrievePublisherVolumes | Retrieving publishers.
+WARNING | 2025-11-27 16:12:49,362 | main | specific_book | Attempting to save person@napier.ac.uk's review: I like this comic book
+INFO | 2025-11-27 16:12:49,363 | database_interactions | add_review_to_comic | Adding review to comic 1144102
+WARNING | 2025-11-27 16:12:49,364 | database_interactions | add_review_to_comic | Adding review to comic statement: UPDATE collections SET ComicReview='I like this comic book', DisplayReview=True WHERE ComicId = 1144102 AND UserEmail = 'person@napier.ac.uk'
+INFO | 2025-11-27 16:12:49,366 | database_interactions | check_comic_in_database | Checking if comic exists: 1144102
+INFO | 2025-11-27 16:12:49,367 | database_interactions | retrieve_comic_reviews | Retrieving reviews for comic: 1144102
+INFO | 2025-11-27 16:12:49,368 | database_interactions | retrieve_username_by_email | Retrieved person@napier.ac.uk username: Persoon
+INFO | 2025-11-27 16:12:49,369 | main | specific_book | Reviews: [('person@napier.ac.uk', 'I like this comic book', '1')]
+INFO | 2025-11-27 16:12:49,369 | database_interactions | check_comic_in_collection | Checking if comic is in user collection: 1144102
+INFO | 2025-11-27 16:12:49,370 | database_interactions | retrieve_user_review | Retrieving user person@napier.ac.uk's review for 1144102
+INFO | 2025-11-27 16:13:25,084 | api_interactions | retrievePublisherVolumes | Retrieving publishers.
+INFO | 2025-11-27 16:13:38,919 | api_interactions | retrievePublisherVolumes | Retrieving publishers.
+WARNING | 2025-11-27 16:13:49,421 | main | specific_book | Attempting to save person@napier.ac.uk's review: I like this comic book
+INFO | 2025-11-27 16:13:49,422 | database_interactions | add_review_to_comic | Adding review to comic 1144102
+WARNING | 2025-11-27 16:13:49,424 | database_interactions | add_review_to_comic | Adding review to comic statement: UPDATE collections SET ComicReview='I like this comic book', DisplayReview=True WHERE ComicId = 1144102 AND UserEmail = 'person@napier.ac.uk'
+INFO | 2025-11-27 16:13:49,426 | database_interactions | check_comic_in_database | Checking if comic exists: 1144102
+INFO | 2025-11-27 16:13:49,427 | database_interactions | retrieve_comic_reviews | Retrieving reviews for comic: 1144102
+INFO | 2025-11-27 16:14:01,077 | api_interactions | retrievePublisherVolumes | Retrieving publishers.
+WARNING | 2025-11-27 16:14:10,509 | main | specific_book | Attempting to save person@napier.ac.uk's review: I like this comic book
+INFO | 2025-11-27 16:14:10,510 | database_interactions | add_review_to_comic | Adding review to comic 1144102
+WARNING | 2025-11-27 16:14:10,512 | database_interactions | add_review_to_comic | Adding review to comic statement: UPDATE collections SET ComicReview='I like this comic book', DisplayReview=True WHERE ComicId = 1144102 AND UserEmail = 'person@napier.ac.uk'
+INFO | 2025-11-27 16:14:10,514 | database_interactions | check_comic_in_database | Checking if comic exists: 1144102
+INFO | 2025-11-27 16:14:10,515 | database_interactions | retrieve_comic_reviews | Retrieving reviews for comic: 1144102
+INFO | 2025-11-27 16:14:19,001 | api_interactions | retrievePublisherVolumes | Retrieving publishers.
+WARNING | 2025-11-27 16:14:23,132 | main | specific_book | Attempting to save person@napier.ac.uk's review: I like this comic book
+INFO | 2025-11-27 16:14:23,133 | database_interactions | add_review_to_comic | Adding review to comic 1144102
+WARNING | 2025-11-27 16:14:23,135 | database_interactions | add_review_to_comic | Adding review to comic statement: UPDATE collections SET ComicReview='I like this comic book', DisplayReview=True WHERE ComicId = 1144102 AND UserEmail = 'person@napier.ac.uk'
+INFO | 2025-11-27 16:14:23,136 | database_interactions | check_comic_in_database | Checking if comic exists: 1144102
+INFO | 2025-11-27 16:14:23,137 | database_interactions | retrieve_comic_reviews | Retrieving reviews for comic: 1144102
+INFO | 2025-11-27 16:14:23,138 | database_interactions | retrieve_username_by_email | Retrieved person@napier.ac.uk username: Persoon
+INFO | 2025-11-27 16:14:23,139 | main | specific_book | Reviews: [('person@napier.ac.uk', 'I like this comic book', '1', 'Persoon')]
+INFO | 2025-11-27 16:14:23,139 | database_interactions | check_comic_in_collection | Checking if comic is in user collection: 1144102
+INFO | 2025-11-27 16:14:23,140 | database_interactions | retrieve_user_review | Retrieving user person@napier.ac.uk's review for 1144102
+INFO | 2025-11-27 16:14:47,265 | api_interactions | retrievePublisherVolumes | Retrieving publishers.
+WARNING | 2025-11-27 16:14:59,102 | main | specific_book | Attempting to save person@napier.ac.uk's review: I like this comic book
+INFO | 2025-11-27 16:14:59,103 | database_interactions | add_review_to_comic | Adding review to comic 1144102
+WARNING | 2025-11-27 16:14:59,105 | database_interactions | add_review_to_comic | Adding review to comic statement: UPDATE collections SET ComicReview='I like this comic book', DisplayReview=True WHERE ComicId = 1144102 AND UserEmail = 'person@napier.ac.uk'
+INFO | 2025-11-27 16:14:59,107 | database_interactions | check_comic_in_database | Checking if comic exists: 1144102
+INFO | 2025-11-27 16:14:59,108 | database_interactions | retrieve_comic_reviews | Retrieving reviews for comic: 1144102
+INFO | 2025-11-27 16:14:59,109 | database_interactions | retrieve_username_by_email | Retrieved person@napier.ac.uk username: Persoon
+INFO | 2025-11-27 16:14:59,109 | database_interactions | check_comic_in_collection | Checking if comic is in user collection: 1144102
+INFO | 2025-11-27 16:14:59,110 | database_interactions | retrieve_user_review | Retrieving user person@napier.ac.uk's review for 1144102
+WARNING | 2025-11-27 16:15:38,912 | main | specific_book | Attempting to save person@napier.ac.uk's review: I like this comic book
+INFO | 2025-11-27 16:15:38,913 | database_interactions | add_review_to_comic | Adding review to comic 1144102
+WARNING | 2025-11-27 16:15:38,915 | database_interactions | add_review_to_comic | Adding review to comic statement: UPDATE collections SET ComicReview='I like this comic book', DisplayReview=True WHERE ComicId = 1144102 AND UserEmail = 'person@napier.ac.uk'
+INFO | 2025-11-27 16:15:38,916 | database_interactions | check_comic_in_database | Checking if comic exists: 1144102
+INFO | 2025-11-27 16:15:38,917 | database_interactions | retrieve_comic_reviews | Retrieving reviews for comic: 1144102
+INFO | 2025-11-27 16:15:38,918 | database_interactions | retrieve_username_by_email | Retrieved person@napier.ac.uk username: Persoon
+INFO | 2025-11-27 16:15:38,919 | database_interactions | check_comic_in_collection | Checking if comic is in user collection: 1144102
+INFO | 2025-11-27 16:15:38,919 | database_interactions | retrieve_user_review | Retrieving user person@napier.ac.uk's review for 1144102
+WARNING | 2025-11-27 16:15:59,679 | main | specific_book | Attempting to save person@napier.ac.uk's review: I like this comic book
+INFO | 2025-11-27 16:15:59,681 | database_interactions | add_review_to_comic | Adding review to comic 1144102
+WARNING | 2025-11-27 16:15:59,682 | database_interactions | add_review_to_comic | Adding review to comic statement: UPDATE collections SET ComicReview='I like this comic book', DisplayReview=True WHERE ComicId = 1144102 AND UserEmail = 'person@napier.ac.uk'
+INFO | 2025-11-27 16:15:59,683 | database_interactions | check_comic_in_database | Checking if comic exists: 1144102
+INFO | 2025-11-27 16:15:59,684 | database_interactions | retrieve_comic_reviews | Retrieving reviews for comic: 1144102
+INFO | 2025-11-27 16:15:59,685 | database_interactions | retrieve_username_by_email | Retrieved person@napier.ac.uk username: Persoon
+INFO | 2025-11-27 16:15:59,686 | database_interactions | check_comic_in_collection | Checking if comic is in user collection: 1144102
+INFO | 2025-11-27 16:15:59,687 | database_interactions | retrieve_user_review | Retrieving user person@napier.ac.uk's review for 1144102
+WARNING | 2025-11-27 16:16:17,135 | main | specific_book | Attempting to save person@napier.ac.uk's review: I like this comic book
+INFO | 2025-11-27 16:16:17,137 | database_interactions | add_review_to_comic | Adding review to comic 1144102
+WARNING | 2025-11-27 16:16:17,138 | database_interactions | add_review_to_comic | Adding review to comic statement: UPDATE collections SET ComicReview='I like this comic book', DisplayReview=True WHERE ComicId = 1144102 AND UserEmail = 'person@napier.ac.uk'
+INFO | 2025-11-27 16:16:17,139 | database_interactions | check_comic_in_database | Checking if comic exists: 1144102
+INFO | 2025-11-27 16:16:17,140 | database_interactions | retrieve_comic_reviews | Retrieving reviews for comic: 1144102
+INFO | 2025-11-27 16:16:17,141 | database_interactions | retrieve_username_by_email | Retrieved person@napier.ac.uk username: Persoon
+INFO | 2025-11-27 16:16:17,142 | database_interactions | check_comic_in_collection | Checking if comic is in user collection: 1144102
+INFO | 2025-11-27 16:16:17,142 | database_interactions | retrieve_user_review | Retrieving user person@napier.ac.uk's review for 1144102
+WARNING | 2025-11-27 16:16:28,073 | main | specific_book | Attempting to save person@napier.ac.uk's review: I like this comic book
+INFO | 2025-11-27 16:16:28,075 | database_interactions | add_review_to_comic | Adding review to comic 1144102
+WARNING | 2025-11-27 16:16:28,077 | database_interactions | add_review_to_comic | Adding review to comic statement: UPDATE collections SET ComicReview='I like this comic book', DisplayReview=True WHERE ComicId = 1144102 AND UserEmail = 'person@napier.ac.uk'
+INFO | 2025-11-27 16:16:28,078 | database_interactions | check_comic_in_database | Checking if comic exists: 1144102
+INFO | 2025-11-27 16:16:28,079 | database_interactions | retrieve_comic_reviews | Retrieving reviews for comic: 1144102
+INFO | 2025-11-27 16:16:28,080 | database_interactions | retrieve_username_by_email | Retrieved person@napier.ac.uk username: Persoon
+INFO | 2025-11-27 16:16:28,081 | database_interactions | check_comic_in_collection | Checking if comic is in user collection: 1144102
+INFO | 2025-11-27 16:16:28,082 | database_interactions | retrieve_user_review | Retrieving user person@napier.ac.uk's review for 1144102
+WARNING | 2025-11-27 16:17:07,073 | main | specific_book | Attempting to save person@napier.ac.uk's review: I like this comic book
+INFO | 2025-11-27 16:17:07,074 | database_interactions | add_review_to_comic | Adding review to comic 1144102
+WARNING | 2025-11-27 16:17:07,077 | database_interactions | add_review_to_comic | Adding review to comic statement: UPDATE collections SET ComicReview='I like this comic book', DisplayReview=True WHERE ComicId = 1144102 AND UserEmail = 'person@napier.ac.uk'
+INFO | 2025-11-27 16:17:07,078 | database_interactions | check_comic_in_database | Checking if comic exists: 1144102
+INFO | 2025-11-27 16:17:07,079 | database_interactions | retrieve_comic_reviews | Retrieving reviews for comic: 1144102
+INFO | 2025-11-27 16:17:07,079 | database_interactions | retrieve_username_by_email | Retrieved person@napier.ac.uk username: Persoon
+INFO | 2025-11-27 16:17:07,080 | database_interactions | check_comic_in_collection | Checking if comic is in user collection: 1144102
+INFO | 2025-11-27 16:17:07,080 | database_interactions | retrieve_user_review | Retrieving user person@napier.ac.uk's review for 1144102
+WARNING | 2025-11-27 16:17:29,035 | main | specific_book | Attempting to save person@napier.ac.uk's review: I like this comic book
+INFO | 2025-11-27 16:17:29,036 | database_interactions | add_review_to_comic | Adding review to comic 1144102
+WARNING | 2025-11-27 16:17:29,038 | database_interactions | add_review_to_comic | Adding review to comic statement: UPDATE collections SET ComicReview='I like this comic book', DisplayReview=True WHERE ComicId = 1144102 AND UserEmail = 'person@napier.ac.uk'
+INFO | 2025-11-27 16:17:29,039 | database_interactions | check_comic_in_database | Checking if comic exists: 1144102
+INFO | 2025-11-27 16:17:29,040 | database_interactions | retrieve_comic_reviews | Retrieving reviews for comic: 1144102
+INFO | 2025-11-27 16:17:29,041 | database_interactions | retrieve_username_by_email | Retrieved person@napier.ac.uk username: Persoon
+INFO | 2025-11-27 16:17:29,041 | database_interactions | check_comic_in_collection | Checking if comic is in user collection: 1144102
+INFO | 2025-11-27 16:17:29,042 | database_interactions | retrieve_user_review | Retrieving user person@napier.ac.uk's review for 1144102
+WARNING | 2025-11-27 16:17:39,573 | main | specific_book | Attempting to save person@napier.ac.uk's review: I like this comic book
+INFO | 2025-11-27 16:17:39,575 | database_interactions | add_review_to_comic | Adding review to comic 1144102
+WARNING | 2025-11-27 16:17:39,577 | database_interactions | add_review_to_comic | Adding review to comic statement: UPDATE collections SET ComicReview='I like this comic book', DisplayReview=True WHERE ComicId = 1144102 AND UserEmail = 'person@napier.ac.uk'
+INFO | 2025-11-27 16:17:39,578 | database_interactions | check_comic_in_database | Checking if comic exists: 1144102
+INFO | 2025-11-27 16:17:39,579 | database_interactions | retrieve_comic_reviews | Retrieving reviews for comic: 1144102
+INFO | 2025-11-27 16:17:39,580 | database_interactions | retrieve_username_by_email | Retrieved person@napier.ac.uk username: Persoon
+INFO | 2025-11-27 16:17:39,581 | database_interactions | check_comic_in_collection | Checking if comic is in user collection: 1144102
+INFO | 2025-11-27 16:17:39,582 | database_interactions | retrieve_user_review | Retrieving user person@napier.ac.uk's review for 1144102
+WARNING | 2025-11-27 16:17:51,364 | main | specific_book | Attempting to save person@napier.ac.uk's review: I like this comic book
+INFO | 2025-11-27 16:17:51,366 | database_interactions | add_review_to_comic | Adding review to comic 1144102
+WARNING | 2025-11-27 16:17:51,369 | database_interactions | add_review_to_comic | Adding review to comic statement: UPDATE collections SET ComicReview='I like this comic book', DisplayReview=True WHERE ComicId = 1144102 AND UserEmail = 'person@napier.ac.uk'
+INFO | 2025-11-27 16:17:51,370 | database_interactions | check_comic_in_database | Checking if comic exists: 1144102
+INFO | 2025-11-27 16:17:51,371 | database_interactions | retrieve_comic_reviews | Retrieving reviews for comic: 1144102
+INFO | 2025-11-27 16:17:51,372 | database_interactions | retrieve_username_by_email | Retrieved person@napier.ac.uk username: Persoon
+INFO | 2025-11-27 16:17:51,373 | database_interactions | check_comic_in_collection | Checking if comic is in user collection: 1144102
+INFO | 2025-11-27 16:17:51,373 | database_interactions | retrieve_user_review | Retrieving user person@napier.ac.uk's review for 1144102
+WARNING | 2025-11-27 16:18:05,002 | main | specific_book | Attempting to save person@napier.ac.uk's review: I like this comic book
+INFO | 2025-11-27 16:18:05,003 | database_interactions | add_review_to_comic | Adding review to comic 1144102
+WARNING | 2025-11-27 16:18:05,005 | database_interactions | add_review_to_comic | Adding review to comic statement: UPDATE collections SET ComicReview='I like this comic book', DisplayReview=True WHERE ComicId = 1144102 AND UserEmail = 'person@napier.ac.uk'
+INFO | 2025-11-27 16:18:05,006 | database_interactions | check_comic_in_database | Checking if comic exists: 1144102
+INFO | 2025-11-27 16:18:05,007 | database_interactions | retrieve_comic_reviews | Retrieving reviews for comic: 1144102
+INFO | 2025-11-27 16:18:05,008 | database_interactions | retrieve_username_by_email | Retrieved person@napier.ac.uk username: Persoon
+INFO | 2025-11-27 16:18:05,009 | database_interactions | check_comic_in_collection | Checking if comic is in user collection: 1144102
+INFO | 2025-11-27 16:18:05,009 | database_interactions | retrieve_user_review | Retrieving user person@napier.ac.uk's review for 1144102
+WARNING | 2025-11-27 16:18:17,319 | main | specific_book | Attempting to save person@napier.ac.uk's review: I like this comic book
+INFO | 2025-11-27 16:18:17,322 | database_interactions | add_review_to_comic | Adding review to comic 1144102
+WARNING | 2025-11-27 16:18:17,323 | database_interactions | add_review_to_comic | Adding review to comic statement: UPDATE collections SET ComicReview='I like this comic book', DisplayReview=True WHERE ComicId = 1144102 AND UserEmail = 'person@napier.ac.uk'
+INFO | 2025-11-27 16:18:17,325 | database_interactions | check_comic_in_database | Checking if comic exists: 1144102
+INFO | 2025-11-27 16:18:17,326 | database_interactions | retrieve_comic_reviews | Retrieving reviews for comic: 1144102
+INFO | 2025-11-27 16:18:17,327 | database_interactions | retrieve_username_by_email | Retrieved person@napier.ac.uk username: Persoon
+INFO | 2025-11-27 16:18:17,327 | database_interactions | check_comic_in_collection | Checking if comic is in user collection: 1144102
+INFO | 2025-11-27 16:18:17,328 | database_interactions | retrieve_user_review | Retrieving user person@napier.ac.uk's review for 1144102
+WARNING | 2025-11-27 16:18:45,056 | main | specific_book | Attempting to save person@napier.ac.uk's review: I like this comic book
+INFO | 2025-11-27 16:18:45,058 | database_interactions | add_review_to_comic | Adding review to comic 1144102
+WARNING | 2025-11-27 16:18:45,060 | database_interactions | add_review_to_comic | Adding review to comic statement: UPDATE collections SET ComicReview='I like this comic book', DisplayReview=True WHERE ComicId = 1144102 AND UserEmail = 'person@napier.ac.uk'
+INFO | 2025-11-27 16:18:45,061 | database_interactions | check_comic_in_database | Checking if comic exists: 1144102
+INFO | 2025-11-27 16:18:45,062 | database_interactions | retrieve_comic_reviews | Retrieving reviews for comic: 1144102
+INFO | 2025-11-27 16:18:45,063 | database_interactions | retrieve_username_by_email | Retrieved person@napier.ac.uk username: Persoon
+INFO | 2025-11-27 16:18:45,063 | database_interactions | check_comic_in_collection | Checking if comic is in user collection: 1144102
+INFO | 2025-11-27 16:18:45,064 | database_interactions | retrieve_user_review | Retrieving user person@napier.ac.uk's review for 1144102
+WARNING | 2025-11-27 16:19:06,398 | main | specific_book | Attempting to save person@napier.ac.uk's review: I like this comic book
+INFO | 2025-11-27 16:19:06,399 | database_interactions | add_review_to_comic | Adding review to comic 1144102
+WARNING | 2025-11-27 16:19:06,400 | database_interactions | add_review_to_comic | Adding review to comic statement: UPDATE collections SET ComicReview='I like this comic book', DisplayReview=True WHERE ComicId = 1144102 AND UserEmail = 'person@napier.ac.uk'
+INFO | 2025-11-27 16:19:06,401 | database_interactions | check_comic_in_database | Checking if comic exists: 1144102
+INFO | 2025-11-27 16:19:06,403 | database_interactions | retrieve_comic_reviews | Retrieving reviews for comic: 1144102
+INFO | 2025-11-27 16:19:06,404 | database_interactions | retrieve_username_by_email | Retrieved person@napier.ac.uk username: Persoon
+INFO | 2025-11-27 16:19:06,404 | database_interactions | check_comic_in_collection | Checking if comic is in user collection: 1144102
+INFO | 2025-11-27 16:19:06,405 | database_interactions | retrieve_user_review | Retrieving user person@napier.ac.uk's review for 1144102
+WARNING | 2025-11-27 16:19:20,597 | main | specific_book | Attempting to save person@napier.ac.uk's review: I like this comic book
+INFO | 2025-11-27 16:19:20,598 | database_interactions | add_review_to_comic | Adding review to comic 1144102
+WARNING | 2025-11-27 16:19:20,600 | database_interactions | add_review_to_comic | Adding review to comic statement: UPDATE collections SET ComicReview='I like this comic book', DisplayReview=True WHERE ComicId = 1144102 AND UserEmail = 'person@napier.ac.uk'
+INFO | 2025-11-27 16:19:20,601 | database_interactions | check_comic_in_database | Checking if comic exists: 1144102
+INFO | 2025-11-27 16:19:20,602 | database_interactions | retrieve_comic_reviews | Retrieving reviews for comic: 1144102
+INFO | 2025-11-27 16:19:20,603 | database_interactions | retrieve_username_by_email | Retrieved person@napier.ac.uk username: Persoon
+INFO | 2025-11-27 16:19:20,603 | database_interactions | check_comic_in_collection | Checking if comic is in user collection: 1144102
+INFO | 2025-11-27 16:19:20,604 | database_interactions | retrieve_user_review | Retrieving user person@napier.ac.uk's review for 1144102
+WARNING | 2025-11-27 16:19:33,284 | main | specific_book | Attempting to save person@napier.ac.uk's review: I like this comic book
+INFO | 2025-11-27 16:19:33,285 | database_interactions | add_review_to_comic | Adding review to comic 1144102
+WARNING | 2025-11-27 16:19:33,287 | database_interactions | add_review_to_comic | Adding review to comic statement: UPDATE collections SET ComicReview='I like this comic book', DisplayReview=True WHERE ComicId = 1144102 AND UserEmail = 'person@napier.ac.uk'
+INFO | 2025-11-27 16:19:33,288 | database_interactions | check_comic_in_database | Checking if comic exists: 1144102
+INFO | 2025-11-27 16:19:33,289 | database_interactions | retrieve_comic_reviews | Retrieving reviews for comic: 1144102
+INFO | 2025-11-27 16:19:33,291 | database_interactions | retrieve_username_by_email | Retrieved person@napier.ac.uk username: Persoon
+INFO | 2025-11-27 16:19:33,291 | database_interactions | check_comic_in_collection | Checking if comic is in user collection: 1144102
+INFO | 2025-11-27 16:19:33,292 | database_interactions | retrieve_user_review | Retrieving user person@napier.ac.uk's review for 1144102
+WARNING | 2025-11-27 16:19:53,325 | main | specific_book | Attempting to save person@napier.ac.uk's review: I like this comic book
+INFO | 2025-11-27 16:19:53,327 | database_interactions | add_review_to_comic | Adding review to comic 1144102
+WARNING | 2025-11-27 16:19:53,328 | database_interactions | add_review_to_comic | Adding review to comic statement: UPDATE collections SET ComicReview='I like this comic book', DisplayReview=True WHERE ComicId = 1144102 AND UserEmail = 'person@napier.ac.uk'
+INFO | 2025-11-27 16:19:53,329 | database_interactions | check_comic_in_database | Checking if comic exists: 1144102
+INFO | 2025-11-27 16:19:53,330 | database_interactions | retrieve_comic_reviews | Retrieving reviews for comic: 1144102
+INFO | 2025-11-27 16:19:53,331 | database_interactions | retrieve_username_by_email | Retrieved person@napier.ac.uk username: Persoon
+INFO | 2025-11-27 16:19:53,332 | database_interactions | check_comic_in_collection | Checking if comic is in user collection: 1144102
+INFO | 2025-11-27 16:19:53,332 | database_interactions | retrieve_user_review | Retrieving user person@napier.ac.uk's review for 1144102
+WARNING | 2025-11-27 16:20:03,664 | main | specific_book | Attempting to save person@napier.ac.uk's review: I like this comic book
+INFO | 2025-11-27 16:20:03,665 | database_interactions | add_review_to_comic | Adding review to comic 1144102
+WARNING | 2025-11-27 16:20:03,666 | database_interactions | add_review_to_comic | Adding review to comic statement: UPDATE collections SET ComicReview='I like this comic book', DisplayReview=True WHERE ComicId = 1144102 AND UserEmail = 'person@napier.ac.uk'
+INFO | 2025-11-27 16:20:03,668 | database_interactions | check_comic_in_database | Checking if comic exists: 1144102
+INFO | 2025-11-27 16:20:03,668 | database_interactions | retrieve_comic_reviews | Retrieving reviews for comic: 1144102
+INFO | 2025-11-27 16:20:03,669 | database_interactions | retrieve_username_by_email | Retrieved person@napier.ac.uk username: Persoon
+INFO | 2025-11-27 16:20:03,670 | database_interactions | check_comic_in_collection | Checking if comic is in user collection: 1144102
+INFO | 2025-11-27 16:20:03,670 | database_interactions | retrieve_user_review | Retrieving user person@napier.ac.uk's review for 1144102
+WARNING | 2025-11-27 16:20:24,067 | main | specific_book | Attempting to save person@napier.ac.uk's review: I like this comic book
+INFO | 2025-11-27 16:20:24,067 | database_interactions | add_review_to_comic | Adding review to comic 1144102
+WARNING | 2025-11-27 16:20:24,069 | database_interactions | add_review_to_comic | Adding review to comic statement: UPDATE collections SET ComicReview='I like this comic book', DisplayReview=True WHERE ComicId = 1144102 AND UserEmail = 'person@napier.ac.uk'
+INFO | 2025-11-27 16:20:24,071 | database_interactions | check_comic_in_database | Checking if comic exists: 1144102
+INFO | 2025-11-27 16:20:24,071 | database_interactions | retrieve_comic_reviews | Retrieving reviews for comic: 1144102
+INFO | 2025-11-27 16:20:24,072 | database_interactions | retrieve_username_by_email | Retrieved person@napier.ac.uk username: Persoon
+INFO | 2025-11-27 16:20:24,073 | database_interactions | check_comic_in_collection | Checking if comic is in user collection: 1144102
+INFO | 2025-11-27 16:20:24,073 | database_interactions | retrieve_user_review | Retrieving user person@napier.ac.uk's review for 1144102
+WARNING | 2025-11-27 16:20:36,690 | main | specific_book | Attempting to save person@napier.ac.uk's review: I like this comic book
+INFO | 2025-11-27 16:20:36,691 | database_interactions | add_review_to_comic | Adding review to comic 1144102
+WARNING | 2025-11-27 16:20:36,693 | database_interactions | add_review_to_comic | Adding review to comic statement: UPDATE collections SET ComicReview='I like this comic book', DisplayReview=True WHERE ComicId = 1144102 AND UserEmail = 'person@napier.ac.uk'
+INFO | 2025-11-27 16:20:36,694 | database_interactions | check_comic_in_database | Checking if comic exists: 1144102
+INFO | 2025-11-27 16:20:36,695 | database_interactions | retrieve_comic_reviews | Retrieving reviews for comic: 1144102
+INFO | 2025-11-27 16:20:36,696 | database_interactions | retrieve_username_by_email | Retrieved person@napier.ac.uk username: Persoon
+INFO | 2025-11-27 16:20:36,696 | database_interactions | check_comic_in_collection | Checking if comic is in user collection: 1144102
+INFO | 2025-11-27 16:20:36,697 | database_interactions | retrieve_user_review | Retrieving user person@napier.ac.uk's review for 1144102
+WARNING | 2025-11-27 16:20:44,376 | main | specific_book | Attempting to save person@napier.ac.uk's review: I like this comic book
+INFO | 2025-11-27 16:20:44,377 | database_interactions | add_review_to_comic | Adding review to comic 1144102
+WARNING | 2025-11-27 16:20:44,379 | database_interactions | add_review_to_comic | Adding review to comic statement: UPDATE collections SET ComicReview='I like this comic book', DisplayReview=True WHERE ComicId = 1144102 AND UserEmail = 'person@napier.ac.uk'
+INFO | 2025-11-27 16:20:44,380 | database_interactions | check_comic_in_database | Checking if comic exists: 1144102
+INFO | 2025-11-27 16:20:44,381 | database_interactions | retrieve_comic_reviews | Retrieving reviews for comic: 1144102
+INFO | 2025-11-27 16:20:44,382 | database_interactions | retrieve_username_by_email | Retrieved person@napier.ac.uk username: Persoon
+INFO | 2025-11-27 16:20:44,382 | database_interactions | check_comic_in_collection | Checking if comic is in user collection: 1144102
+INFO | 2025-11-27 16:20:44,383 | database_interactions | retrieve_user_review | Retrieving user person@napier.ac.uk's review for 1144102
+WARNING | 2025-11-27 16:21:08,006 | main | specific_book | Attempting to save person@napier.ac.uk's review: I like this comic book
+INFO | 2025-11-27 16:21:08,007 | database_interactions | add_review_to_comic | Adding review to comic 1144102
+WARNING | 2025-11-27 16:21:08,009 | database_interactions | add_review_to_comic | Adding review to comic statement: UPDATE collections SET ComicReview='I like this comic book', DisplayReview=True WHERE ComicId = 1144102 AND UserEmail = 'person@napier.ac.uk'
+INFO | 2025-11-27 16:21:08,010 | database_interactions | check_comic_in_database | Checking if comic exists: 1144102
+INFO | 2025-11-27 16:21:08,011 | database_interactions | retrieve_comic_reviews | Retrieving reviews for comic: 1144102
+INFO | 2025-11-27 16:21:08,012 | database_interactions | retrieve_username_by_email | Retrieved person@napier.ac.uk username: Persoon
+INFO | 2025-11-27 16:21:08,012 | database_interactions | check_comic_in_collection | Checking if comic is in user collection: 1144102
+INFO | 2025-11-27 16:21:08,013 | database_interactions | retrieve_user_review | Retrieving user person@napier.ac.uk's review for 1144102
+WARNING | 2025-11-27 16:21:40,647 | main | specific_book | Attempting to save person@napier.ac.uk's review: I like this comic book
+INFO | 2025-11-27 16:21:40,648 | database_interactions | add_review_to_comic | Adding review to comic 1144102
+WARNING | 2025-11-27 16:21:40,650 | database_interactions | add_review_to_comic | Adding review to comic statement: UPDATE collections SET ComicReview='I like this comic book', DisplayReview=True WHERE ComicId = 1144102 AND UserEmail = 'person@napier.ac.uk'
+INFO | 2025-11-27 16:21:40,652 | database_interactions | check_comic_in_database | Checking if comic exists: 1144102
+INFO | 2025-11-27 16:21:40,653 | database_interactions | retrieve_comic_reviews | Retrieving reviews for comic: 1144102
+INFO | 2025-11-27 16:21:40,654 | database_interactions | retrieve_username_by_email | Retrieved person@napier.ac.uk username: Persoon
+INFO | 2025-11-27 16:21:40,654 | database_interactions | check_comic_in_collection | Checking if comic is in user collection: 1144102
+INFO | 2025-11-27 16:21:40,655 | database_interactions | retrieve_user_review | Retrieving user person@napier.ac.uk's review for 1144102
+WARNING | 2025-11-27 16:21:48,747 | main | specific_book | Attempting to save person@napier.ac.uk's review: I like this comic book
+INFO | 2025-11-27 16:21:48,748 | database_interactions | add_review_to_comic | Adding review to comic 1144102
+WARNING | 2025-11-27 16:21:48,750 | database_interactions | add_review_to_comic | Adding review to comic statement: UPDATE collections SET ComicReview='I like this comic book', DisplayReview=True WHERE ComicId = 1144102 AND UserEmail = 'person@napier.ac.uk'
+INFO | 2025-11-27 16:21:48,751 | database_interactions | check_comic_in_database | Checking if comic exists: 1144102
+INFO | 2025-11-27 16:21:48,752 | database_interactions | retrieve_comic_reviews | Retrieving reviews for comic: 1144102
+INFO | 2025-11-27 16:21:48,753 | database_interactions | retrieve_username_by_email | Retrieved person@napier.ac.uk username: Persoon
+INFO | 2025-11-27 16:21:48,753 | database_interactions | check_comic_in_collection | Checking if comic is in user collection: 1144102
+INFO | 2025-11-27 16:21:48,754 | database_interactions | retrieve_user_review | Retrieving user person@napier.ac.uk's review for 1144102
+WARNING | 2025-11-27 16:21:55,227 | main | specific_book | Attempting to save person@napier.ac.uk's review: I like this comic book
+INFO | 2025-11-27 16:21:55,228 | database_interactions | add_review_to_comic | Adding review to comic 1144102
+WARNING | 2025-11-27 16:21:55,229 | database_interactions | add_review_to_comic | Adding review to comic statement: UPDATE collections SET ComicReview='I like this comic book', DisplayReview=True WHERE ComicId = 1144102 AND UserEmail = 'person@napier.ac.uk'
+INFO | 2025-11-27 16:21:55,231 | database_interactions | check_comic_in_database | Checking if comic exists: 1144102
+INFO | 2025-11-27 16:21:55,232 | database_interactions | retrieve_comic_reviews | Retrieving reviews for comic: 1144102
+INFO | 2025-11-27 16:21:55,233 | database_interactions | retrieve_username_by_email | Retrieved person@napier.ac.uk username: Persoon
+INFO | 2025-11-27 16:21:55,233 | database_interactions | check_comic_in_collection | Checking if comic is in user collection: 1144102
+INFO | 2025-11-27 16:21:55,234 | database_interactions | retrieve_user_review | Retrieving user person@napier.ac.uk's review for 1144102
+WARNING | 2025-11-27 16:22:09,340 | main | specific_book | Attempting to save person@napier.ac.uk's review: I like this comic book
+INFO | 2025-11-27 16:22:09,341 | database_interactions | add_review_to_comic | Adding review to comic 1144102
+WARNING | 2025-11-27 16:22:09,344 | database_interactions | add_review_to_comic | Adding review to comic statement: UPDATE collections SET ComicReview='I like this comic book', DisplayReview=True WHERE ComicId = 1144102 AND UserEmail = 'person@napier.ac.uk'
+INFO | 2025-11-27 16:22:09,345 | database_interactions | check_comic_in_database | Checking if comic exists: 1144102
+INFO | 2025-11-27 16:22:09,346 | database_interactions | retrieve_comic_reviews | Retrieving reviews for comic: 1144102
+INFO | 2025-11-27 16:22:09,347 | database_interactions | retrieve_username_by_email | Retrieved person@napier.ac.uk username: Persoon
+INFO | 2025-11-27 16:22:09,348 | database_interactions | check_comic_in_collection | Checking if comic is in user collection: 1144102
+INFO | 2025-11-27 16:22:09,349 | database_interactions | retrieve_user_review | Retrieving user person@napier.ac.uk's review for 1144102
+WARNING | 2025-11-27 16:22:18,095 | main | specific_book | Attempting to save person@napier.ac.uk's review: I like this comic book a lot
+INFO | 2025-11-27 16:22:18,096 | database_interactions | add_review_to_comic | Adding review to comic 1144102
+WARNING | 2025-11-27 16:22:18,098 | database_interactions | add_review_to_comic | Adding review to comic statement: UPDATE collections SET ComicReview='I like this comic book a lot', DisplayReview=False WHERE ComicId = 1144102 AND UserEmail = 'person@napier.ac.uk'
+INFO | 2025-11-27 16:22:18,117 | database_interactions | check_comic_in_database | Checking if comic exists: 1144102
+INFO | 2025-11-27 16:22:18,118 | database_interactions | retrieve_comic_reviews | Retrieving reviews for comic: 1144102
+INFO | 2025-11-27 16:22:18,119 | database_interactions | retrieve_username_by_email | Retrieved person@napier.ac.uk username: Persoon
+INFO | 2025-11-27 16:22:18,120 | database_interactions | check_comic_in_collection | Checking if comic is in user collection: 1144102
+INFO | 2025-11-27 16:22:18,120 | database_interactions | retrieve_user_review | Retrieving user person@napier.ac.uk's review for 1144102
+WARNING | 2025-11-27 16:22:21,402 | main | specific_book | Attempting to save person@napier.ac.uk's review: I like this comic book a lot
+INFO | 2025-11-27 16:22:21,403 | database_interactions | add_review_to_comic | Adding review to comic 1144102
+WARNING | 2025-11-27 16:22:21,404 | database_interactions | add_review_to_comic | Adding review to comic statement: UPDATE collections SET ComicReview='I like this comic book a lot', DisplayReview=True WHERE ComicId = 1144102 AND UserEmail = 'person@napier.ac.uk'
+INFO | 2025-11-27 16:22:21,423 | database_interactions | check_comic_in_database | Checking if comic exists: 1144102
+INFO | 2025-11-27 16:22:21,424 | database_interactions | retrieve_comic_reviews | Retrieving reviews for comic: 1144102
+INFO | 2025-11-27 16:22:21,425 | database_interactions | retrieve_username_by_email | Retrieved person@napier.ac.uk username: Persoon
+INFO | 2025-11-27 16:22:21,425 | database_interactions | check_comic_in_collection | Checking if comic is in user collection: 1144102
+INFO | 2025-11-27 16:22:21,426 | database_interactions | retrieve_user_review | Retrieving user person@napier.ac.uk's review for 1144102
+WARNING | 2025-11-27 16:22:28,817 | main | specific_book | Attempting to save person@napier.ac.uk's review: I like this comic book a lot a lot
+INFO | 2025-11-27 16:22:28,817 | database_interactions | add_review_to_comic | Adding review to comic 1144102
+WARNING | 2025-11-27 16:22:28,819 | database_interactions | add_review_to_comic | Adding review to comic statement: UPDATE collections SET ComicReview='I like this comic book a lot a lot', DisplayReview=True WHERE ComicId = 1144102 AND UserEmail = 'person@napier.ac.uk'
+INFO | 2025-11-27 16:22:28,840 | database_interactions | check_comic_in_database | Checking if comic exists: 1144102
+INFO | 2025-11-27 16:22:28,841 | database_interactions | retrieve_comic_reviews | Retrieving reviews for comic: 1144102
+INFO | 2025-11-27 16:22:28,842 | database_interactions | retrieve_username_by_email | Retrieved person@napier.ac.uk username: Persoon
+INFO | 2025-11-27 16:22:28,842 | database_interactions | check_comic_in_collection | Checking if comic is in user collection: 1144102
+INFO | 2025-11-27 16:22:28,843 | database_interactions | retrieve_user_review | Retrieving user person@napier.ac.uk's review for 1144102
+WARNING | 2025-11-27 16:22:35,698 | main | specific_book | Attempting to save person@napier.ac.uk's review: I like this comic book a lot
+INFO | 2025-11-27 16:22:35,699 | database_interactions | add_review_to_comic | Adding review to comic 1144102
+WARNING | 2025-11-27 16:22:35,701 | database_interactions | add_review_to_comic | Adding review to comic statement: UPDATE collections SET ComicReview='I like this comic book a lot', DisplayReview=False WHERE ComicId = 1144102 AND UserEmail = 'person@napier.ac.uk'
+INFO | 2025-11-27 16:22:35,722 | database_interactions | check_comic_in_database | Checking if comic exists: 1144102
+INFO | 2025-11-27 16:22:35,723 | database_interactions | retrieve_comic_reviews | Retrieving reviews for comic: 1144102
+INFO | 2025-11-27 16:22:35,724 | database_interactions | retrieve_username_by_email | Retrieved person@napier.ac.uk username: Persoon
+INFO | 2025-11-27 16:22:35,724 | database_interactions | check_comic_in_collection | Checking if comic is in user collection: 1144102
+INFO | 2025-11-27 16:22:35,725 | database_interactions | retrieve_user_review | Retrieving user person@napier.ac.uk's review for 1144102
+INFO | 2025-11-27 16:22:48,880 | database_interactions | retrieve_collection | Retrieving person@napier.ac.uk collection.
+INFO | 2025-11-27 16:22:50,309 | database_interactions | check_comic_in_database | Checking if comic exists: 1144102
+INFO | 2025-11-27 16:22:50,311 | database_interactions | retrieve_comic_reviews | Retrieving reviews for comic: 1144102
+INFO | 2025-11-27 16:22:50,312 | database_interactions | retrieve_username_by_email | Retrieved person@napier.ac.uk username: Persoon
+INFO | 2025-11-27 16:22:50,312 | database_interactions | check_comic_in_collection | Checking if comic is in user collection: 1144102
+INFO | 2025-11-27 16:22:50,313 | database_interactions | retrieve_user_review | Retrieving user person@napier.ac.uk's review for 1144102
+WARNING | 2025-11-27 16:22:53,252 | main | specific_book | Attempting to save person@napier.ac.uk's review: I like this comic book a lot
+INFO | 2025-11-27 16:22:53,253 | database_interactions | add_review_to_comic | Adding review to comic 1144102
+WARNING | 2025-11-27 16:22:53,254 | database_interactions | add_review_to_comic | Adding review to comic statement: UPDATE collections SET ComicReview='I like this comic book a lot', DisplayReview=True WHERE ComicId = 1144102 AND UserEmail = 'person@napier.ac.uk'
+INFO | 2025-11-27 16:22:53,274 | database_interactions | check_comic_in_database | Checking if comic exists: 1144102
+INFO | 2025-11-27 16:22:53,275 | database_interactions | retrieve_comic_reviews | Retrieving reviews for comic: 1144102
+INFO | 2025-11-27 16:22:53,276 | database_interactions | retrieve_username_by_email | Retrieved person@napier.ac.uk username: Persoon
+INFO | 2025-11-27 16:22:53,276 | database_interactions | check_comic_in_collection | Checking if comic is in user collection: 1144102
+INFO | 2025-11-27 16:22:53,277 | database_interactions | retrieve_user_review | Retrieving user person@napier.ac.uk's review for 1144102
+INFO | 2025-11-27 16:22:54,918 | database_interactions | retrieve_collection | Retrieving person@napier.ac.uk collection.
+INFO | 2025-11-27 16:22:56,106 | database_interactions | check_comic_in_database | Checking if comic exists: 1144102
+INFO | 2025-11-27 16:22:56,108 | database_interactions | retrieve_comic_reviews | Retrieving reviews for comic: 1144102
+INFO | 2025-11-27 16:22:56,109 | database_interactions | retrieve_username_by_email | Retrieved person@napier.ac.uk username: Persoon
+INFO | 2025-11-27 16:22:56,110 | database_interactions | check_comic_in_collection | Checking if comic is in user collection: 1144102
+INFO | 2025-11-27 16:22:56,111 | database_interactions | retrieve_user_review | Retrieving user person@napier.ac.uk's review for 1144102
+WARNING | 2025-11-27 16:23:13,619 | main | specific_book | Attempting to save person@napier.ac.uk's review: I have written a review which I would not like anyone to see
+INFO | 2025-11-27 16:23:13,620 | database_interactions | add_review_to_comic | Adding review to comic 1144102
+WARNING | 2025-11-27 16:23:13,622 | database_interactions | add_review_to_comic | Adding review to comic statement: UPDATE collections SET ComicReview='I have written a review which I would not like anyone to see', DisplayReview=False WHERE ComicId = 1144102 AND UserEmail = 'person@napier.ac.uk'
+INFO | 2025-11-27 16:23:13,643 | database_interactions | check_comic_in_database | Checking if comic exists: 1144102
+INFO | 2025-11-27 16:23:13,644 | database_interactions | retrieve_comic_reviews | Retrieving reviews for comic: 1144102
+INFO | 2025-11-27 16:23:13,645 | database_interactions | retrieve_username_by_email | Retrieved person@napier.ac.uk username: Persoon
+INFO | 2025-11-27 16:23:13,646 | database_interactions | check_comic_in_collection | Checking if comic is in user collection: 1144102
+INFO | 2025-11-27 16:23:13,646 | database_interactions | retrieve_user_review | Retrieving user person@napier.ac.uk's review for 1144102
+INFO | 2025-11-27 16:23:16,407 | database_interactions | retrieve_collection | Retrieving person@napier.ac.uk collection.
+INFO | 2025-11-27 16:23:17,545 | database_interactions | check_comic_in_database | Checking if comic exists: 1144102
+INFO | 2025-11-27 16:23:17,547 | database_interactions | retrieve_comic_reviews | Retrieving reviews for comic: 1144102
+INFO | 2025-11-27 16:23:17,548 | database_interactions | retrieve_username_by_email | Retrieved person@napier.ac.uk username: Persoon
+INFO | 2025-11-27 16:23:17,548 | database_interactions | check_comic_in_collection | Checking if comic is in user collection: 1144102
+INFO | 2025-11-27 16:23:17,549 | database_interactions | retrieve_user_review | Retrieving user person@napier.ac.uk's review for 1144102
+WARNING | 2025-11-27 16:23:25,060 | main | specific_book | Attempting to save person@napier.ac.uk's review: I like this comic book
+INFO | 2025-11-27 16:23:25,061 | database_interactions | add_review_to_comic | Adding review to comic 1144102
+WARNING | 2025-11-27 16:23:25,062 | database_interactions | add_review_to_comic | Adding review to comic statement: UPDATE collections SET ComicReview='I like this comic book', DisplayReview=True WHERE ComicId = 1144102 AND UserEmail = 'person@napier.ac.uk'
+INFO | 2025-11-27 16:23:25,082 | database_interactions | check_comic_in_database | Checking if comic exists: 1144102
+INFO | 2025-11-27 16:23:25,083 | database_interactions | retrieve_comic_reviews | Retrieving reviews for comic: 1144102
+INFO | 2025-11-27 16:23:25,085 | database_interactions | retrieve_username_by_email | Retrieved person@napier.ac.uk username: Persoon
+INFO | 2025-11-27 16:23:25,085 | database_interactions | check_comic_in_collection | Checking if comic is in user collection: 1144102
+INFO | 2025-11-27 16:23:25,086 | database_interactions | retrieve_user_review | Retrieving user person@napier.ac.uk's review for 1144102
+INFO | 2025-11-27 16:23:26,434 | database_interactions | retrieve_collection | Retrieving person@napier.ac.uk collection.
+INFO | 2025-11-27 16:23:31,770 | database_interactions | check_comic_in_database | Checking if comic exists: 1144216
+INFO | 2025-11-27 16:23:31,771 | database_interactions | retrieve_comic_reviews | Retrieving reviews for comic: 1144216
+INFO | 2025-11-27 16:23:31,772 | database_interactions | check_comic_in_collection | Checking if comic is in user collection: 1144216
+INFO | 2025-11-27 16:23:31,773 | database_interactions | retrieve_user_review | Retrieving user person@napier.ac.uk's review for 1144216
+WARNING | 2025-11-27 16:23:43,026 | main | specific_book | Attempting to save person@napier.ac.uk's review: I have written a review which I would like nobody else to see
+INFO | 2025-11-27 16:23:43,027 | database_interactions | add_review_to_comic | Adding review to comic 1144216
+WARNING | 2025-11-27 16:23:43,029 | database_interactions | add_review_to_comic | Adding review to comic statement: UPDATE collections SET ComicReview='I have written a review which I would like nobody else to see', DisplayReview=False WHERE ComicId = 1144216 AND UserEmail = 'person@napier.ac.uk'
+INFO | 2025-11-27 16:23:43,049 | database_interactions | check_comic_in_database | Checking if comic exists: 1144216
+INFO | 2025-11-27 16:23:43,051 | database_interactions | retrieve_comic_reviews | Retrieving reviews for comic: 1144216
+INFO | 2025-11-27 16:23:43,052 | database_interactions | retrieve_username_by_email | Retrieved person@napier.ac.uk username: Persoon
+INFO | 2025-11-27 16:23:43,052 | database_interactions | check_comic_in_collection | Checking if comic is in user collection: 1144216
+INFO | 2025-11-27 16:23:43,053 | database_interactions | retrieve_user_review | Retrieving user person@napier.ac.uk's review for 1144216
+INFO | 2025-11-27 16:23:52,187 | database_interactions | check_comic_in_database | Checking if comic exists: 110227
+INFO | 2025-11-27 16:23:52,189 | database_interactions | retrieve_comic_reviews | Retrieving reviews for comic: 110227
+INFO | 2025-11-27 16:23:52,189 | database_interactions | check_comic_in_collection | Checking if comic is in user collection: 110227
+INFO | 2025-11-27 16:23:52,190 | database_interactions | retrieve_user_review | Retrieving user person@napier.ac.uk's review for 110227
+INFO | 2025-11-27 16:24:02,937 | database_interactions | check_comic_in_database | Checking if comic exists: 110227
+INFO | 2025-11-27 16:24:02,938 | database_interactions | retrieve_comic_reviews | Retrieving reviews for comic: 110227
+INFO | 2025-11-27 16:24:02,939 | database_interactions | check_comic_in_collection | Checking if comic is in user collection: 110227
+INFO | 2025-11-27 16:24:02,940 | database_interactions | retrieve_user_review | Retrieving user person@napier.ac.uk's review for 110227
+INFO | 2025-11-27 16:24:16,786 | database_interactions | check_comic_in_database | Checking if comic exists: 1136239
+INFO | 2025-11-27 16:24:16,788 | database_interactions | retrieve_comic_reviews | Retrieving reviews for comic: 1136239
+INFO | 2025-11-27 16:24:16,789 | database_interactions | check_comic_in_collection | Checking if comic is in user collection: 1136239
+INFO | 2025-11-27 16:24:16,790 | database_interactions | retrieve_user_review | Retrieving user person@napier.ac.uk's review for 1136239
+INFO | 2025-11-27 16:24:24,077 | database_interactions | check_comic_in_database | Checking if comic exists: 110227
+INFO | 2025-11-27 16:24:24,078 | database_interactions | retrieve_comic_reviews | Retrieving reviews for comic: 110227
+INFO | 2025-11-27 16:24:24,079 | database_interactions | check_comic_in_collection | Checking if comic is in user collection: 110227
+INFO | 2025-11-27 16:24:24,080 | database_interactions | retrieve_user_review | Retrieving user person@napier.ac.uk's review for 110227
+INFO | 2025-11-27 16:25:00,891 | database_interactions | check_comic_in_database | Checking if comic exists: 110227
+INFO | 2025-11-27 16:25:00,893 | database_interactions | retrieve_comic_reviews | Retrieving reviews for comic: 110227
+INFO | 2025-11-27 16:25:00,894 | database_interactions | check_comic_in_collection | Checking if comic is in user collection: 110227
+INFO | 2025-11-27 16:25:00,895 | database_interactions | retrieve_user_review | Retrieving user person@napier.ac.uk's review for 110227
+INFO | 2025-11-27 16:26:01,933 | database_interactions | check_comic_in_database | Checking if comic exists: 110227
+INFO | 2025-11-27 16:26:01,934 | database_interactions | retrieve_comic_reviews | Retrieving reviews for comic: 110227
+INFO | 2025-11-27 16:26:01,935 | database_interactions | check_comic_in_collection | Checking if comic is in user collection: 110227
+INFO | 2025-11-27 16:26:01,936 | database_interactions | retrieve_user_review | Retrieving user person@napier.ac.uk's review for 110227
+INFO | 2025-11-27 16:26:03,603 | database_interactions | retrieve_collection | Retrieving person@napier.ac.uk collection.
+INFO | 2025-11-27 16:26:05,358 | database_interactions | check_comic_in_database | Checking if comic exists: 1136239
+INFO | 2025-11-27 16:26:05,359 | database_interactions | retrieve_comic_reviews | Retrieving reviews for comic: 1136239
+INFO | 2025-11-27 16:26:05,360 | database_interactions | check_comic_in_collection | Checking if comic is in user collection: 1136239
+INFO | 2025-11-27 16:26:05,361 | database_interactions | retrieve_user_review | Retrieving user person@napier.ac.uk's review for 1136239
+INFO | 2025-11-27 16:26:16,316 | database_interactions | retrieve_collection | Retrieving person@napier.ac.uk collection.
+INFO | 2025-11-27 16:26:19,919 | database_interactions | check_comic_in_database | Checking if comic exists: 1141905
+INFO | 2025-11-27 16:26:19,921 | database_interactions | retrieve_comic_reviews | Retrieving reviews for comic: 1141905
+INFO | 2025-11-27 16:26:19,922 | database_interactions | check_comic_in_collection | Checking if comic is in user collection: 1141905
+INFO | 2025-11-27 16:26:19,922 | database_interactions | retrieve_user_review | Retrieving user person@napier.ac.uk's review for 1141905
+INFO | 2025-11-27 16:26:31,411 | api_interactions | findMatchingValueInPublisherDict | Finding volumes matching Captain America
+INFO | 2025-11-27 16:26:31,418 | api_interactions | findMatchingValueInPublisherDict | Matches found: 367
+INFO | 2025-11-27 16:26:33,307 | main | search | Volume Selected: (1628, ['Marvel', 'Captain America Comics'])
+INFO | 2025-11-27 16:26:33,307 | api_interactions | retrieveIssuesByVolume | Retrieving issues for volume Captain America Comics with offset of 0
+INFO | 2025-11-27 16:26:43,711 | main | search | Retrieved 73 issues.
+INFO | 2025-11-27 16:26:49,730 | database_interactions | check_comic_in_database | Checking if comic exists: 107870
+INFO | 2025-11-27 16:26:49,731 | database_interactions | check_comic_in_collection | Checking if comic is in user collection: 107870
+INFO | 2025-11-27 16:26:49,732 | database_interactions | retrieve_user_review | Retrieving user person@napier.ac.uk's review for 107870
+INFO | 2025-11-27 16:27:32,951 | api_interactions | retrievePublisherVolumes | Retrieving publishers.
+INFO | 2025-11-27 16:27:48,157 | database_interactions | check_comic_in_database | Checking if comic exists: 107870
+INFO | 2025-11-27 16:27:48,160 | database_interactions | check_comic_in_collection | Checking if comic is in user collection: 107870
+INFO | 2025-11-27 16:27:48,161 | database_interactions | retrieve_user_review | Retrieving user person@napier.ac.uk's review for 107870
+INFO | 2025-11-27 16:27:56,588 | api_interactions | retrievePublisherVolumes | Retrieving publishers.
+INFO | 2025-11-27 16:28:08,082 | database_interactions | check_comic_in_database | Checking if comic exists: 107870
+INFO | 2025-11-27 16:28:08,084 | database_interactions | check_comic_in_collection | Checking if comic is in user collection: 107870
+INFO | 2025-11-27 16:28:08,085 | database_interactions | retrieve_user_review | Retrieving user person@napier.ac.uk's review for 107870
+INFO | 2025-11-27 16:28:54,421 | api_interactions | retrievePublisherVolumes | Retrieving publishers.
+INFO | 2025-11-27 16:28:58,608 | database_interactions | check_comic_in_database | Checking if comic exists: 107870
+INFO | 2025-11-27 16:28:58,610 | database_interactions | check_comic_in_collection | Checking if comic is in user collection: 107870
+INFO | 2025-11-27 16:28:58,611 | database_interactions | retrieve_user_review | Retrieving user person@napier.ac.uk's review for 107870
+INFO | 2025-11-27 16:29:12,812 | database_interactions | check_comic_in_collection | Checking if comic is in user collection: 107870
+INFO | 2025-11-27 16:29:12,813 | database_interactions | check_comic_in_database | Checking if comic exists: 107870
+INFO | 2025-11-27 16:29:12,814 | database_interactions | add_comic_to_database | Adding comic to database: 107870
+INFO | 2025-11-27 16:30:14,285 | api_interactions | retrievePublisherVolumes | Retrieving publishers.
+INFO | 2025-11-27 16:30:21,700 | api_interactions | retrievePublisherVolumes | Retrieving publishers.
+INFO | 2025-11-27 16:30:36,458 | api_interactions | retrievePublisherVolumes | Retrieving publishers.
+INFO | 2025-11-27 16:30:46,652 | api_interactions | retrievePublisherVolumes | Retrieving publishers.
+INFO | 2025-11-27 16:31:00,450 | api_interactions | retrievePublisherVolumes | Retrieving publishers.
+INFO | 2025-11-27 16:31:15,629 | database_interactions | check_comic_in_collection | Checking if comic is in user collection: 107870
+INFO | 2025-11-27 16:31:15,631 | database_interactions | check_comic_in_database | Checking if comic exists: 107870
+INFO | 2025-11-27 16:31:15,632 | database_interactions | add_comic_to_database | Adding comic to database: 107870
+INFO | 2025-11-27 16:31:26,339 | api_interactions | retrievePublisherVolumes | Retrieving publishers.
+INFO | 2025-11-27 16:31:33,556 | database_interactions | check_comic_in_collection | Checking if comic is in user collection: 107870
+INFO | 2025-11-27 16:31:33,558 | database_interactions | check_comic_in_database | Checking if comic exists: 107870
+INFO | 2025-11-27 16:31:33,559 | database_interactions | add_comic_to_database | Adding comic to database: 107870
+INFO | 2025-11-27 16:31:33,579 | database_interactions | add_to_collection_database | Adding comic to user collection: 107870
+INFO | 2025-11-27 16:31:40,450 | database_interactions | retrieve_user_list | Retrieving all users for display
+INFO | 2025-11-27 16:31:44,444 | database_interactions | retrieve_collection | Retrieving person@napier.ac.uk collection.
+INFO | 2025-11-27 16:31:47,397 | database_interactions | check_comic_in_database | Checking if comic exists: 107870
+INFO | 2025-11-27 16:31:47,399 | database_interactions | retrieve_comic_reviews | Retrieving reviews for comic: 107870
+INFO | 2025-11-27 16:31:47,399 | database_interactions | check_comic_in_collection | Checking if comic is in user collection: 107870
+INFO | 2025-11-27 16:31:47,400 | database_interactions | retrieve_user_review | Retrieving user person@napier.ac.uk's review for 107870
+WARNING | 2025-11-27 16:32:24,559 | main | specific_book | Attempting to save person@napier.ac.uk's review: I believe that this is very good
+INFO | 2025-11-27 16:32:24,564 | database_interactions | add_review_to_comic | Adding review to comic 107870
+WARNING | 2025-11-27 16:32:24,566 | database_interactions | add_review_to_comic | Adding review to comic statement: UPDATE collections SET ComicReview='I believe that this is very good', DisplayReview=True WHERE ComicId = 107870 AND UserEmail = 'person@napier.ac.uk'
+INFO | 2025-11-27 16:32:24,606 | database_interactions | check_comic_in_database | Checking if comic exists: 107870
+INFO | 2025-11-27 16:32:24,607 | database_interactions | retrieve_comic_reviews | Retrieving reviews for comic: 107870
+INFO | 2025-11-27 16:32:24,608 | database_interactions | retrieve_username_by_email | Retrieved person@napier.ac.uk username: Persoon
+INFO | 2025-11-27 16:32:24,608 | database_interactions | check_comic_in_collection | Checking if comic is in user collection: 107870
+INFO | 2025-11-27 16:32:24,609 | database_interactions | retrieve_user_review | Retrieving user person@napier.ac.uk's review for 107870
+INFO | 2025-11-27 16:32:27,761 | main | logout | User person@napier.ac.uk logged out.
+INFO | 2025-11-27 16:32:40,257 | main | login | Starting login attempt.
+INFO | 2025-11-27 16:32:40,260 | database_interactions | check_auth | Checking for matching emails: person@gmail.com
+INFO | 2025-11-27 16:32:40,799 | database_interactions | retrieve_user_list | Retrieving all users for display
+INFO | 2025-11-27 16:32:49,185 | api_interactions | findMatchingValueInPublisherDict | Finding volumes matching Captain America
+INFO | 2025-11-27 16:32:49,195 | api_interactions | findMatchingValueInPublisherDict | Matches found: 367
+INFO | 2025-11-27 16:32:50,529 | main | search | Volume Selected: (1628, ['Marvel', 'Captain America Comics'])
+INFO | 2025-11-27 16:32:50,529 | api_interactions | retrieveIssuesByVolume | Retrieving issues for volume Captain America Comics with offset of 0
+INFO | 2025-11-27 16:32:51,707 | main | search | Retrieved 73 issues.
+INFO | 2025-11-27 16:32:53,246 | database_interactions | check_comic_in_database | Checking if comic exists: 107870
+INFO | 2025-11-27 16:32:53,248 | database_interactions | retrieve_comic_reviews | Retrieving reviews for comic: 107870
+INFO | 2025-11-27 16:32:53,249 | database_interactions | retrieve_username_by_email | Retrieved person@napier.ac.uk username: Persoon
+INFO | 2025-11-27 16:32:53,249 | database_interactions | check_comic_in_collection | Checking if comic is in user collection: 107870
+INFO | 2025-11-27 16:32:53,250 | database_interactions | retrieve_user_review | Retrieving user person@gmail.com's review for 107870
+INFO | 2025-11-27 16:33:04,192 | database_interactions | check_comic_in_collection | Checking if comic is in user collection: 107870
+INFO | 2025-11-27 16:33:04,193 | database_interactions | check_comic_in_database | Checking if comic exists: 107870
+INFO | 2025-11-27 16:33:04,194 | database_interactions | add_to_collection_database | Adding comic to user collection: 107870
+INFO | 2025-11-27 16:33:11,312 | database_interactions | retrieve_user_list | Retrieving all users for display
+INFO | 2025-11-27 16:33:14,037 | database_interactions | retrieve_collection | Retrieving person@gmail.com collection.
+INFO | 2025-11-27 16:33:21,578 | database_interactions | check_comic_in_database | Checking if comic exists: 107870
+INFO | 2025-11-27 16:33:21,579 | database_interactions | retrieve_comic_reviews | Retrieving reviews for comic: 107870
+INFO | 2025-11-27 16:33:21,580 | database_interactions | retrieve_username_by_email | Retrieved person@napier.ac.uk username: Persoon
+INFO | 2025-11-27 16:33:21,581 | database_interactions | check_comic_in_collection | Checking if comic is in user collection: 107870
+INFO | 2025-11-27 16:33:21,582 | database_interactions | retrieve_user_review | Retrieving user person@gmail.com's review for 107870
+WARNING | 2025-11-27 16:33:30,801 | main | specific_book | Attempting to save person@gmail.com's review: I also believe that this is very good
+INFO | 2025-11-27 16:33:30,802 | database_interactions | add_review_to_comic | Adding review to comic 107870
+WARNING | 2025-11-27 16:33:30,803 | database_interactions | add_review_to_comic | Adding review to comic statement: UPDATE collections SET ComicReview='I also believe that this is very good', DisplayReview=True WHERE ComicId = 107870 AND UserEmail = 'person@gmail.com'
+INFO | 2025-11-27 16:33:30,822 | database_interactions | check_comic_in_database | Checking if comic exists: 107870
+INFO | 2025-11-27 16:33:30,824 | database_interactions | retrieve_comic_reviews | Retrieving reviews for comic: 107870
+INFO | 2025-11-27 16:33:30,824 | database_interactions | retrieve_username_by_email | Retrieved person@napier.ac.uk username: Persoon
+INFO | 2025-11-27 16:33:30,825 | database_interactions | retrieve_username_by_email | Retrieved person@gmail.com username: Person2
+INFO | 2025-11-27 16:33:30,826 | database_interactions | check_comic_in_collection | Checking if comic is in user collection: 107870
+INFO | 2025-11-27 16:33:30,826 | database_interactions | retrieve_user_review | Retrieving user person@gmail.com's review for 107870
+INFO | 2025-11-27 16:33:35,387 | database_interactions | retrieve_collection | Retrieving person@gmail.com collection.
+INFO | 2025-11-27 16:33:37,065 | main | logout | User person@gmail.com logged out.
+INFO | 2025-11-27 16:33:48,807 | main | login | Starting login attempt.
+INFO | 2025-11-27 16:33:48,810 | database_interactions | check_auth | Checking for matching emails: person@napier.ac.uk
+INFO | 2025-11-27 16:33:49,338 | database_interactions | retrieve_user_list | Retrieving all users for display
+INFO | 2025-11-27 16:33:50,574 | database_interactions | retrieve_collection | Retrieving person@napier.ac.uk collection.
+INFO | 2025-11-27 16:33:52,821 | database_interactions | check_comic_in_database | Checking if comic exists: 107870
+INFO | 2025-11-27 16:33:52,823 | database_interactions | retrieve_comic_reviews | Retrieving reviews for comic: 107870
+INFO | 2025-11-27 16:33:52,824 | database_interactions | retrieve_username_by_email | Retrieved person@napier.ac.uk username: Persoon
+INFO | 2025-11-27 16:33:52,825 | database_interactions | retrieve_username_by_email | Retrieved person@gmail.com username: Person2
+INFO | 2025-11-27 16:33:52,825 | database_interactions | check_comic_in_collection | Checking if comic is in user collection: 107870
+INFO | 2025-11-27 16:33:52,826 | database_interactions | retrieve_user_review | Retrieving user person@napier.ac.uk's review for 107870
+INFO | 2025-11-27 16:34:35,221 | database_interactions | check_comic_in_database | Checking if comic exists: 107870
+INFO | 2025-11-27 16:34:35,223 | database_interactions | retrieve_comic_reviews | Retrieving reviews for comic: 107870
+INFO | 2025-11-27 16:34:35,224 | database_interactions | retrieve_username_by_email | Retrieved person@napier.ac.uk username: Persoon
+INFO | 2025-11-27 16:34:35,225 | database_interactions | retrieve_username_by_email | Retrieved person@gmail.com username: Person2
+INFO | 2025-11-27 16:34:35,225 | database_interactions | check_comic_in_collection | Checking if comic is in user collection: 107870
+INFO | 2025-11-27 16:34:35,226 | database_interactions | retrieve_user_review | Retrieving user person@napier.ac.uk's review for 107870
+INFO | 2025-11-27 16:34:49,553 | database_interactions | check_comic_in_database | Checking if comic exists: 107870
+INFO | 2025-11-27 16:34:49,554 | database_interactions | retrieve_comic_reviews | Retrieving reviews for comic: 107870
+INFO | 2025-11-27 16:34:49,556 | database_interactions | retrieve_username_by_email | Retrieved person@napier.ac.uk username: Persoon
+INFO | 2025-11-27 16:34:49,556 | database_interactions | retrieve_username_by_email | Retrieved person@gmail.com username: Person2
+INFO | 2025-11-27 16:34:49,557 | database_interactions | check_comic_in_collection | Checking if comic is in user collection: 107870
+INFO | 2025-11-27 16:34:49,557 | database_interactions | retrieve_user_review | Retrieving user person@napier.ac.uk's review for 107870
+INFO | 2025-11-27 16:34:57,821 | database_interactions | check_comic_in_database | Checking if comic exists: 107870
+INFO | 2025-11-27 16:34:57,822 | database_interactions | retrieve_comic_reviews | Retrieving reviews for comic: 107870
+INFO | 2025-11-27 16:34:57,823 | database_interactions | retrieve_username_by_email | Retrieved person@napier.ac.uk username: Persoon
+INFO | 2025-11-27 16:34:57,824 | database_interactions | retrieve_username_by_email | Retrieved person@gmail.com username: Person2
+INFO | 2025-11-27 16:34:57,825 | database_interactions | check_comic_in_collection | Checking if comic is in user collection: 107870
+INFO | 2025-11-27 16:34:57,825 | database_interactions | retrieve_user_review | Retrieving user person@napier.ac.uk's review for 107870
+INFO | 2025-11-27 16:36:33,250 | database_interactions | check_comic_in_database | Checking if comic exists: 107870
+INFO | 2025-11-27 16:36:33,252 | database_interactions | retrieve_comic_reviews | Retrieving reviews for comic: 107870
+INFO | 2025-11-27 16:36:33,255 | database_interactions | retrieve_username_by_email | Retrieved person@napier.ac.uk username: Persoon
+INFO | 2025-11-27 16:36:33,257 | database_interactions | retrieve_username_by_email | Retrieved person@gmail.com username: Person2
+INFO | 2025-11-27 16:36:33,258 | database_interactions | check_comic_in_collection | Checking if comic is in user collection: 107870
+INFO | 2025-11-27 16:36:33,259 | database_interactions | retrieve_user_review | Retrieving user person@napier.ac.uk's review for 107870
+INFO | 2025-11-27 16:36:42,837 | database_interactions | check_comic_in_database | Checking if comic exists: 107870
+INFO | 2025-11-27 16:36:42,839 | database_interactions | retrieve_comic_reviews | Retrieving reviews for comic: 107870
+INFO | 2025-11-27 16:36:42,840 | database_interactions | retrieve_username_by_email | Retrieved person@napier.ac.uk username: Persoon
+INFO | 2025-11-27 16:36:42,840 | database_interactions | retrieve_username_by_email | Retrieved person@gmail.com username: Person2
+INFO | 2025-11-27 16:36:42,841 | database_interactions | check_comic_in_collection | Checking if comic is in user collection: 107870
+INFO | 2025-11-27 16:36:42,842 | database_interactions | retrieve_user_review | Retrieving user person@napier.ac.uk's review for 107870
+INFO | 2025-11-27 16:36:50,652 | database_interactions | check_comic_in_database | Checking if comic exists: 107870
+INFO | 2025-11-27 16:36:50,654 | database_interactions | retrieve_comic_reviews | Retrieving reviews for comic: 107870
+INFO | 2025-11-27 16:36:50,655 | database_interactions | retrieve_username_by_email | Retrieved person@napier.ac.uk username: Persoon
+INFO | 2025-11-27 16:36:50,656 | database_interactions | retrieve_username_by_email | Retrieved person@gmail.com username: Person2
+INFO | 2025-11-27 16:36:50,656 | database_interactions | check_comic_in_collection | Checking if comic is in user collection: 107870
+INFO | 2025-11-27 16:36:50,657 | database_interactions | retrieve_user_review | Retrieving user person@napier.ac.uk's review for 107870
+INFO | 2025-11-27 16:37:00,393 | database_interactions | check_comic_in_database | Checking if comic exists: 107870
+INFO | 2025-11-27 16:37:00,394 | database_interactions | retrieve_comic_reviews | Retrieving reviews for comic: 107870
+INFO | 2025-11-27 16:37:00,396 | database_interactions | retrieve_username_by_email | Retrieved person@napier.ac.uk username: Persoon
+INFO | 2025-11-27 16:37:00,396 | database_interactions | retrieve_username_by_email | Retrieved person@gmail.com username: Person2
+INFO | 2025-11-27 16:37:00,397 | database_interactions | check_comic_in_collection | Checking if comic is in user collection: 107870
+INFO | 2025-11-27 16:37:00,397 | database_interactions | retrieve_user_review | Retrieving user person@napier.ac.uk's review for 107870
+INFO | 2025-11-27 16:37:22,700 | database_interactions | check_comic_in_database | Checking if comic exists: 107870
+INFO | 2025-11-27 16:37:22,702 | database_interactions | retrieve_comic_reviews | Retrieving reviews for comic: 107870
+INFO | 2025-11-27 16:37:22,703 | database_interactions | retrieve_username_by_email | Retrieved person@napier.ac.uk username: Persoon
+INFO | 2025-11-27 16:37:22,704 | database_interactions | retrieve_username_by_email | Retrieved person@gmail.com username: Person2
+INFO | 2025-11-27 16:37:22,705 | database_interactions | check_comic_in_collection | Checking if comic is in user collection: 107870
+INFO | 2025-11-27 16:37:22,706 | database_interactions | retrieve_user_review | Retrieving user person@napier.ac.uk's review for 107870
+INFO | 2025-11-27 16:38:02,000 | database_interactions | retrieve_collection | Retrieving person@napier.ac.uk collection.
+INFO | 2025-11-27 16:38:02,400 | database_interactions | retrieve_user_list | Retrieving all users for display
+INFO | 2025-11-27 16:38:12,432 | main | search | Volume Selected: (1628, ['Marvel', 'Captain America Comics'])
+INFO | 2025-11-27 16:38:12,433 | api_interactions | retrieveIssuesByVolume | Retrieving issues for volume Captain America Comics with offset of 0
+INFO | 2025-11-27 16:38:13,491 | main | search | Retrieved 73 issues.
+INFO | 2025-11-27 16:38:16,709 | database_interactions | check_comic_in_database | Checking if comic exists: 107871
+INFO | 2025-11-27 16:38:16,711 | database_interactions | check_comic_in_collection | Checking if comic is in user collection: 107871
+INFO | 2025-11-27 16:38:16,712 | database_interactions | retrieve_user_review | Retrieving user person@napier.ac.uk's review for 107871
+INFO | 2025-11-27 16:38:27,101 | database_interactions | retrieve_collection | Retrieving person@napier.ac.uk collection.
+INFO | 2025-11-27 16:38:32,733 | database_interactions | check_comic_in_database | Checking if comic exists: 1144102
+INFO | 2025-11-27 16:38:32,735 | database_interactions | retrieve_comic_reviews | Retrieving reviews for comic: 1144102
+INFO | 2025-11-27 16:38:32,736 | database_interactions | retrieve_username_by_email | Retrieved person@napier.ac.uk username: Persoon
+INFO | 2025-11-27 16:38:32,736 | database_interactions | check_comic_in_collection | Checking if comic is in user collection: 1144102
+INFO | 2025-11-27 16:38:32,737 | database_interactions | retrieve_user_review | Retrieving user person@napier.ac.uk's review for 1144102
+INFO | 2025-11-27 16:38:39,849 | api_interactions | findMatchingValueInPublisherDict | Finding volumes matching Captain America
+INFO | 2025-11-27 16:38:39,857 | api_interactions | findMatchingValueInPublisherDict | Matches found: 367
+INFO | 2025-11-27 16:39:29,030 | api_interactions | findMatchingValueInPublisherDict | Finding volumes matching Captain America
+INFO | 2025-11-27 16:39:29,036 | api_interactions | findMatchingValueInPublisherDict | Matches found: 367
+INFO | 2025-11-27 16:39:46,091 | api_interactions | findMatchingValueInPublisherDict | Finding volumes matching Captain America
+INFO | 2025-11-27 16:39:46,099 | api_interactions | findMatchingValueInPublisherDict | Matches found: 367
+INFO | 2025-11-27 16:39:50,384 | main | search | Volume Selected: (1628, ['Marvel', 'Captain America Comics'])
+INFO | 2025-11-27 16:39:50,385 | api_interactions | retrieveIssuesByVolume | Retrieving issues for volume Captain America Comics with offset of 0
+INFO | 2025-11-27 16:39:51,348 | main | search | Retrieved 73 issues.
+INFO | 2025-11-27 16:39:58,841 | database_interactions | check_comic_in_database | Checking if comic exists: 140220
+INFO | 2025-11-27 16:39:58,843 | database_interactions | check_comic_in_collection | Checking if comic is in user collection: 140220
+INFO | 2025-11-27 16:39:58,844 | database_interactions | retrieve_user_review | Retrieving user person@napier.ac.uk's review for 140220
+INFO | 2025-11-27 16:40:07,286 | database_interactions | check_comic_in_database | Checking if comic exists: 140005
+INFO | 2025-11-27 16:40:07,288 | database_interactions | check_comic_in_collection | Checking if comic is in user collection: 140005
+INFO | 2025-11-27 16:40:07,289 | database_interactions | retrieve_user_review | Retrieving user person@napier.ac.uk's review for 140005
+INFO | 2025-11-27 16:40:28,977 | database_interactions | check_comic_in_database | Checking if comic exists: 140008
+INFO | 2025-11-27 16:40:28,979 | database_interactions | check_comic_in_collection | Checking if comic is in user collection: 140008
+INFO | 2025-11-27 16:40:28,979 | database_interactions | retrieve_user_review | Retrieving user person@napier.ac.uk's review for 140008
+INFO | 2025-11-27 16:40:37,497 | database_interactions | check_comic_in_database | Checking if comic exists: 140005
+INFO | 2025-11-27 16:40:37,498 | database_interactions | check_comic_in_collection | Checking if comic is in user collection: 140005
+INFO | 2025-11-27 16:40:37,499 | database_interactions | retrieve_user_review | Retrieving user person@napier.ac.uk's review for 140005

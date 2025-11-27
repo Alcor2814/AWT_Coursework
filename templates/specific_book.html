@@ -57,14 +57,27 @@
 		</div>
 		<div id="right">
 			<div id="reviews">
-				
+				<h2>Reviews</h2>
+				{% for review in reviews %}
+					{% if review[2] == '1' %}
+						<div class = "review">
+							{{review[3]}}: <br>
+							{{review[1]}}
+						</div>
+					{% endif %}
+				{% endfor %}
 			</div>
-			<div id="user_review">
-				
-			</div>
-			<div id="review_write">
-				
-			</div>
+			{% if renderAdd == false %}
+				<form action="" method="POST" id="review_write">
+					<input type = "hidden" name = "comic" value = "{{comic}}"/>
+					<textarea type="text" name="userReview" id="userReview" placeholder="Post your thoughts..." autocomplete="off" required>{{userReview}}</textarea>
+					<span id = "submission">
+						<button type="submit" class="submit_button">Post</button>
+						<label for="public_checkbox">Post Publicly</label>
+						<input type="checkbox" id="public_checkbox" name="public_checkbox" value="Publicly">
+					</span>
+				</form>
+			{% endif %}
 		</div>
 	</div>
 	<div class="information">
