@@ -74,14 +74,14 @@ def delete_account_from_database(app):
     delete_collection_from_database(app)
     
     db = get_db()
-    sql = f'DELETE FROM users WHERE UserEmail = {session['name']}'
+    sql = f'DELETE FROM users WHERE UserEmail = "{session['name']}"'
     db.cursor().execute(sql)
     db.commit()
 
 def delete_collection_from_database(app):
     app.logger.warning("Deleting user " + session['name'] + "'s collection from database.")
     db = get_db()
-    sql = f'DELETE FROM collections WHERE UserEmail={session['name']}'
+    sql = f'DELETE FROM collections WHERE UserEmail="{session['name']}"'
     db.cursor().execute(sql)
     db.commit()
         
