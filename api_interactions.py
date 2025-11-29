@@ -165,7 +165,7 @@ def retrieveIndexData(app):
         "api_key" : api_key,
         "format" : "json",
         "filter" : f"volume:{selectedVolume}",
-        "sort" : "store_date:desc",
+        "sort" : "store_date:asc",
     }
     
     session = requests.Session()

@@ -7,7 +7,7 @@
 		<div class="title">
 			<h1> Create an account </h1>
 		</div>
-		<div id="content">
+		<div class="content">
 			<form id="login_form" action="" method="POST">
 				<div id="login_box">
 					<label for="email"><b>Email</b></label>
@@ -25,7 +25,13 @@
 				</div>
 			</form>
 			<div id="context">
-				{{message}}
+				By signing up to an account you agree to the processing of your data for the purposes of:<br>
+					- Creating an account<br>
+					- Creating and storing your collection
+				{% if message|length > 0 %}
+					<br>Error:
+					<br>- {{message}}
+				{% endif %}
 			</div>
 		</div>
 		<div class="information">
