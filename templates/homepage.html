@@ -12,6 +12,10 @@
 				<img src = {{url_for ('static' , filename = 'img/Hamburger.png')}}>
 			</button>
 			<div class="toolbarContent">
+				<a onclick="window.location.href='{{url_for('settings')}}'" class="toolbarOption">
+					<img src = {{url_for ('static' , filename = '')}}>
+					Settings
+				</a>
 				<a onclick="window.location.href='{{url_for('logout')}}'" class="toolbarOption">
 					<img src = {{url_for ('static' , filename = 'img/Logout.png')}}>
 					Logout
