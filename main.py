@@ -106,14 +106,28 @@ def homepage():
 @app.route('/collection/', methods=['GET', 'POST'])
 @requires_login
 def collection():
+    sort = False
     if request.method == 'POST':
-        comicId = request.form.get('comicId')
-        remove_from_collection_database(app, comicId)
-        
-        return redirect(url_for('collection'))
-    else:
-        collection = retrieve_collection(app, session['name'])
+        if request.form.get('comicId') is not None:
+            comicId = request.form.get('comicId')
+            remove_from_collection_database(app, comicId)
+            return redirect(url_for('collection'))
+        else:
+           sortBy = request.form.get('SortBy')
+           sort = True
+    collection = retrieve_collection(app, session['name'])
+    if sort == True:
+        collection = sort_collection(collection, sortBy)
     return render_template('collection.html', collection = collection)
+
+def sort_collection(collection, sortBy):
+    app.logger.info("Sorting " + session['name'] + "'s collection by " + sortBy)
+    if sortBy == "Volume Name":
+        collection = sorted(collection, key=lambda x: (x['volume']['name']))
+    elif sortBy == "Store Date":
+        collection = sorted(collection, key=lambda x: (x['store_date']))
+    return collection
+
 
 @app.route('/other_collection/', methods=['POST'])
 @requires_login
@@ -129,7 +143,6 @@ def specific_book():
     # Redirects the user to the homepage if they haven't gone through an expected route.
     if request.method != 'POST':
         return redirect(url_for('homepage'))
-    
     if request.form.get('userReview') is not None:
         review = request.form.get('userReview')
         review = re.sub(r'"<*>', "", review)
@@ -177,7 +190,6 @@ def weekly():
         dates = [datetime.date.today()-timedelta(days=6), datetime.date.today()]
         comics=retrieveIssuesByDateWeekly(app, dates[1], 0)
         #weekly calls the retrieveIssuesByDateWeekly to collect all of the issues in a given week in an API call.
-        return render_template('weekly.html', comics=comics, dates=dates)
     elif request.method == 'POST':
         #Receives the sent date as a datetime
         date=datetime.datetime.strptime(request.form['calendar'], '%Y-%m-%d')
@@ -192,7 +204,7 @@ def weekly():
             date=datetime.date.today()
         dates=[date-timedelta(days=6), date]
         comics = retrieveIssuesByDateWeekly(app, dates[1], 0)
-        return render_template('weekly.html', comics=comics, dates=dates)
+    return render_template('weekly.html', comics=comics, dates=dates)
 
 @app.route('/search/', methods=['GET', 'POST'])
 @requires_login

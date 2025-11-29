@@ -11,7 +11,28 @@
 	margin-right:auto;
 }
 
-/* Show the dropdown content on hover */
+/* Adapted partly from: https://www.w3schools.com/Css/tryit.asp?filename=trycss_dropdown_button */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 200px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+.dropdown-content a {
+  color: black;
+  display: block;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+.dropbtn{
+	border-style:solid;
+}
+/************************************************************************************************/
+
 .toolbar:hover .toolbarContent {
   display: block;
 }
@@ -36,7 +57,6 @@
 	background-color:#dedede;
 }
 
-/* Dropdown content */
 .toolbarContent {
   display: none;
   position: absolute;
@@ -45,7 +65,6 @@
   text-align:left;
 }
 
-/* Links inside dropdown content */
 .toolbarContent a {
   color: black;
   display: block;

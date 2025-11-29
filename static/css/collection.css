@@ -38,11 +38,6 @@
 	margin-left:auto;
 }
 
-.btn{
-	width:100%;
-	height:100%;
-}
-
 .display_comics{
 	margin-bottom:5px;
 	display:flex;
@@ -56,5 +51,17 @@
 
 .formButton{
 	flex-grow:1;
+	height:100%;
+}
+
+.sort {
+	width:100%;
+}
+
+.dropbtn{
+	width:100%;
+	height:100%;
+}
+.dropdown{
 	height:100%;
 }

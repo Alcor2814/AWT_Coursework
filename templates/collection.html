@@ -65,7 +65,16 @@
 		</div>
 		<div id="right">
 			<div id="sort_filter">
-				<button class="btn">Sort and Filter</button>
+				<div class="dropdown">
+					<button class="dropbtn">Sort by:</button>
+					<form action="" method="POST">
+						<div class="dropdown-content">
+							<button type="submit" class="sort" value="No Sort" name="SortBy">No Sort</button>
+							<button type="submit" class="sort" value="Volume Name" name="SortBy">Volume Name</button>
+							<button type="submit" class="sort" value="Store Date" name="SortBy">Store Date</button>
+						</div>
+					</form>
+				</div>
 			</div>
 			<img id="preview" src="">
 		</div>
