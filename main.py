@@ -192,12 +192,11 @@ def weekly():
 @app.route('/search/', methods=['GET', 'POST'])
 @requires_login
 def search():
+    comics=[]
+    suggestions=[]
     if request.method == 'GET':
-        return render_template('search.html', comics=[], suggestions=[])
+        app.logger.info("Retrieving Search Page")
     elif request.method == 'POST':
-        comics=[]
-        suggestions=[]
-        
         try:
             search = request.form['search']
             searchRoute = True
