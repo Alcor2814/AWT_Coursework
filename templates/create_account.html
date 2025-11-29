@@ -25,7 +25,13 @@
 				</div>
 			</form>
 			<div id="context">
-				{{message}}
+				By signing up to an account you agree to the processing of your data for the purposes of:<br>
+					- Creating an account<br>
+					- Creating and storing your collection
+				{% if message|length > 0 %}
+					<br>Error:
+					<br>- {{message}}
+				{% endif %}
 			</div>
 		</div>
 		<div class="information">
