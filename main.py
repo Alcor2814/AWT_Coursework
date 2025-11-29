@@ -53,7 +53,9 @@ def login():
             #Gives the session the user's email as a name so they can be given an experience unique to their account.
             session['name'] = user
             return redirect(url_for('homepage'))
-    return render_template('login.html')
+        else:
+            return render_template('login.html', error=True)
+    return render_template('login.html', error=False)
     
 @app.route('/create_account/', methods=['GET', 'POST'])
 def create_account():
@@ -161,7 +163,10 @@ def specific_book():
         
     reviews = retrieve_comic_reviews(app, comic['id'])
     renderAdd = not check_comic_in_collection(app, comic['id'])
-    userReview = retrieve_user_review(app, comic['id'])
+    if session['name'] in reviews:
+        userReview = retrieve_user_review(app, comic['id'])
+    else:
+        userReview = ""
     return render_template('specific_book.html', comic=comic, renderAdd=renderAdd, reviews=reviews, userReview = userReview)
     
 @app.route('/weekly/', methods=['GET', 'POST'])
