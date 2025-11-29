@@ -20,7 +20,9 @@
 				</div>
 			</form>
 			<div id="context">
-				
+			{% if error == True %}
+				Username or password was incorrect.
+			{% endif %}
 			</div>
 		</div>
 		<div class="information">
