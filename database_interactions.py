@@ -62,11 +62,28 @@ def create_account_database(app, email, username, password):
         #Stores unique user information for retrieving unique experience.
         session['name']=email
        
-        app.logger.info("Added new account to the database: " + sql)
+        app.logger.info("Added new account to the database: " + session['name'])
         return True
     else:
         app.logger.warning("User attempted to create account using existing email: " + email)
     return False
+
+def delete_account_from_database(app):
+    # Deletes the session's account from the database.
+    app.logger.warning("Deleting user " + session['name'] + " from database.")
+    delete_collection_from_database(app)
+    
+    db = get_db()
+    sql = f'DELETE FROM users WHERE UserEmail = "{session['name']}"'
+    db.cursor().execute(sql)
+    db.commit()
+
+def delete_collection_from_database(app):
+    app.logger.warning("Deleting user " + session['name'] + "'s collection from database.")
+    db = get_db()
+    sql = f'DELETE FROM collections WHERE UserEmail="{session['name']}"'
+    db.cursor().execute(sql)
+    db.commit()
         
 def retrieve_collection(app, user):
     app.logger.info("Retrieving " + str(user) + " collection.")

@@ -4,7 +4,9 @@
 	<link rel="stylesheet" href="{{ url_for('static', filename='css/collection.css') }}">
 	<script src="{{url_for('static', filename='js/collection.js')}}"></script>
 </head>
-<body onload='previewComic("{{collection[0]['image']['small_url']}}")'>
+{% if collection|length %}
+	<body onload='previewComic("{{collection[0]['image']['small_url']}}")'>
+{% endif %}
 <div class="overall">
 	<div class="title">
 		<h1> Your Collection </h1>
@@ -24,6 +26,10 @@
 				<a onclick="window.location.href='{{url_for('homepage')}}'" class="toolbarOption">
 					<img src = {{url_for ('static' , filename = 'img/Home.png')}}>
 					Homepage
+				</a>
+				<a onclick="window.location.href='{{url_for('settings')}}'" class="toolbarOption">
+					<img src = {{url_for ('static' , filename = '')}}>
+					Settings
 				</a>
 				<a onclick="window.location.href='{{url_for('logout')}}'" class="toolbarOption">
 					<img src = {{url_for ('static' , filename = 'img/Logout.png')}}>

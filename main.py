@@ -221,6 +221,18 @@ def search():
             app.logger.error("Unable to interpret search")
             
     return render_template('search.html', comics=comics, suggestions=suggestions)
+
+@app.route('/settings/', methods=['GET', 'POST'])
+@requires_login
+def settings():
+    if request.method == 'POST':
+        if request.form.get('account') is not None:
+            delete_account_from_database(app)
+            return redirect(url_for('logout'))
+        elif request.form.get('collection') is not None:
+            delete_collection_from_database(app)
+    return render_template('settings.html')
+    
     
 @app.teardown_appcontext
 def close_db_connection(exception):

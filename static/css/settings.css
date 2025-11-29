@@ -1,0 +1,20 @@
+.content{
+	justify-content:center;
+	flex-direction:column;
+}
+
+.content div{
+	margin-right:auto;
+	margin-left:auto;
+	width:30%;
+	border-style:solid;
+}
+.content b{
+	color:red;
+}
+.content button{
+	width:100%;
+}
+#deleteCollection{
+	border-top:none;
+}
