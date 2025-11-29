@@ -62,7 +62,7 @@ def create_account_database(app, email, username, password):
         #Stores unique user information for retrieving unique experience.
         session['name']=email
        
-        app.logger.info("Added new account to the database: " + sql)
+        app.logger.info("Added new account to the database: " + session['name'])
         return True
     else:
         app.logger.warning("User attempted to create account using existing email: " + email)

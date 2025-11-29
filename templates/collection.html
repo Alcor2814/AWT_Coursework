@@ -4,7 +4,9 @@
 	<link rel="stylesheet" href="{{ url_for('static', filename='css/collection.css') }}">
 	<script src="{{url_for('static', filename='js/collection.js')}}"></script>
 </head>
-<body onload='previewComic("{{collection[0]['image']['small_url']}}")'>
+{% if collection|length %}
+	<body onload='previewComic("{{collection[0]['image']['small_url']}}")'>
+{% endif %}
 <div class="overall">
 	<div class="title">
 		<h1> Your Collection </h1>
