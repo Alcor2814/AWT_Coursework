@@ -132,10 +132,22 @@ def sort_collection(collection, sortBy):
 @app.route('/other_collection/', methods=['POST'])
 @requires_login
 def other_collection():
-    user= request.form['user']
-    user = ast.literal_eval(user)
-    collection = retrieve_collection(app, user[1])
-    return render_template("other_collection.html", collection=collection, user=user[0])
+    sort = False
+    if request.method == 'POST':
+        if request.form.get('user') is not None:
+            user= request.form['user']
+        else:
+            sortBy = request.form.get('SortBy')
+            sort = True
+            user = request.form.get('userAccount')
+            app.logger.info("User: " + str(user))
+    
+        user = ast.literal_eval(user)
+        collection = retrieve_collection(app, user[1])
+        if sort == True:
+            collection = sort_collection(collection, sortBy)
+    
+    return render_template("other_collection.html", collection=collection, user=user)
     
 @app.route('/specific_book/', methods=['GET', 'POST'])
 @requires_login
@@ -176,10 +188,11 @@ def specific_book():
         
     reviews = retrieve_comic_reviews(app, comic['id'])
     renderAdd = not check_comic_in_collection(app, comic['id'])
-    if session['name'] in reviews:
-        userReview = retrieve_user_review(app, comic['id'])
-    else:
-        userReview = ""
+    userReview = ""
+    for review in reviews:
+        if session['name'] == review[0]:
+            userReview = review[1]
+    
     return render_template('specific_book.html', comic=comic, renderAdd=renderAdd, reviews=reviews, userReview = userReview)
     
 @app.route('/weekly/', methods=['GET', 'POST'])

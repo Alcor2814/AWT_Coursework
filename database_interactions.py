@@ -210,7 +210,8 @@ def retrieve_user_review(app, comicId):
 def add_review_to_comic(app, review, comicId, displayReview):
     app.logger.info("Adding review to comic " + str(comicId))
     db = get_db()
-    sql = f"UPDATE collections SET ComicReview='{review}', DisplayReview={displayReview} WHERE ComicId = {comicId} AND UserEmail = '{session['name']}'"
+    review = re.sub(r'"', "", review)
+    sql = f'UPDATE collections SET ComicReview="{review}", DisplayReview={displayReview} WHERE ComicId = {comicId} AND UserEmail = "{session['name']}"'
     app.logger.warning("Adding review to comic statement: " + sql)
     db.cursor().execute(sql)
     db.commit()
